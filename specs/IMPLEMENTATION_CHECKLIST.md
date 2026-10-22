@@ -25,13 +25,13 @@ Checklist này bám theo Master Plan v5.4. Đánh dấu xong chỉ khi có artif
 
 ## M2a — BE pack/pathway và FE
 
-- [ ] Thêm `basicExercises` optional vào strict schema; legacy manifest không có field này vẫn parse.
-- [ ] Không đặt default `[]` trước canonical digest; golden fixture chứng minh digest manifest legacy giữ nguyên.
-- [ ] Map exercise trực tiếp vào `LessonStep.config` theo BASIC_EXERCISE; không đi qua `lesson.questions`/QUIZ.
-- [ ] Giữ `required: true` cho course evidence nhưng sửa pathway để exercise chưa hoàn thành không khóa bước sau.
-- [ ] BASIC_EXERCISE render/attempt được trong Open Curriculum; question/option IDs đi tới attempt ổn định.
-- [ ] QUIZ và assignment gating hiện có không đổi.
-- [ ] Chỉ đánh dấu hoàn tất sau unit/API/FE test; source code hiện tại có generic required-step gate nên chưa đạt sẵn.
+- [x] Thêm `basicExercises` optional vào strict schema; legacy manifest không có field này vẫn parse.
+- [x] Không đặt default `[]` trước canonical digest; golden fixture chứng minh digest manifest legacy giữ nguyên.
+- [x] Map exercise trực tiếp vào `LessonStep.config` theo BASIC_EXERCISE; không đi qua `lesson.questions`/QUIZ.
+- [x] Giữ `required: true` cho course evidence nhưng sửa pathway để exercise chưa hoàn thành không khóa bước sau.
+- [x] BASIC_EXERCISE render/attempt được trong Open Curriculum; question/option IDs đi tới attempt ổn định.
+- [x] QUIZ và assignment gating hiện có không đổi.
+- [x] Chỉ đánh dấu hoàn tất sau unit/API/FE test; source code hiện tại có generic required-step gate nên chưa đạt sẵn.
 
 ## M2b — Release
 

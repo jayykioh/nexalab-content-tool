@@ -63,6 +63,27 @@
       }
     ],
     "lesson": {
+      "basicExercises": {
+        "id": "practice-series-current",
+        "passThreshold": 60,
+        "questions": [
+          {
+            "correctOptionId": "same-current",
+            "id": "practice-current-question",
+            "options": [
+              {
+                "id": "same-current",
+                "text": "The current is equal at every point."
+              },
+              {
+                "id": "decreasing-current",
+                "text": "The current decreases after each lamp."
+              }
+            ],
+            "prompt": "What happens to current in a series circuit?"
+          }
+        ]
+      },
       "content": "<p>This is synthetic reading content used only to exercise the Content Tool plumbing.</p>",
       "labId": null,
       "learningObjective": "Recognize that current is equal at points in a series circuit.",

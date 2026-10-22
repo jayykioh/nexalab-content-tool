@@ -91,6 +91,20 @@ def _expected_ids(relative: str, pack: dict[str, Any]) -> list[tuple[str, str, s
         for option in question.get("options", []):
             option_id = _stable_id(option.get("id"), "option.id")
             result.append(("option", option_id, f"{relative}#question:{question_id}/option:{option_id}"))
+    exercise = pack.get("lesson", {}).get("basicExercises")
+    if exercise is not None:
+        if not isinstance(exercise, dict):
+            raise ContentToolError("lesson.basicExercises must be an object")
+        step_id = _stable_id(exercise.get("id"), "basicExercises.id")
+        result.append(("step", step_id, f"{relative}#step:{step_id}"))
+        for question in exercise.get("questions", []):
+            question_id = _stable_id(question.get("id"), "basic exercise question.id")
+            result.append(("question", question_id, f"{relative}#step:{step_id}/question:{question_id}"))
+            for option in question.get("options", []):
+                option_id = _stable_id(option.get("id"), "basic exercise option.id")
+                result.append(
+                    ("option", option_id, f"{relative}#step:{step_id}/question:{question_id}/option:{option_id}")
+                )
     return result
 
 
@@ -242,8 +256,6 @@ def build_manifest(workspace: Workspace) -> dict[str, Any]:
         lesson = pack.get("lesson")
         if not isinstance(lesson, dict):
             raise ContentToolError(f"{path}: lesson must be an object")
-        if "basicExercises" in pack or "basicExercises" in lesson:
-            raise ContentToolError(f"{path}: basicExercises waits for the M2a backend contract")
         if lesson.get("questions") != []:
             raise ContentToolError(f"{path}: lesson.questions must stay empty in M1 to avoid creating a public QUIZ")
         _validate_evidence(workspace, release["namespace"], pack, wrapper.get("evidence"), path)

@@ -6,6 +6,11 @@
       "owner": "packs/fixture-khtn8-local-reading.json#claim:claim-current-same"
     },
     {
+      "id": "decreasing-current",
+      "kind": "option",
+      "owner": "packs/fixture-khtn8-local-reading.json#step:practice-series-current/question:practice-current-question/option:decreasing-current"
+    },
+    {
       "id": "fixture-khtn8-local-reading",
       "kind": "pack",
       "owner": "packs/fixture-khtn8-local-reading.json#pack"
@@ -19,6 +24,21 @@
       "id": "nexalab-synthetic-note",
       "kind": "source",
       "owner": "packs/fixture-khtn8-local-reading.json#source:nexalab-synthetic-note"
+    },
+    {
+      "id": "practice-current-question",
+      "kind": "question",
+      "owner": "packs/fixture-khtn8-local-reading.json#step:practice-series-current/question:practice-current-question"
+    },
+    {
+      "id": "practice-series-current",
+      "kind": "step",
+      "owner": "packs/fixture-khtn8-local-reading.json#step:practice-series-current"
+    },
+    {
+      "id": "same-current",
+      "kind": "option",
+      "owner": "packs/fixture-khtn8-local-reading.json#step:practice-series-current/question:practice-current-question/option:same-current"
     },
     {
       "id": "unit-series-current",

@@ -7,7 +7,7 @@ from .workspace import ContentToolError, Workspace, read_json, write_json
 
 
 ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9._-]{1,79}$")
-ID_KINDS = {"pack", "source", "unit", "claim", "question", "option"}
+ID_KINDS = {"pack", "source", "unit", "claim", "step", "question", "option"}
 
 
 def registry_entries(workspace: Workspace) -> list[dict[str, Any]]:

@@ -100,6 +100,12 @@ class WorkflowTests(unittest.TestCase):
         second_path, second_digest = export_manifest(workspace)
         self.assertEqual(first_digest, second_digest)
         self.assertEqual(first_bytes, second_path.read_bytes())
+        manifest = json.loads(first_bytes)
+        exercise = manifest["packs"][0]["lesson"]["basicExercises"]
+        self.assertEqual(exercise["id"], "practice-series-current")
+        self.assertEqual(exercise["questions"][0]["id"], "practice-current-question")
+        self.assertEqual(exercise["questions"][0]["options"][0]["id"], "same-current")
+        self.assertEqual(manifest["packs"][0]["lesson"]["questions"], [])
 
     def test_fabricated_or_ambiguous_evidence_is_rejected(self) -> None:
         workspace = self.copy_example()

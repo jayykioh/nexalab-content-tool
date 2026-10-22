@@ -8,10 +8,10 @@ Local-first CLI for preparing a small, reviewed NexaLab content release. NexaLab
 - Reserve stable operator-authored IDs.
 - Extract native PDF text with source/page/hash provenance after rights and review-cap gates are set.
 - Render a static HTML evidence report.
-- Export deterministic JSON for the current NexaLab release schema.
+- Export deterministic JSON for the current NexaLab release schema, including an optional authored `basicExercises` step.
 - Invoke the existing backend release command in dry-run mode only.
 
-MinerU, real textbook ingestion, `basicExercises`, backend/FE changes, release apply, asset upload, course binding, Labs, and a web editor are later milestones.
+MinerU, real textbook ingestion, release apply, asset upload, course binding, Labs, and a web editor are later milestones.
 
 ## Install
 
@@ -53,6 +53,7 @@ Author pack files under `packs/`. Runtime IDs are never generated from wording o
 ```powershell
 uv run nexalab-content id workspaces/pilot --kind pack --id my-pack --owner "packs/my-pack.json#pack"
 uv run nexalab-content id workspaces/pilot --kind claim --id claim-1 --owner "packs/my-pack.json#claim:claim-1"
+uv run nexalab-content id workspaces/pilot --kind step --id practice-1 --owner "packs/my-pack.json#step:practice-1"
 ```
 
 If `release.json.sources` contains a backend source policy, reserve its key as `--kind source` with owner `release.json#source:<key>`. Pack evidence must map every claim/source pair and `lesson.content` to a source version, PDF page, locator, extraction method, and source hash.
@@ -81,4 +82,4 @@ uv run nexalab-content report examples/synthetic-pilot
 uv run nexalab-content export examples/synthetic-pilot
 ```
 
-The example keeps `lesson.questions` empty. Under the current backend materializer, those questions become a required public `QUIZ`; dedicated `basicExercises` support belongs to M2a.
+The example keeps `lesson.questions` empty because that field creates a required public `QUIZ`. Its optional `lesson.basicExercises` object maps to a required `BASIC_EXERCISE` evidence step whose authored step/question/option IDs are preserved through export.

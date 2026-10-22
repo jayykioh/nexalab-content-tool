@@ -71,6 +71,17 @@ def render_report(workspace: Workspace, output: str | Path | None = None) -> Pat
             for item in pack.get("lesson", {}).get("materials", [])
             if isinstance(item, dict)
         )
+        exercise = pack.get("lesson", {}).get("basicExercises")
+        exercise_rows = "" if not isinstance(exercise, dict) else "".join(
+            "<tr>"
+            f"<td><code>{_text(question.get('id'))}</code></td>"
+            f"<td>{_text(question.get('prompt'))}</td>"
+            f"<td>{_text('; '.join('{}: {}'.format(option.get('id'), option.get('text')) for option in question.get('options', []) if isinstance(option, dict)))}</td>"
+            f"<td><code>{_text(question.get('correctOptionId'))}</code></td>"
+            "</tr>"
+            for question in exercise.get("questions", [])
+            if isinstance(question, dict)
+        )
         review_by_kind = {
             item.get("kind"): item for item in wrapper.get("reviewLog", []) if isinstance(item, dict)
         }
@@ -113,6 +124,16 @@ def render_report(workspace: Workspace, output: str | Path | None = None) -> Pat
             "<h3>Materials</h3>"
             "<table><thead><tr><th>Type</th><th>Title</th><th>Pinned URL</th></tr></thead>"
             f"<tbody>{material_rows}</tbody></table>"
+            + (
+                "<h3>Basic exercise</h3>"
+                f"<p><strong>Step ID:</strong> <code>{_text(exercise.get('id'))}</code> &middot; "
+                f"<strong>Pass threshold:</strong> {_text(exercise.get('passThreshold'))}%</p>"
+                "<table><thead><tr><th>Question ID</th><th>Prompt</th><th>Options</th><th>Correct option</th></tr></thead>"
+                f"<tbody>{exercise_rows}</tbody></table>"
+                if isinstance(exercise, dict)
+                else ""
+            )
+            +
             "<h3>Sources and rights</h3>"
             "<table><thead><tr><th>ID</th><th>Title</th><th>Author</th><th>License</th><th>Attribution</th></tr></thead>"
             f"<tbody>{source_rows}</tbody></table>"
