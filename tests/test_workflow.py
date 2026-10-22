@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 import pymupdf
 
-from nexalab_content_tool.backend import run_plan
+from nexalab_content_tool.backend import run_apply, run_plan
 from nexalab_content_tool.extract import extract_native_pdf
 from nexalab_content_tool.identity import reserve_id
 from nexalab_content_tool.manifest import build_manifest, export_manifest
@@ -137,6 +137,41 @@ class WorkflowTests(unittest.TestCase):
         command = called.call_args.args[0]
         self.assertNotIn("--apply", command)
         self.assertEqual(called.call_args.kwargs["timeout"], 300)
+
+    def test_apply_requires_matching_unblocked_backend_plan(self) -> None:
+        workspace = self.copy_example()
+        backend = self.root / "backend"
+        (backend / "scripts").mkdir(parents=True)
+        (backend / "package.json").write_text("{}", encoding="utf-8")
+        (backend / "scripts" / "content-release.ts").write_text("", encoding="utf-8")
+        digest = "a" * 64
+        plan = json.dumps({"blocked": False, "digest": digest, "target": "development", "environment": "development"})
+        with patch("nexalab_content_tool.backend.subprocess.run", return_value=subprocess.CompletedProcess([], 0, plan, "")) as called:
+            with self.assertRaisesRegex(ContentToolError, "Digest confirmation mismatch"):
+                run_apply(workspace, backend, "development", "operator@example.test", "admin@example.test", "wrong")
+        self.assertEqual(called.call_count, 1)
+        self.assertNotIn("--apply", called.call_args.args[0])
+
+    def test_apply_runs_backend_only_after_matching_plan_confirmation(self) -> None:
+        workspace = self.copy_example()
+        backend = self.root / "backend"
+        (backend / "scripts").mkdir(parents=True)
+        (backend / "package.json").write_text("{}", encoding="utf-8")
+        (backend / "scripts" / "content-release.ts").write_text("", encoding="utf-8")
+        digest = "b" * 64
+        plan = json.dumps({"blocked": False, "digest": digest, "target": "development", "environment": "development"})
+        with patch(
+            "nexalab_content_tool.backend.subprocess.run",
+            side_effect=[subprocess.CompletedProcess([], 0, plan, ""), subprocess.CompletedProcess([], 0)],
+        ) as called:
+            self.assertEqual(
+                run_apply(workspace, backend, "development", "operator@example.test", "admin@example.test", digest),
+                0,
+            )
+        self.assertEqual(called.call_count, 2)
+        self.assertNotIn("--apply", called.call_args_list[0].args[0])
+        self.assertIn("--apply", called.call_args_list[1].args[0])
+        self.assertEqual(called.call_args_list[1].args[0][-4:], ["--initiated-by", "operator@example.test", "--approved-by", "admin@example.test"])
 
 
 if __name__ == "__main__":

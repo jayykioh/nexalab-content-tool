@@ -4,7 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from .backend import run_plan
+from .backend import run_apply, run_plan
 from .extract import extract_native_pdf
 from .identity import reserve_id
 from .manifest import export_manifest
@@ -44,6 +44,14 @@ def _parser() -> argparse.ArgumentParser:
     plan.add_argument("workspace")
     plan.add_argument("--backend", required=True)
     plan.add_argument("--target", required=True)
+
+    apply = commands.add_parser("apply", help="apply through the backend CLI after a matching dry-run digest")
+    apply.add_argument("workspace")
+    apply.add_argument("--backend", required=True)
+    apply.add_argument("--target", required=True)
+    apply.add_argument("--initiated-by", required=True, help="active NexaLab account email checked by the backend")
+    apply.add_argument("--approved-by", required=True, help="active admin email checked by the backend")
+    apply.add_argument("--confirm-digest", required=True, help="exact digest from the reviewed backend plan")
     return parser
 
 
@@ -70,6 +78,15 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         if args.command == "plan":
             return run_plan(workspace, args.backend, args.target)
+        if args.command == "apply":
+            return run_apply(
+                workspace,
+                args.backend,
+                args.target,
+                args.initiated_by,
+                args.approved_by,
+                args.confirm_digest,
+            )
         raise ContentToolError(f"Unsupported command: {args.command}")
     except ContentToolError as error:
         print(f"ERROR: {error}", file=sys.stderr)

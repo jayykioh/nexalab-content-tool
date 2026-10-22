@@ -1,6 +1,6 @@
 # NexaLab Content Tool
 
-Local-first CLI for preparing a small, reviewed NexaLab content release. NexaLab BE remains the authoritative validator and the only writer. This repository does not hold database credentials or apply releases.
+Local-first CLI for preparing a small, reviewed NexaLab content release. NexaLab BE remains the authoritative validator and the only writer. This repository does not hold database credentials; release writes are delegated to the existing NexaLab BE CLI.
 
 ## Current M1 slice
 
@@ -9,9 +9,9 @@ Local-first CLI for preparing a small, reviewed NexaLab content release. NexaLab
 - Extract native PDF text with source/page/hash provenance after rights and review-cap gates are set.
 - Render a static HTML evidence report.
 - Export deterministic JSON for the current NexaLab release schema, including an optional authored `basicExercises` step.
-- Invoke the existing backend release command in dry-run mode only.
+- Invoke the existing backend release command in dry-run mode and gate apply on the exact planned digest.
 
-MinerU, real textbook ingestion, release apply, asset upload, course binding, Labs, and a web editor are later milestones.
+MinerU, real textbook ingestion, asset upload, course binding, Labs, and a web editor are later milestones.
 
 ## Install
 
@@ -71,7 +71,15 @@ The tool deliberately performs only local completeness checks. The backend Zod s
 uv run nexalab-content plan workspaces/pilot --backend ..\nexalab-be --target development
 ```
 
-The `plan` command has no apply flag and invokes `npm run content:release` without `--apply`.
+For a release, first review the full plan output and resolve every blocker. Apply requires the exact BE digest from that plan and runs a fresh plan immediately before delegating to BE:
+
+```powershell
+uv run nexalab-content apply workspaces/pilot --backend ..\nexalab-be --target development `
+  --initiated-by operator@nexalab.local --approved-by admin@nexalab.local `
+  --confirm-digest <64-character-be-digest>
+```
+
+The backend rechecks the active initiator, active ADMIN approver, baseline approver separation, plan gates, transaction, and idempotency. Its CLI email arguments look up accounts; they do not authenticate the operator or prove that a human completed the baseline reviews. Only run baseline apply after real editorial, subject, rights, and accessibility reviews are complete, and run it from the controlled backend environment whose database identity has been verified. No HTTP apply route is used.
 
 ## Synthetic example
 
