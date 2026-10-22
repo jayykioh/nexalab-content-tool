@@ -1,0 +1,146 @@
+{
+  "evidence": [
+    {
+      "contentRef": "lesson.content",
+      "extractionMethod": "synthetic-fixture",
+      "locator": "synthetic page 1, authored lesson body",
+      "physicalPageIndex": 1,
+      "printedPageLabel": "fixture-1",
+      "sourceId": "nexalab-synthetic-note",
+      "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceVersion": "synthetic-v1"
+    },
+    {
+      "claimId": "claim-current-same",
+      "extractionMethod": "synthetic-fixture",
+      "locator": "synthetic page 1, paragraph 1",
+      "physicalPageIndex": 1,
+      "printedPageLabel": "fixture-1",
+      "sourceId": "nexalab-synthetic-note",
+      "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceVersion": "synthetic-v1"
+    },
+    {
+      "claimId": "claim-current-same",
+      "extractionMethod": "synthetic-fixture",
+      "locator": "synthetic page 1, reference note",
+      "physicalPageIndex": 1,
+      "printedPageLabel": "fixture-1",
+      "sourceId": "fixture-authority-reference",
+      "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceVersion": "synthetic-v1"
+    }
+  ],
+  "pack": {
+    "chapter": "Electricity",
+    "domain": "ENERGY",
+    "grade": 8,
+    "key": "fixture-khtn8-local-reading",
+    "knowledgeUnits": [
+      {
+        "claims": [
+          {
+            "id": "claim-current-same",
+            "important": true,
+            "sourceIds": [
+              "nexalab-synthetic-note",
+              "fixture-authority-reference"
+            ],
+            "text": "In a series circuit, current has the same value at every point."
+          }
+        ],
+        "id": "unit-series-current",
+        "misconceptions": [
+          "Electric current is consumed by the first lamp."
+        ],
+        "outcomeCodes": [
+          "FX8-ENERGY-02"
+        ],
+        "terms": [
+          "series circuit",
+          "electric current"
+        ]
+      }
+    ],
+    "lesson": {
+      "content": "<p>This is synthetic reading content used only to exercise the Content Tool plumbing.</p>",
+      "labId": null,
+      "learningObjective": "Recognize that current is equal at points in a series circuit.",
+      "materials": [],
+      "prerequisites": "Read a simple circuit diagram.",
+      "questions": []
+    },
+    "outcomeCodes": [
+      "FX8-ENERGY-02"
+    ],
+    "reviews": {
+      "accessibility": {
+        "at": "2026-10-22T00:00:00.000Z",
+        "email": "fixture.a11y@example.test",
+        "name": "Fixture accessibility marker"
+      },
+      "editorial": {
+        "at": "2026-10-22T00:00:00.000Z",
+        "email": "fixture.editor@example.test",
+        "name": "Fixture editorial marker"
+      },
+      "rights": {
+        "at": "2026-10-22T00:00:00.000Z",
+        "email": "fixture.rights@example.test",
+        "name": "Fixture rights marker"
+      },
+      "subject": {
+        "at": "2026-10-22T00:00:00.000Z",
+        "email": "fixture.subject@example.test",
+        "name": "Fixture subject marker"
+      }
+    },
+    "sources": [
+      {
+        "accessedAt": "2026-10-22",
+        "attribution": "Synthetic NexaLab fixture note",
+        "author": "NexaLab fixture",
+        "authoritative": false,
+        "id": "nexalab-synthetic-note",
+        "license": "ORIGINAL",
+        "title": "Synthetic authoring note"
+      },
+      {
+        "accessedAt": "2026-10-22",
+        "attribution": "Synthetic authoritative reference for test plumbing",
+        "author": "Fixture authority",
+        "authoritative": true,
+        "id": "fixture-authority-reference",
+        "license": "REFERENCE_ONLY",
+        "title": "Synthetic authority reference",
+        "url": "https://example.org/nexalab-fixture/series-current"
+      }
+    ],
+    "subjectId": "physics",
+    "synthetic": true,
+    "title": "Series current — synthetic fixture",
+    "topic": "Series circuits"
+  },
+  "reviewLog": [
+    {
+      "email": "fixture.editor@example.test",
+      "kind": "editorial",
+      "status": "fixture-only"
+    },
+    {
+      "email": "fixture.subject@example.test",
+      "kind": "subject",
+      "status": "fixture-only"
+    },
+    {
+      "email": "fixture.rights@example.test",
+      "kind": "rights",
+      "status": "fixture-only"
+    },
+    {
+      "email": "fixture.a11y@example.test",
+      "kind": "accessibility",
+      "status": "fixture-only"
+    }
+  ]
+}

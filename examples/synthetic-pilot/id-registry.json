@@ -1,0 +1,30 @@
+{
+  "entries": [
+    {
+      "id": "claim-current-same",
+      "kind": "claim",
+      "owner": "packs/fixture-khtn8-local-reading.json#claim:claim-current-same"
+    },
+    {
+      "id": "fixture-khtn8-local-reading",
+      "kind": "pack",
+      "owner": "packs/fixture-khtn8-local-reading.json#pack"
+    },
+    {
+      "id": "fixture-authority-reference",
+      "kind": "source",
+      "owner": "packs/fixture-khtn8-local-reading.json#source:fixture-authority-reference"
+    },
+    {
+      "id": "nexalab-synthetic-note",
+      "kind": "source",
+      "owner": "packs/fixture-khtn8-local-reading.json#source:nexalab-synthetic-note"
+    },
+    {
+      "id": "unit-series-current",
+      "kind": "unit",
+      "owner": "packs/fixture-khtn8-local-reading.json#unit:unit-series-current"
+    }
+  ],
+  "schemaVersion": 1
+}

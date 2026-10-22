@@ -1,0 +1,8 @@
+{
+  "name": "synthetic-khtn8-reading-pilot",
+  "namespace": "fixture",
+  "packFiles": [
+    "packs/fixture-khtn8-local-reading.json"
+  ],
+  "sources": []
+}
