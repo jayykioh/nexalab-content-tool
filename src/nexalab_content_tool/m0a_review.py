@@ -22,6 +22,14 @@ from .workspace import ContentToolError, Workspace, read_json, sha256_file, writ
 _PAGE = re.compile(r"^/(?:api/page|source)/(\d+)$")
 
 
+def _multipart_text(part: Any) -> str:
+    """Decode browser FormData text fields as UTF-8 when no charset is sent."""
+    payload = part.get_payload(decode=True)
+    if payload is None:
+        return ""
+    return payload.decode(part.get_content_charset() or "utf-8").strip()
+
+
 _HTML = r'''<!doctype html>
 <html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NexaLab · OCR Review</title>
@@ -273,7 +281,7 @@ class _Handler(BaseHTTPRequestHandler):
                     f"Content-Type: {self.headers.get('Content-Type')}\r\nMIME-Version: 1.0\r\n\r\n".encode() + self.rfile.read(length)
                 )
                 parts = {part.get_param("name", header="content-disposition"): part for part in message.iter_parts()}
-                value = lambda key: str(parts[key].get_content()).strip() if key in parts else ""
+                value = lambda key: _multipart_text(parts[key]) if key in parts else ""
                 pdf = parts.get("pdf")
                 if pdf is None:
                     raise ContentToolError("Choose a PDF")

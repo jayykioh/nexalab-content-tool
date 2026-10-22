@@ -109,6 +109,16 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(exercise["questions"][0]["options"][0]["id"], "same-current")
         self.assertEqual(manifest["packs"][0]["lesson"]["questions"], [])
 
+    def test_legacy_pack_without_basic_exercises_remains_exportable(self) -> None:
+        workspace = self.copy_example()
+        pack_path = workspace.inside("packs", "fixture-khtn8-local-reading.json")
+        wrapper = read_json(pack_path)
+        wrapper["pack"]["lesson"].pop("basicExercises", None)
+        write_json(pack_path, wrapper)
+        manifest = build_manifest(workspace, allow_unreviewed=True)
+        self.assertNotIn("basicExercises", manifest["packs"][0]["lesson"])
+        self.assertEqual(manifest["packs"][0]["lesson"]["questions"], [])
+
     def test_fabricated_or_ambiguous_evidence_is_rejected(self) -> None:
         workspace = self.copy_example()
         pack_path = workspace.inside("packs", "fixture-khtn8-local-reading.json")

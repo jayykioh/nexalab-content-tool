@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import tempfile
 import unittest
+from email import policy
+from email.parser import BytesParser
 from pathlib import Path
 
 import pymupdf
@@ -12,9 +14,23 @@ from nexalab_content_tool.m1_workflow import (
 )
 from nexalab_content_tool.manifest import build_manifest
 from nexalab_content_tool.workspace import Workspace, init_workspace
+from nexalab_content_tool.m0a_review import _multipart_text
 
 
 class M1WorkflowTests(unittest.TestCase):
+    def test_browser_multipart_metadata_preserves_utf8(self) -> None:
+        boundary = "----browser-boundary"
+        body = (
+            f"--{boundary}\r\nContent-Disposition: form-data; name=\"title\"\r\n\r\n"
+            "Khoa học tự nhiên 8\r\n"
+            f"--{boundary}--\r\n"
+        ).encode("utf-8")
+        message = BytesParser(policy=policy.default).parsebytes(
+            f"Content-Type: multipart/form-data; boundary={boundary}\r\nMIME-Version: 1.0\r\n\r\n".encode() + body
+        )
+        part = next(message.iter_parts())
+        self.assertEqual(_multipart_text(part), "Khoa học tự nhiên 8")
+
     def test_mineru_content_field_keeps_table_text(self) -> None:
         self.assertEqual(_mineru_text({"content": "<table><tr><td>Khối lượng</td><td>11,7 g</td></tr></table>"}), "| Khối lượng | 11,7 g")
 
