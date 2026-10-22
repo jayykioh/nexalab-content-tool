@@ -232,10 +232,18 @@ class _Handler(BaseHTTPRequestHandler):
                 self._json(200, chapter_state(self.server.workspace, book_key, query.get("chapter", [""])[0]))
                 return
             if route == "/api/m1/page":
+                from .enrichment import normalize_text
                 page = int(query.get("page", ["0"])[0])
                 record = page_record(self.server.workspace, book_key, page)
                 if record is None:
                     raise ContentToolError("Page has not been extracted")
+                edits = record.get("review", {}).get("edits", {})
+                for index, block in enumerate(record.get("blocks", [])):
+                    reviewed = edits.get(str(index), block.get("text", ""))
+                    kind = str(block.get("type", "text")).lower()
+                    block["displayType"] = "formula" if kind in {"equation", "formula", "latex"} else "table" if "table" in kind else "image" if kind in {"image", "figure"} else "text"
+                    block["normalizedText"] = normalize_text(reviewed)
+                    block["provenance"] = {key: block.get(key) for key in ("physicalPageIndex", "printedPageLabel", "sourceSha256", "sourceVersion", "extractionMethod", "bbox")}
                 self._json(200, record)
                 return
             if route == "/api/m1/source":
@@ -255,6 +263,11 @@ class _Handler(BaseHTTPRequestHandler):
                 from .m1_workflow import draft_path
                 path = draft_path(self.server.workspace, query.get("pack", [""])[0])
                 self._json(200, read_json(path))
+                return
+            if route == "/api/m1/lab-candidates":
+                pack = query.get("pack", [""])[0]
+                path = self.server.workspace.inside(".local", "lab-candidates", f"{pack}.json")
+                self._json(200, read_json(path) if path.exists() else {"packKey": pack, "status": "proposed", "candidates": []})
                 return
             self._json(404, {"error": "Not found"})
         except (ContentToolError, ValueError) as error:
@@ -317,6 +330,23 @@ class _Handler(BaseHTTPRequestHandler):
                 return
             if route == "/api/m1/draft":
                 self._json(200, save_draft(self.server.workspace, body))
+                return
+            if route == "/api/m1/enrichment":
+                from .enrichment import build_enrichment_proposal
+                self._json(200, build_enrichment_proposal(self.server.workspace, body["bookKey"], body["chapterId"], body["pages"]))
+                return
+            if route == "/api/m1/gemini":
+                from .enrichment import gemini_proposal
+                self._json(200, gemini_proposal(self.server.workspace, body["bookKey"], body["chapterId"], body["pages"], provider_confirmed=body.get("providerConfirmed") is True, transmission_allowed=body.get("transmissionAllowed") is True))
+                return
+            if route == "/api/m1/lab-candidates":
+                from .enrichment import save_lab_candidates, suggest_lab_candidates
+                if body.get("action") == "suggest":
+                    self._json(200, {"candidates": suggest_lab_candidates(self.server.workspace, body["draft"], outcome_verified=body.get("outcomeVerified") is True)})
+                elif body.get("action") == "save":
+                    self._json(200, save_lab_candidates(self.server.workspace, body["packKey"], body.get("candidates", [])))
+                else:
+                    raise ContentToolError("Choose suggest or save for Lab candidates")
                 return
             if route == "/api/m1/formal-reviews":
                 save_formal_reviews(self.server.workspace, body["packKey"], body["reviews"])
@@ -494,7 +524,7 @@ def _serve(server: _ReviewServer) -> None:
     if server.pdf_path:
         print(f"Review history: {server.review_path}")
     try:
-        webbrowser.open(f"http://127.0.0.1:{server.server_port}")
+        threading.Thread(target=webbrowser.open, args=(f"http://127.0.0.1:{server.server_port}",), daemon=True).start()
         server.serve_forever()
     except KeyboardInterrupt:
         print("OCR review stopped.")

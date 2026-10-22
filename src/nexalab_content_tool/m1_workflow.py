@@ -317,6 +317,17 @@ def save_draft(workspace: Workspace, data: dict[str, Any]) -> dict[str, Any]:
     sections = data.get("sections", [])
     if not isinstance(sections, list) or not sections or any(not isinstance(s, dict) or not str(s.get("heading", "")).strip() or not str(s.get("content", "")).strip() for s in sections):
         raise ContentToolError("Add at least one titled Lesson section with content")
+    units = data.get("knowledgeUnits", [])
+    if not isinstance(units, list) or any(
+        not isinstance(unit, dict)
+        or not ID_PATTERN.fullmatch(str(unit.get("id", "")))
+        or not str(unit.get("title", "")).strip()
+        or not isinstance(unit.get("claims", []), list)
+        or not unit.get("claims")
+        or any(not ID_PATTERN.fullmatch(str(claim.get("id", ""))) or not str(claim.get("text", "")).strip() for claim in unit.get("claims", []))
+        for unit in units
+    ):
+        raise ContentToolError("Knowledge units need stable IDs, a title and valid claims")
     exercise = data.get("basicExercises")
     if exercise is not None:
         if not isinstance(exercise, dict) or not ID_PATTERN.fullmatch(str(exercise.get("id", ""))):
@@ -365,7 +376,9 @@ def _write_pack(workspace: Workspace, draft: dict[str, Any]) -> None:
     if draft.get("sourceUrl"):
         source["url"] = draft["sourceUrl"]
     old = existing_pack
-    pack = {"key": pack_key, "title": draft["title"], "grade": draft["grade"], "domain": draft["domain"], "chapter": chapter["title"], "topic": str(draft.get("topic", chapter["title"])).strip(), "subjectId": draft["subjectId"], "outcomeCodes": [draft["outcomeCode"]], "synthetic": False, "sources": [source], "knowledgeUnits": [{"id": unit_id, "outcomeCodes": [draft["outcomeCode"]], "claims": [{"id": claim_id, "text": draft["claim"], "important": False, "sourceIds": [source_id]}], "terms": [], "misconceptions": []}], "lesson": {"learningObjective": draft["learningObjective"], "prerequisites": str(draft.get("prerequisites", "")), "content": sections, "materials": [], "questions": [], "labId": None}, "reviews": {}}
+    authored_units = draft.get("knowledgeUnits") or [{"id": unit_id, "claims": [{"id": claim_id, "text": draft["claim"]}], "terms": [], "misconceptions": []}]
+    knowledge_units = [{"id": unit["id"], "outcomeCodes": [draft["outcomeCode"]], "claims": [{"id": claim["id"], "text": claim["text"], "important": False, "sourceIds": [source_id]} for claim in unit.get("claims", [])], "terms": unit.get("terms", []), "misconceptions": unit.get("misconceptions", [])} for unit in authored_units]
+    pack = {"key": pack_key, "title": draft["title"], "grade": draft["grade"], "domain": draft["domain"], "chapter": chapter["title"], "topic": str(draft.get("topic", chapter["title"])).strip(), "subjectId": draft["subjectId"], "outcomeCodes": [draft["outcomeCode"]], "synthetic": False, "sources": [source], "knowledgeUnits": knowledge_units, "lesson": {"learningObjective": draft["learningObjective"], "prerequisites": str(draft.get("prerequisites", "")), "content": sections, "materials": [], "questions": [], "labId": None}, "reviews": {}}
     if draft.get("basicExercises"):
         pack["lesson"]["basicExercises"] = draft["basicExercises"]
     previous_pack = old.get("pack", {})
@@ -380,11 +393,17 @@ def _write_pack(workspace: Workspace, draft: dict[str, Any]) -> None:
         block_ids = ",".join(block["id"] for block in page["blocks"])
         marker = {"sourceId": source_id, "sourceVersion": book["version"], "sourceSha256": book["sha256"], "physicalPageIndex": number, "printedPageLabel": book["printedPageLabels"].get(str(number)), "extractionMethod": page["method"], "locator": f"PDF page {number}, blocks {block_ids or 'no-text'}"}
         evidence.append({**marker, "contentRef": "lesson.content"})
-        evidence.append({**marker, "claimId": claim_id})
+        for unit in knowledge_units:
+            for claim in unit["claims"]:
+                evidence.append({**marker, "claimId": claim["id"]})
     if old.get("evidence") != evidence:
         pack["reviews"] = {}
         content_unchanged = False
-    expected_ids = [("pack", pack_key, f"{relative}#pack"), ("source", source_id, f"source-inventory.json#source:{source_id}"), ("unit", unit_id, f"{relative}#unit:{unit_id}"), ("claim", claim_id, f"{relative}#claim:{claim_id}")]
+    expected_ids = [("pack", pack_key, f"{relative}#pack"), ("source", source_id, f"source-inventory.json#source:{source_id}")]
+    for unit in knowledge_units:
+        expected_ids.append(("unit", unit["id"], f"{relative}#unit:{unit['id']}"))
+        for claim in unit["claims"]:
+            expected_ids.append(("claim", claim["id"], f"{relative}#claim:{claim['id']}"))
     exercise = draft.get("basicExercises")
     if exercise:
         step = exercise["id"]

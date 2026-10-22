@@ -8,16 +8,24 @@ from pathlib import Path
 
 import pymupdf
 
+from nexalab_content_tool.enrichment import (
+    build_enrichment_proposal, gemini_proposal, normalize_text,
+    save_lab_candidates, suggest_lab_candidates,
+)
 from nexalab_content_tool.m1_workflow import (
     _mineru_text, chapter_state, draft_path, export_status, import_book, page_record,
     process_chapter, save_chapter, save_draft, save_review,
 )
 from nexalab_content_tool.manifest import build_manifest
-from nexalab_content_tool.workspace import Workspace, init_workspace
+from nexalab_content_tool.workspace import ContentToolError, Workspace, init_workspace
 from nexalab_content_tool.m0a_review import _multipart_text
 
 
 class M1WorkflowTests(unittest.TestCase):
+    def test_safe_normalization_preserves_vietnamese_and_math(self) -> None:
+        decomposed = "Định\u00a0luật   m = 20,8 + 14,2 − 23,3\u200b\n\n\n\\mathrm{NaCl}"
+        self.assertEqual(normalize_text(decomposed), "Định luật m = 20,8 + 14,2 − 23,3\n\n\\mathrm{NaCl}")
+
     def test_browser_multipart_metadata_preserves_utf8(self) -> None:
         boundary = "----browser-boundary"
         body = (
@@ -87,6 +95,43 @@ class M1WorkflowTests(unittest.TestCase):
             status = export_status(workspace)
             self.assertFalse(status["ready"])
             self.assertTrue(any("missing formal rights review" in blocker for blocker in status["blockers"]))
+
+    def test_reviewed_ocr_builds_editable_proposals_and_lab_candidates(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            workspace = Workspace.open(init_workspace(Path(temporary) / "workspace", "enrichment-test"))
+            pdf = pymupdf.open()
+            page = pdf.new_page()
+            page.insert_text((60, 80), "2. Phan ung hoa hoc")
+            page.insert_text((60, 120), "Phản ứng hoá học bảo toàn khối lượng của chất phản ứng và sản phẩm. " * 2)
+            payload = pdf.tobytes()
+            pdf.close()
+            import_book(workspace, payload, key="science-book", version="v1", title="Science", author="Publisher", local_rights=True)
+            save_chapter(workspace, "science-book", chapter_id="reaction", title="Reaction", start=1, end=1)
+            process_chapter(workspace, "science-book", "reaction", None)
+            save_review(workspace, "science-book", 1, "accepted", {}, 1)
+            proposal = build_enrichment_proposal(workspace, "science-book", "reaction", [1])
+            self.assertEqual(proposal["status"], "proposed")
+            self.assertTrue(proposal["sections"][0]["sourceBlockIds"])
+            self.assertTrue(proposal["knowledgeUnits"][0]["claims"])
+            self.assertNotEqual(proposal["blocks"][0]["originalText"], "")
+
+            draft = {
+                "packKey": "science-reaction-lesson", "title": "Phản ứng hoá học", "learningObjective": "Mô tả phản ứng hoá học",
+                "claim": "Khối lượng được bảo toàn trong phản ứng", "outcomeCode": "VERIFIED-OUTCOME",
+                "sections": proposal["sections"], "pages": [1],
+            }
+            with self.assertRaises(ContentToolError):
+                suggest_lab_candidates(workspace, draft, outcome_verified=False)
+            candidates = suggest_lab_candidates(workspace, draft, outcome_verified=True)
+            self.assertEqual(candidates[0]["modelRef"], "chemistry@1.0.0")
+            saved = save_lab_candidates(workspace, draft["packKey"], candidates)
+            self.assertEqual(saved["status"], "proposed")
+
+    def test_gemini_is_off_without_explicit_provider_and_transmission_gates(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            workspace = Workspace.open(init_workspace(Path(temporary) / "workspace", "gemini-gate"))
+            with self.assertRaisesRegex(ContentToolError, "provider policy"):
+                gemini_proposal(workspace, "book", "chapter", [1], provider_confirmed=False, transmission_allowed=False)
 
 
 if __name__ == "__main__":

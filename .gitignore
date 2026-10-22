@@ -12,3 +12,4 @@ __pycache__/
 **/extracts/
 **/exports/
 **/reports/
+.env
