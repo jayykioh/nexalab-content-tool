@@ -67,12 +67,12 @@ The schema is intentionally not normalized or migrated by this contract. It desc
 The separate repository may own:
 
 1. Local source inventory and extraction adapters (including local native-text/OCR/layout paths).
-2. A static HTML review report and structured review decisions; edits live in the canonical source files. A React Review Workbench is outside the Lean v5.4 pilot.
+2. A local UI for PDF import, per-book stage progress/resume, source-side-by-side OCR review and correction, and focused Lesson authoring. OCR review stores actions, history, elapsed time, and hashes without collecting reviewer identity. OCR review is not formal release approval. The UI scope is a narrow operator workflow, not a general CMS.
 3. Stable logical IDs for authored packages/questions/options and a backed-up ID registry.
 4. Deterministic export of a manifest accepted by the current BE schema, plus schema/version and source commit metadata.
 5. CLI `plan` / `apply` orchestration only after the real supported backend invocation is verified. The backend remains the final validator and writer. The current `content:release` CLI checks active account emails; these arguments do not authenticate a separate human reviewer.
 
-Keep any AI/OCR provider optional and outside BE request handling. If transfer/retention/training/region rights are unresolved, extraction and review must still work locally without sending source material to an external provider. Set the review workload cap before the extraction spike and estimate total review time from measured flagged-item counts and review time by item type.
+Use MinerU as the local OCR/layout engine; verify and pin the separately installed runtime/model. Keep Gemini LaTeX assistance optional and outside BE request handling. Preserve original OCR, show a proposal/diff, and require explicit operator application. If transfer/retention/training/region rights are unresolved, extraction, manual correction, and Lesson authoring must still work locally without sending source material externally. Do not set a fixed `H_review_max`; optimize the workflow and estimate review time from measured flagged-item counts and actual review time by item type.
 
 ## 7. Apply, identity, and asset gates
 
@@ -84,7 +84,7 @@ Before staging apply, the implementation contract must settle:
 - Stable ID preservation through package → Lesson/step → FE → attempts/evidence.
 - Explicit mapping `(release or target environment, logical asset key) -> READY AssetVersionId`, including immutability, review, and digest binding. No unresolved logical key may reach `assetv:`.
 - Explicit course-version membership/order/activation and historical-progress behavior; release membership alone does not update a foundational course.
-- Audited reviewer identity and payload-bound review approval. A claimed email/hash in a file is not proof of who reviewed that exact payload.
+- Formal release approvals remain BE-owned and must use authenticated/active identities and the existing payload/review gates. Local OCR correction actions are anonymous workbench evidence and never satisfy editorial, subject, rights, accessibility, or approver review. A claimed email/hash in a file is not proof of who approved that exact payload.
 - Credentials must stay out of the repo and manifests; use environment/user secrets. The existing CLI is a trusted server-side operation with active-account checks, not an authenticated HTTP apply route. Do not describe email arguments as proof of human approval.
 
 For a trusted one-operator staging pilot, retain dry-run, authenticated operator, atomic apply, and idempotency. Defer locks, concurrency handling, stale-base enforcement, generalized rollback, and multi-operator controls until recovery needs or multiple operators justify them. Keep an explicit recovery procedure and a way to quarantine/revoke a bad release/assets.

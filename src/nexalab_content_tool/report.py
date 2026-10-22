@@ -146,7 +146,6 @@ def render_report(workspace: Workspace, output: str | Path | None = None) -> Pat
             f"<tbody>{evidence_rows}</tbody></table>"
             "</section>"
         )
-    policy = workspace.config.get("reviewPolicy", {})
     html = (
         "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">"
         "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
@@ -157,8 +156,7 @@ def render_report(workspace: Workspace, output: str | Path | None = None) -> Pat
         "th{background:#eef2f7}code{word-break:break-all}pre{white-space:pre-wrap;max-width:36rem}.notice{background:#fff5d6;border:1px solid #d8a900;padding:12px}</style>"
         "</head><body>"
         f"<h1>{_text(release.get('name'))}</h1>"
-        f"<p><strong>Namespace:</strong> {_text(release.get('namespace'))} &middot; "
-        f"<strong>H_review_max:</strong> {_text(policy.get('hReviewMaxHours'))}</p>"
+        f"<p><strong>Namespace:</strong> {_text(release.get('namespace'))}</p>"
         "<p class=\"notice\">This local report records evidence and declared review state. It is not proof that "
         "a reviewer authenticated or approved the backend payload. Fixture-only reviews must never be presented as baseline approval.</p>"
         + "".join(sections)

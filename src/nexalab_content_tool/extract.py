@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import hashlib
-import math
 import re
 from pathlib import Path
 from typing import Any
@@ -13,16 +12,29 @@ from .workspace import ContentToolError, Workspace, sha256_file, write_json
 VERSION_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$")
 
 
+def native_page_blocks(page: Any, page_index: int, source_key: str, source_version: str, source_hash: str, label: str | None = None) -> list[dict[str, Any]]:
+    blocks = []
+    text_blocks = [block for block in page.get_text("blocks", sort=True) if len(block) >= 7 and block[6] == 0 and block[4].strip()]
+    for ordinal, block in enumerate(text_blocks, start=1):
+        text = block[4].strip()
+        bbox = [round(float(value), 3) for value in block[:4]]
+        blocks.append({
+            "bbox": bbox,
+            "extractionMethod": "native-pymupdf",
+            "id": f"{source_key}-{source_version}-p{page_index:04d}-b{ordinal:04d}".lower(),
+            "locator": {"bbox": bbox, "physicalPageIndex": page_index, "printedPageLabel": label},
+            "physicalPageIndex": page_index,
+            "printedPageLabel": label,
+            "sourceSha256": source_hash,
+            "sourceVersion": source_version,
+            "text": text,
+            "textSha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+        })
+    return blocks
+
+
 def _extraction_gate(workspace: Workspace, source: dict[str, Any]) -> None:
     policy = workspace.config.get("reviewPolicy", {})
-    cap = policy.get("hReviewMaxHours")
-    if (
-        not isinstance(cap, (int, float))
-        or isinstance(cap, bool)
-        or not math.isfinite(cap)
-        or cap <= 0
-    ):
-        raise ContentToolError("Set reviewPolicy.hReviewMaxHours before extracting source material")
     if policy.get("localSourceRightsConfirmed") is not True:
         raise ContentToolError("Set reviewPolicy.localSourceRightsConfirmed=true before extraction")
     rights = source.get("rights", {})
@@ -62,28 +74,7 @@ def extract_native_pdf(
             raise ContentToolError(f"Source is not a PDF: {source_file}")
         for page_index, page in enumerate(document, start=1):
             label = printed_labels.get(str(page_index))
-            text_blocks = [block for block in page.get_text("blocks", sort=True) if len(block) >= 7 and block[6] == 0 and block[4].strip()]
-            for ordinal, block in enumerate(text_blocks, start=1):
-                text = block[4].strip()
-                bbox = [round(float(value), 3) for value in block[:4]]
-                blocks.append(
-                    {
-                        "bbox": bbox,
-                        "extractionMethod": "native-pymupdf",
-                        "id": f"{source_key}-{source_version}-p{page_index:04d}-b{ordinal:04d}".lower(),
-                        "locator": {
-                            "bbox": bbox,
-                            "physicalPageIndex": page_index,
-                            "printedPageLabel": label,
-                        },
-                        "physicalPageIndex": page_index,
-                        "printedPageLabel": label,
-                        "sourceSha256": source_hash,
-                        "sourceVersion": source_version,
-                        "text": text,
-                        "textSha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
-                    }
-                )
+            blocks.extend(native_page_blocks(page, page_index, source_key, source_version, source_hash, label))
         page_count = document.page_count
     except ContentToolError:
         raise

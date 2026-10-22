@@ -42,6 +42,23 @@ def reserve_id(workspace: Workspace, kind: str, identifier: str, owner: str) -> 
     return True
 
 
+def reserve_ids(workspace: Workspace, expected: list[tuple[str, str, str]]) -> None:
+    entries = registry_entries(workspace)
+    index = {(entry.get("kind"), entry.get("id")): entry.get("owner") for entry in entries}
+    additions = []
+    for kind, identifier, owner in expected:
+        if kind not in ID_KINDS or not ID_PATTERN.fullmatch(identifier) or not owner.strip():
+            raise ContentToolError(f"Invalid stable {kind} ID {identifier}")
+        current = index.get((kind, identifier))
+        if current is not None and current != owner:
+            raise ContentToolError(f"{kind} ID {identifier} is already owned by {current}")
+        if current is None:
+            additions.append({"kind": kind, "id": identifier, "owner": owner})
+            index[(kind, identifier)] = owner
+    if additions:
+        write_json(workspace.registry_path, {"schemaVersion": 1, "entries": sorted(entries + additions, key=lambda item: (item["kind"], item["id"]))})
+
+
 def require_registered(workspace: Workspace, expected: list[tuple[str, str, str]]) -> None:
     index = {(entry.get("kind"), entry.get("id")): entry.get("owner") for entry in registry_entries(workspace)}
     problems = []

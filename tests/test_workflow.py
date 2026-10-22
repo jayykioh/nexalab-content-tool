@@ -4,6 +4,8 @@ import json
 import shutil
 import subprocess
 import tempfile
+import threading
+import urllib.request
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -13,6 +15,7 @@ import pymupdf
 from nexalab_content_tool.backend import run_apply, run_plan
 from nexalab_content_tool.extract import extract_native_pdf
 from nexalab_content_tool.identity import reserve_id
+from nexalab_content_tool.m0a_review import _ReviewServer
 from nexalab_content_tool.manifest import build_manifest, export_manifest
 from nexalab_content_tool.report import render_report
 from nexalab_content_tool.workspace import ContentToolError, Workspace, init_workspace, read_json, write_json
@@ -38,7 +41,6 @@ class WorkflowTests(unittest.TestCase):
     def extraction_workspace(self) -> Workspace:
         target = init_workspace(self.root / "extract", "extract-test")
         config = read_json(target / "workspace.json")
-        config["reviewPolicy"]["hReviewMaxHours"] = 1
         config["reviewPolicy"]["localSourceRightsConfirmed"] = True
         write_json(target / "workspace.json", config)
         write_json(
@@ -107,6 +109,16 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(exercise["questions"][0]["options"][0]["id"], "same-current")
         self.assertEqual(manifest["packs"][0]["lesson"]["questions"], [])
 
+    def test_legacy_pack_without_basic_exercises_remains_exportable(self) -> None:
+        workspace = self.copy_example()
+        pack_path = workspace.inside("packs", "fixture-khtn8-local-reading.json")
+        wrapper = read_json(pack_path)
+        wrapper["pack"]["lesson"].pop("basicExercises", None)
+        write_json(pack_path, wrapper)
+        manifest = build_manifest(workspace, allow_unreviewed=True)
+        self.assertNotIn("basicExercises", manifest["packs"][0]["lesson"])
+        self.assertEqual(manifest["packs"][0]["lesson"]["questions"], [])
+
     def test_fabricated_or_ambiguous_evidence_is_rejected(self) -> None:
         workspace = self.copy_example()
         pack_path = workspace.inside("packs", "fixture-khtn8-local-reading.json")
@@ -124,6 +136,50 @@ class WorkflowTests(unittest.TestCase):
         write_json(pack_path, wrapper)
         with self.assertRaisesRegex(ContentToolError, "non-empty locator"):
             render_report(workspace)
+
+    def test_m0a_review_saves_local_decision_history(self) -> None:
+        workspace = Workspace.open(init_workspace(self.root / "review", "review-test"))
+        pdf = self.root / "one-page.pdf"
+        document = pymupdf.open()
+        document.new_page()
+        document.save(pdf)
+        document.close()
+        server = _ReviewServer(
+            workspace,
+            pdf,
+            {1: {"page_idx": 0, "blocks": [{"type": "text", "text": "sample"}]}},
+            1,
+            "a" * 64,
+            "b" * 64,
+            0,
+        )
+        worker = threading.Thread(target=server.serve_forever, daemon=True)
+        worker.start()
+        try:
+            base = f"http://127.0.0.1:{server.server_port}"
+            state = json.loads(urllib.request.urlopen(f"{base}/api/state", timeout=2).read())
+            self.assertEqual(state["pages"][0]["pageIndex"], 1)
+            request = urllib.request.Request(
+                f"{base}/api/review",
+                data=json.dumps({
+                    "pageIndex": 1,
+                    "action": "needs-correction",
+                    "edits": {"0": "corrected"},
+                    "durationSeconds": 42,
+                }).encode(),
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            self.assertTrue(json.loads(urllib.request.urlopen(request, timeout=2).read())["saved"])
+            saved = read_json(server.review_path)
+            self.assertEqual(saved["pages"]["1"]["edits"]["0"], "corrected")
+            self.assertNotIn("reviewer", saved["pages"]["1"])
+            self.assertEqual(saved["history"][0]["durationSeconds"], 42)
+            self.assertEqual(saved["resultSha256"], "b" * 64)
+        finally:
+            server.shutdown()
+            worker.join(timeout=2)
+            server.server_close()
 
     def test_backend_command_is_dry_run_and_bounded(self) -> None:
         workspace = self.copy_example()

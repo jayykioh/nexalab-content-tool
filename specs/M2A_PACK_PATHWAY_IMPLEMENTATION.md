@@ -10,7 +10,7 @@ frontend_baseline: 'c7fe8914a4e6fecb0737e562c8d6ba6319f9b3bc'
 
 ## Intent
 
-Complete the M2a milestone from Lean v5.4 with the smallest compatible change: allow one optional authored basic-exercise step in a content pack, materialize it as the existing `BASIC_EXERCISE` runtime config, keep it required for evidence without gating the next pathway step, and prove the existing Open Curriculum UI can submit the authored question and option IDs.
+Complete the M2a milestone from Lean v5.5 with the smallest compatible change: allow one optional authored basic-exercise step in a content pack, materialize it as the existing `BASIC_EXERCISE` runtime config, keep it required for evidence without gating the next pathway step, and prove the existing Open Curriculum UI can submit the authored question and option IDs. M2a code is complete; end-to-end integration against Lessons authored in the M1 UI remains pending.
 
 ## Boundaries
 

@@ -1,4 +1,5 @@
 ---
+
 title: 'M1 local content preparation workflow'
 type: 'feature'
 created: '2026-10-22'
@@ -7,9 +8,11 @@ route: 'dispatch'
 review_loop_iteration: 1
 baseline_commit: '58e31e25216f79f2a8291316227a31f43bde21e6'
 context:
-  - 'specs/NexaLab_Content_Tool_Master_Plan_Lean_v5.4.md'
+  - 'specs/NexaLab_Content_Tool_Master_Plan_Lean_v5.5.md'
   - 'specs/content-tool-nexalab-contract.md'
 ---
+
+> **Historical scope note (2026-10-22):** This story documents a completed CLI/file-workspace implementation slice only. Its prior exclusions (UI, OCR provider, real source handling) and fixed `H_review_max` gate are not current product scope. It is superseded by `NexaLab_Content_Tool_Master_Plan_Lean_v5.5.md` and the canonical book-to-Lesson SPEC. Do not use this story's `done` status as evidence that M1 product DoD is met.
 
 <frozen-after-approval reason="human-owned intent — do not modify unless human renegotiates">
 
@@ -29,7 +32,7 @@ context:
 
 ## Code Map
 
-- `specs/NexaLab_Content_Tool_Master_Plan_Lean_v5.4.md` -- canonical pilot scope and milestone order; supersedes the broader untracked MVP spec in the backend repository.
+- `specs/NexaLab_Content_Tool_Master_Plan_Lean_v5.5.md` -- current Tool-repo mirror; canonical scope is in the backend `_bmad-output/specs/spec-nexalab-content-tool-mvp/` folder.
 - `specs/content-tool-nexalab-contract.md` -- integration boundary, release safety rules, and source map.
 - `../nexalab-be/src/modules/content/application/content-release.ts` -- authoritative release envelope and plan behavior; do not duplicate its database-aware gates.
 - `../nexalab-be/src/modules/content/application/content-pack.ts` -- current pack shape, stable-ID syntax, canonical digest behavior, and human review gates.

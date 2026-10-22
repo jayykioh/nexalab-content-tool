@@ -1,12 +1,12 @@
-# NexaLab Content Tool — Lean Master Plan v5.4
+# NexaLab Content Tool — Lean Master Plan v5.5
 
 > **Ngày:** 22/10/2026  
-> **Trạng thái:** kế hoạch implement pilot; chưa triển khai hoặc xác nhận runtime/production.  
+> **Trạng thái:** Scope đã đồng bộ với canonical SPEC ngày 22/10/2026; book-to-Lesson workflow chưa hoàn tất. Đây không phải xác nhận production readiness.  
 > **Cơ sở đối chiếu:** NexaLab BE commit `48463ea39e147aecdf729a3eae7b1335d6649824`; kiểm tra lại source ở commit bắt đầu implement.
 
 ## Mục tiêu
 
-Tạo tool local nhỏ để chuẩn bị, review và xuất 2–3 Lesson; dùng luồng release hiện có của NexaLab để bài xuất hiện trong Open Curriculum. Không chuẩn hóa database diện rộng, không thêm hệ thống phê duyệt hay editor lớn.
+Tạo tool local có UI hướng dẫn operator đi hết luồng từ nhập sách tới package 2–3 Lesson, rồi dùng luồng release hiện có của NexaLab để hiển thị nội dung trong Open Curriculum. CLI chỉ dành cho tác vụ vận hành BE `plan`/`apply` và xử lý lặp lại; người dùng không phải tự cấu hình manifest JSON để biên soạn Lesson.
 
 ```text
 Tài liệu được phép xử lý → tool local: extract/review/export → BE content:release plan/apply
@@ -20,13 +20,13 @@ BE tiếp tục là nguồn sự thật cho manifest, quyền, validation, diges
 
 **Trong pilot**
 
-- Một operator chuẩn bị nội dung bằng CLI, file chuẩn và báo cáo HTML tĩnh; không làm React Workbench.
-- Native text trước; nếu cần OCR/layout, thử MinerU local trước trên trang đại diện. Chỉ đánh giá engine khác nếu MinerU không đạt ngưỡng chất lượng/tốc độ đã chốt ở M0a. Gemini tắt mặc định.
-- Xuất manifest đúng schema BE đang nhận; dùng BE `plan` rồi đường `content:release` hiện có cho `apply`.
+- Một operator dùng UI local để import một hoặc nhiều PDF, chọn sample/full OCR, theo dõi trạng thái theo chặng, tiếp tục workspace sau khi dừng, review/correct OCR cạnh nguồn, và biên soạn Lesson bằng UI. Không yêu cầu nhập tên reviewer cho OCR QA.
+- Native text trước; dùng MinerU local cho scan/layout. M0a đã benchmark MinerU 4.0.12 trên sample KHTN 8; runtime/model phải được pin, MinerU vẫn là cài đặt riêng chứ chưa được đóng gói cùng tool. Gemini chỉ là gợi ý sửa LaTeX/công thức, mặc định tắt cho tới khi quyền truyền nguồn và policy provider được xác nhận; luôn giữ bản gốc và cần operator áp dụng rõ ràng.
+- Xuất manifest đúng schema BE đang nhận; UI hiển thị kết quả BE `plan`. `apply` tiếp tục qua đường `content:release` hiện có trong môi trường BE được kiểm soát.
 - Thêm mapping riêng cho `basicExercises` vào `LessonStep.config` kiểu `BASIC_EXERCISE`, giữ ID ổn định và không khóa bước học kế tiếp.
 - Đưa Lesson vào Open Curriculum. Course membership và mẫu số tiến độ course **không thuộc pilot**.
 
-**Để sau pilot:** course-version activation, Studio/editor UI, Lab authoring, asset upload/promotion đa môi trường, rollback tổng quát, multi-operator/concurrency, normalize/xóa legacy schema.
+**Để sau pilot:** course-version activation, Lab authoring UI, asset upload/promotion đa môi trường, rollback tổng quát, multi-operator/concurrency, normalize/xóa legacy schema. Lesson editor hẹp và stage tracker cho một sách thuộc luồng pilot, không phải CMS/dashboard tổng quát.
 
 Open Curriculum hiện lấy Lesson published/shared có pack version released, không đọc course membership. Vì vậy bài có thể xuất hiện trong catalog mà không cần `FoundationalCourseVersion`; nhưng tiến độ course sẽ không tính các bài này cho tới khi có bước binding riêng. Chỉ mở course binding nếu yêu cầu pilot bắt buộc bài nằm trong mẫu số tiến độ.
 
@@ -48,17 +48,17 @@ Open Curriculum hiện lấy Lesson published/shared có pack version released, 
 
 - Chỉ xử lý tài liệu có quyền lưu, trích xuất và xuất bản phù hợp. OCR/biên tập không tạo quyền sử dụng.
 - Thử MinerU trước trên mẫu trang đã chọn. Kiểm tra giấy phép của đúng bản code, từng model weight và dependency đi kèm; pin phiên bản/nguồn tải. Chỉ thử engine khác nếu MinerU không đạt ngưỡng chất lượng/tốc độ đã đặt trước.
-- Báo cáo nối nội dung cuối với source/version/page/locator; ghi reviewer và trạng thái review. Nội dung NexaLab tự viết có thể ghi người biên tập nhưng không được ghi là đã chuyên môn duyệt nếu chưa có người duyệt.
-- Trước spike đặt `H_review_max` và ngưỡng OCR. Ước lượng riêng (A) sửa/chấp nhận extraction theo số mục cần review × thời gian trung bình từng loại mục; (B) viết và biên tập Lesson. Lấy mẫu nhiều loại trang, đo rework và dự phòng. M1 thử một kiểm tra rẻ: render trang, so vùng có mực với các OCR/layout boxes và gắn cờ vùng không được phủ. Đây chỉ là cảnh báo để người review kiểm tra, không tự sửa nội dung; giữ lại nếu thử mẫu cho kết quả hữu ích, bỏ nếu quá nhiễu.
+- Báo cáo nối nội dung cuối với source/version/page/locator; lưu các thao tác OCR, lịch sử, elapsed time và hash nhưng không hỏi/ghi reviewer identity. Đây không phải baseline approval. Formal release review/authentication vẫn theo contract BE; không dùng OCR action thay editorial/subject/rights/accessibility approval.
+- Theo chỉ đạo người dùng 2026-10-22, spike ban đầu chỉ dùng KHTN 8 và không đặt `H_review_max` cố định. Tối ưu giờ review, ghi thời gian thực tế theo loại trang/block, đo rework; chỉ ngoại suy sách thứ hai sau khi người dùng import. Không thay reviewer thật bằng agent timing. M1 thử một kiểm tra rẻ: render trang, so vùng có mực với các OCR/layout boxes và gắn cờ vùng không được phủ. Đây chỉ là cảnh báo để người review kiểm tra, không tự sửa nội dung; giữ lại nếu thử mẫu cho kết quả hữu ích, bỏ nếu quá nhiễu.
 - PDF, crop, dữ liệu hạn chế, API key và DB/R2 credentials không vào Git.
 
 ## Mốc thực hiện
 
 | Mốc | Việc | Hoàn tất khi |
 |---|---|---|
-| **M0a — Extraction spike** | Chọn mẫu trang từ hai sách; xác nhận quyền; thử native text rồi MinerU local; chốt ngưỡng chất lượng/tốc độ và `H_review_max`; đo `H_review_est` | Có quyết định engine/estimate trong trần; chưa ghi database |
-| **M1 — Tool local** | CLI extract/review/export, ID registry, HTML report và review log; không gửi DB credentials sang repo Tool | 2–3 manifest đọc được bởi BE `plan`; evidence/reviewer/rights theo được tới nguồn |
-| **M2a — Pack và pathway** | `basicExercises` schema/mapping, ID ổn định, không khóa pathway; fixture manifest cũ và mới | Digest manifest cũ không đổi; tests/API/FE chứng minh exercise hiển thị và không khóa bước sau; QUIZ/assignment không đổi |
+| **M0a — OCR feasibility** | MinerU local tier comparison, source/hash/runtime và Review Workbench cho KHTN 8 | **Hoàn tất kỹ thuật cho một sách:** standard được chọn; sample phân tầng 20/200 trang chạy qua UI. Human review-time calibration và gold-text CER/WER chưa có; đây không phải luồng book-to-Lesson hoàn chỉnh. |
+| **M1 — Local book-to-Lesson workflow** | UI import, stage progress/resume, native text/MinerU, OCR correction, optional rights-gated Gemini LaTeX proposals, UI Lesson authoring, stable evidence/IDs, deterministic export và BE plan | Operator tạo 2–3 Lesson từ nguồn được phép hoàn toàn qua UI; không sửa manifest JSON bằng tay; BE `plan` không blocker; Gemini tắt vẫn chạy được. |
+| **M2a — Pack và pathway integration** | `basicExercises` schema/mapping, ID ổn định, không khóa pathway; fixture manifest cũ và mới | Code hiện có; Lesson do UI M1 tạo giữ IDs; exercise không khóa bước sau; QUIZ/assignment không đổi. |
 | **M2b — Release** | Dùng CLI hiện hữu; chốt reviewer thật, target/environment và audit receipt | Plan không blocker; apply atomic; rerun cùng digest trả receipt cũ; review và approver gates được đáp ứng trung thực |
 | **M3 — Staging E2E** | Import 2–3 Lesson; sửa một pack để tạo digest chưa từng apply rồi apply; đọc qua Open Curriculum | Student đọc bài, làm practice và đi tiếp; version/Lesson cũ được archive nhưng giữ lại, attempts cũ còn gắn đúng step và không bị chuyển/xóa; Lesson mới đúng; course progress không bị tuyên bố đã cập nhật |
 
@@ -73,15 +73,14 @@ Open Curriculum hiện lấy Lesson published/shared có pack version released, 
 3. Tests và staging E2E chứng minh practice xuất thành BASIC_EXERCISE, hiện đúng ở FE, không thành QUIZ, không khóa bước tiếp theo; assignment flow hiện tại không đổi.
 4. Apply staging dùng CLI BE hiện có, giữ approver guard baseline, chạy atomic và trả receipt/audit; cùng digest trả receipt cũ.
 5. Lesson xuất hiện trong Open Curriculum. Course progress không được tuyên bố đã cập nhật; nếu cần, course binding là scope riêng sau pilot.
-6. Review nằm trong `H_review_max`, có quyền nguồn và traceability; staging target được định danh rõ.
+6. Review effort được đo/tối ưu, có quyền nguồn và traceability; staging target được định danh rõ.
 
 Không tuyên bố production-ready từ static review hoặc staging. Không có database/runtime claim cho tới khi môi trường tương ứng được kiểm tra trực tiếp.
 
 ## Trình tự trước khi giao story
 
-1. Đối chiếu lại source/schema/CLI ở commit triển khai và chốt môi trường staging.
-2. Hoàn tất M0a. Hoàn tất NexaLab preflight ngoài scope trước khi staging apply/expose; preflight không chặn M1 local.
-3. Chia story nhỏ theo M1, M2a, M2b, M3; không mở course binding trong các story pilot.
-4. Đồng bộ/supersede các plan cũ để chỉ còn một hợp đồng implement; PRD và source code hiện tại giữ vai trò nguồn sự thật tương ứng.
+1. Canonical contract là `_bmad-output/specs/spec-nexalab-content-tool-mvp/SPEC.md` cùng `master-plan.md`; tài liệu này là bản mirror cho repo Tool. PRD/code BE/FE giữ vai trò nguồn sự thật tương ứng.
+2. Thứ tự tiếp theo là M1 → tích hợp end-to-end M2a → M2b → M3. M0a hoàn tất phần feasibility cho KHTN 8 nhưng không hoàn tất M1.
+3. Hoàn tất NexaLab preflight ngoài scope trước staging apply/expose; preflight không chặn M1 local.
 
 Tham chiếu: [NexaLab integration contract](content-tool-nexalab-contract.md). Đây là snapshot; khi có khác biệt, kiểm tra source code ở commit mới.
