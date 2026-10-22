@@ -66,11 +66,11 @@ The schema is intentionally not normalized or migrated by this contract. It desc
 
 The separate repository may own:
 
-1. Local source inventory and extraction adapters (including a local OCR/layout path).
-2. A human Review Workbench for source evidence, extracted text, corrections, rights, and editorial/scientific review.
+1. Local source inventory and extraction adapters (including local native-text/OCR/layout paths).
+2. A static HTML review report and structured review decisions; edits live in the canonical source files. A React Review Workbench is outside the Lean v5.4 pilot.
 3. Stable logical IDs for authored packages/questions/options and a backed-up ID registry.
 4. Deterministic export of a manifest accepted by the current BE schema, plus schema/version and source commit metadata.
-5. CLI `plan` / `apply` orchestration only after the real supported backend invocation is verified. The backend remains the final validator and writer.
+5. CLI `plan` / `apply` orchestration only after the real supported backend invocation is verified. The backend remains the final validator and writer. The current `content:release` CLI checks active account emails; these arguments do not authenticate a separate human reviewer.
 
 Keep any AI/OCR provider optional and outside BE request handling. If transfer/retention/training/region rights are unresolved, extraction and review must still work locally without sending source material to an external provider. Set the review workload cap before the extraction spike and estimate total review time from measured flagged-item counts and review time by item type.
 
@@ -85,7 +85,7 @@ Before staging apply, the implementation contract must settle:
 - Explicit mapping `(release or target environment, logical asset key) -> READY AssetVersionId`, including immutability, review, and digest binding. No unresolved logical key may reach `assetv:`.
 - Explicit course-version membership/order/activation and historical-progress behavior; release membership alone does not update a foundational course.
 - Audited reviewer identity and payload-bound review approval. A claimed email/hash in a file is not proof of who reviewed that exact payload.
-- Credentials must stay out of the repo and manifests; use environment/user secrets and an authenticated operator.
+- Credentials must stay out of the repo and manifests; use environment/user secrets. The existing CLI is a trusted server-side operation with active-account checks, not an authenticated HTTP apply route. Do not describe email arguments as proof of human approval.
 
 For a trusted one-operator staging pilot, retain dry-run, authenticated operator, atomic apply, and idempotency. Defer locks, concurrency handling, stale-base enforcement, generalized rollback, and multi-operator controls until recovery needs or multiple operators justify them. Keep an explicit recovery procedure and a way to quarantine/revoke a bad release/assets.
 
@@ -100,9 +100,9 @@ Add a BE migration only when a demonstrated contract cannot be represented safel
 1. Rebase this contract against the current BE commit; inspect current Zod schemas and route manifest.
 2. Produce a small package containing 2–3 lessons and validate it with the backend dry-run.
 3. Check every blocker, materialized Lesson/step type, asset version, curriculum code, reviewer and rights evidence.
-4. Confirm no public required `QUIZ` was created for a basic exercise; verify the resulting student path and active-course progress behavior.
+4. Confirm no public required `QUIZ` was created for a basic exercise; verify the resulting student path and active-course progress behavior. A required BASIC_EXERCISE must not lock the next step after the pathway implementation is updated.
 5. Apply only to a verified staging target with a known database identity; never infer production readiness from static code or a successful local plan.
-6. Verify API/FE reads, release receipt, idempotent rerun, and the documented retire/recovery behavior against that environment.
+6. Verify API/FE reads, release receipt, idempotent rerun, and that a new pack digest archives the old Lesson while preserving its historical exercise attempts. Do not use retire as automated rollback; inspect its state effects before any manual use.
 
 No migrations, database writes, or runtime tests were performed to create this document.
 
