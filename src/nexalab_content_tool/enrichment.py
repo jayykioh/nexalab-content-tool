@@ -59,6 +59,8 @@ def _stable_id(prefix: str, seed: str) -> str:
 
 
 def build_enrichment_proposal(workspace: Workspace, book_key: str, chapter_id: str, pages: list[int]) -> dict[str, Any]:
+    from .m1_workflow import _book, _chapter
+
     blocks = _reviewed_blocks(workspace, book_key, pages)
     sections: list[dict[str, Any]] = []
     current = {"id": _stable_id("section", f"{chapter_id}-intro"), "heading": "Nội dung bài học", "content": [], "sourceBlockIds": []}
@@ -82,15 +84,25 @@ def build_enrichment_proposal(workspace: Workspace, book_key: str, chapter_id: s
         sections.append(current)
     if not sections:
         raise ContentToolError("Accepted pages contain no usable text")
-    claims = []
+    block_by_id = {block["id"]: block for block in blocks}
+    units = []
     for section in sections:
-        sentence = next((part.strip() for part in re.split(r"(?<=[.!?])\s+", section["content"]) if len(part.strip()) >= 20), "")
-        if sentence:
-            claims.append({"id": _stable_id("claim", section["id"]), "text": sentence, "sourceBlockIds": section["sourceBlockIds"]})
-    if not claims:
-        claims.append({"id": _stable_id("claim", sections[0]["id"]), "text": sections[0]["content"][:1000], "sourceBlockIds": sections[0]["sourceBlockIds"]})
-    unit = {"id": _stable_id("unit", chapter_id), "title": sections[0]["heading"], "claims": claims, "terms": [], "misconceptions": [], "sourceBlockIds": sorted({item for section in sections for item in section["sourceBlockIds"]})}
-    proposal = {"schemaVersion": 1, "kind": "local", "status": "proposed", "bookKey": book_key, "chapterId": chapter_id, "pages": sorted(set(pages)), "sections": sections, "knowledgeUnits": [unit], "blocks": blocks, "createdAt": _now()}
+        claims = []
+        for block_id in section["sourceBlockIds"]:
+            block = block_by_id[block_id]
+            if str(block["type"]).lower() in {"image", "equation"}:
+                continue
+            text = block["normalizedText"]
+            sentence = next((part.strip() for part in re.split(r"(?<=[.!?])\s+", text) if len(part.strip()) >= 20), "")
+            if sentence:
+                claims.append({"id": _stable_id("claim", block_id), "text": sentence[:1000], "sourceBlockIds": [block_id]})
+        if not claims:
+            claims = [{"id": _stable_id("claim", section["id"]), "text": section["content"][:1000], "sourceBlockIds": section["sourceBlockIds"]}]
+        units.append({"id": _stable_id("unit", section["id"]), "title": section["heading"], "claims": claims, "terms": [], "misconceptions": [], "sourceBlockIds": section["sourceBlockIds"]})
+    chapter_title = _chapter(_book(workspace, book_key), chapter_id)["title"]
+    title = next((section["heading"] for section in sections if section["heading"] != "Nội dung bài học"), chapter_title)
+    summary = " ".join(unit["claims"][0]["text"] for unit in units[:2])
+    proposal = {"schemaVersion": 1, "kind": "local", "status": "proposed", "bookKey": book_key, "chapterId": chapter_id, "pages": sorted(set(pages)), "title": title, "summary": summary, "learningObjective": f"Trình bày nội dung chính của {title}", "sections": sections, "knowledgeUnits": units, "blocks": blocks, "createdAt": _now()}
     path = workspace.inside(".local", "proposals", f"{book_key}-{chapter_id}-local.json")
     write_json(path, proposal)
     return proposal

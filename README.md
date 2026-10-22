@@ -4,8 +4,8 @@ Local-first NexaLab book-to-Lesson tool. Import and author in the local UI; Nexa
 
 ## Current status
 
-- **Available:** Books & Chapters import, PDF/printed-page mapping, chapter OCR with per-page checkpoints, side-by-side OCR correction, persisted Lesson drafts with BASIC_EXERCISE, release blockers, manifest export when eligible, and configured BE dry-run plan. The CLI remains available.
-- **Optional:** Gemini LaTeX suggestions are disabled and not implemented; the spec requires separate rights/provider approval before using them.
+- **Available:** Books & Chapters import, PDF/printed-page mapping, chapter OCR with per-page checkpoints, side-by-side OCR correction, local extractive Lesson/knowledge-unit proposals from accepted pages, persisted Lesson drafts with BASIC_EXERCISE, release blockers, manifest export when eligible, and configured BE dry-run plan. The CLI remains available.
+- **Optional:** Gemini proposals require explicit provider-policy and source-transmission confirmation plus a configured API key. They remain proposals for operator review; no external source transfer occurs in the local-only flow.
 - **Not verified:** release apply on an identified staging target and full student-facing staging E2E. Do not treat the synthetic `plan` as evidence of a local database or production readiness.
 
 The KHTN 8 local run exercised import, chapter OCR, correction, restart, draft editing and release blockers. It did not produce a release-ready manifest because the real source's publication rights, curriculum outcome and formal reviews have not been verified. See [Master Plan v5.5](specs/NexaLab_Content_Tool_Master_Plan_Lean_v5.5.md).
@@ -72,12 +72,12 @@ The tool deliberately performs only local completeness checks. The backend Zod s
 .\scripts\plan-local.ps1
 ```
 
-For another workspace, use `uv run nexalab-content plan <workspace> --backend ..\nexalab-be --target development`.
+For another workspace in this checkout layout, use `uv run nexalab-content plan <workspace> --backend ..\BE-NexaLab --target development`.
 
 For a release, first review the full plan output and resolve every blocker. Apply requires the exact BE digest from that plan and runs a fresh plan immediately before delegating to BE:
 
 ```powershell
-uv run nexalab-content apply workspaces/pilot --backend ..\nexalab-be --target development `
+uv run nexalab-content apply workspaces/pilot --backend ..\BE-NexaLab --target development `
   --initiated-by operator@nexalab.local --approved-by admin@nexalab.local `
   --confirm-digest <64-character-be-digest>
 ```
@@ -100,7 +100,7 @@ $env:NEXALAB_MINERU_KIT = 'C:\path\to\mineru-env\Scripts\mineru-kit.exe'
 uv run nexalab-content studio workspaces/pilot --port 8765
 ```
 
-In **Books & Chapters**, import the PDF, enter book metadata, add chapter ranges and printed-page mapping, then run chapter OCR. **OCR Review** shows the source page beside extracted blocks; save corrections and accept pages before authoring. Restarting the studio resumes from files under the workspace's ignored `.local/` directory. In **Lesson Export**, load accepted pages, edit a Lesson and optional BASIC_EXERCISE, and save the draft. Export reports the exact unresolved outcome, source rights and formal-review blockers. Enter a BE checkout and target only after export is eligible; BE plan is dry-run and never applies a release. Local processing rights do not approve publication rights. For an existing MinerU ZIP, the direct review command remains available:
+In **Books & Chapters**, import the PDF, enter book metadata, add chapter ranges and printed-page mapping, then run chapter OCR. **OCR Review** shows the source page beside extracted blocks; save corrections and accept pages before authoring. Restarting the studio resumes from files under the workspace's ignored `.local/` directory. In **Lesson Export**, load accepted pages, use **Tạo cấu trúc từ OCR đã review** for extractive sections, summary, and one knowledge unit per section, then check the suggestions and edit the Lesson and optional BASIC_EXERCISE before saving. The tool preserves authored fields, original OCR, source block IDs, and math symbols; it does not infer a curriculum outcome or verify scientific correctness. Export reports the exact unresolved outcome, source rights and formal-review blockers. Enter a BE checkout and target only after export is eligible; BE plan is dry-run and never applies a release. Local processing rights do not approve publication rights. For an existing MinerU ZIP, the direct review command remains available:
 
 ```powershell
 uv run nexalab-content review workspaces/pilot `

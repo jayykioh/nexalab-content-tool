@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
-$backend = [IO.Path]::GetFullPath((Join-Path $repoRoot "..\nexalab-be"))
+$backend = [IO.Path]::GetFullPath((Join-Path $repoRoot "..\BE-NexaLab"))
 if (-not (Test-Path (Join-Path $backend "scripts\content-release.ts"))) {
     throw "NexaLab BE checkout not found at $backend"
 }

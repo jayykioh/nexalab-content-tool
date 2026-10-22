@@ -184,7 +184,19 @@ def chapter_state(workspace: Workspace, book_key: str, chapter_id: str) -> dict[
     for number in range(chapter["start"], chapter["end"] + 1):
         record = page_record(workspace, book_key, number)
         pages.append({"pageIndex": number, "status": record.get("review", {}).get("status", "pending") if record else "missing", "method": record.get("method") if record else None, "blockCount": len(record.get("blocks", [])) if record else 0, "flags": record.get("flags", []) if record else ["Chưa trích xuất"]})
-    return {"book": book, "chapter": chapter, "pages": pages, "completed": sum(page["status"] != "missing" for page in pages), "total": len(pages)}
+    lesson_drafts = []
+    for path in workspace.inside(".local", "lessons").glob("*.json"):
+        draft = read_json(path)
+        if draft.get("bookKey") == book_key and draft.get("chapterId") == chapter_id:
+            lesson_drafts.append(str(draft.get("packKey") or path.stem))
+    return {
+        "book": book,
+        "chapter": chapter,
+        "pages": pages,
+        "completed": sum(page["status"] != "missing" for page in pages),
+        "total": len(pages),
+        "lessonDrafts": sorted(lesson_drafts),
+    }
 
 
 def process_chapter(workspace: Workspace, book_key: str, chapter_id: str, mineru_bin: str | None, tier: str = "standard", progress: Any = None, rerun: bool = False) -> dict[str, Any]:

@@ -13,11 +13,11 @@ from nexalab_content_tool.enrichment import (
     save_lab_candidates, suggest_lab_candidates,
 )
 from nexalab_content_tool.m1_workflow import (
-    _mineru_text, chapter_state, draft_path, export_status, import_book, page_record,
+    _mineru_text, chapter_state, draft_path, export_status, import_book, page_path, page_record,
     process_chapter, save_chapter, save_draft, save_review,
 )
 from nexalab_content_tool.manifest import build_manifest
-from nexalab_content_tool.workspace import ContentToolError, Workspace, init_workspace
+from nexalab_content_tool.workspace import ContentToolError, Workspace, init_workspace, write_json
 from nexalab_content_tool.m0a_review import _multipart_text
 
 
@@ -76,6 +76,7 @@ class M1WorkflowTests(unittest.TestCase):
             self.assertEqual(chapter_state(workspace, "test-book", "chapter-one")["completed"], 2)
             save_review(workspace, "test-book", 1, "accepted", {"0": "Manually corrected source text"}, 5)
             save_review(workspace, "test-book", 2, "accepted", {}, 2)
+            self.assertEqual(build_enrichment_proposal(workspace, "test-book", "chapter-one", [1])["title"], "Chapter one")
             process_chapter(workspace, "test-book", "chapter-one", None, rerun=True)
             self.assertEqual(page_record(workspace, "test-book", 1)["review"]["edits"]["0"], "Manually corrected source text")
             workspace = Workspace.open(root / "workspace")  # Restart the tool from saved files.
@@ -89,6 +90,7 @@ class M1WorkflowTests(unittest.TestCase):
                 "basicExercises": {"id": "exercise-one", "passThreshold": 50, "questions": [{"id": "question-one", "prompt": "What is in the source?", "options": [{"id": "option-a", "text": "Source text"}, {"id": "option-b", "text": "No text"}], "correctOptionId": "option-a"}]},
             })
             self.assertTrue(draft_path(workspace, draft["packKey"]).is_file())
+            self.assertEqual(chapter_state(Workspace.open(root / "workspace"), "test-book", "chapter-one")["lessonDrafts"], [draft["packKey"]])
             manifest = build_manifest(workspace, allow_unreviewed=True)
             self.assertEqual(manifest["packs"][0]["lesson"]["basicExercises"]["id"], "exercise-one")
             self.assertEqual(manifest["packs"][0]["lesson"]["questions"], [])
@@ -103,16 +105,27 @@ class M1WorkflowTests(unittest.TestCase):
             page = pdf.new_page()
             page.insert_text((60, 80), "2. Phan ung hoa hoc")
             page.insert_text((60, 120), "Phản ứng hoá học bảo toàn khối lượng của chất phản ứng và sản phẩm. " * 2)
+            page.insert_text((60, 160), "3. Dinh luat bao toan")
+            page.insert_text((60, 200), "Tổng khối lượng các chất tham gia bằng tổng khối lượng sản phẩm.")
             payload = pdf.tobytes()
             pdf.close()
             import_book(workspace, payload, key="science-book", version="v1", title="Science", author="Publisher", local_rights=True)
             save_chapter(workspace, "science-book", chapter_id="reaction", title="Reaction", start=1, end=1)
             process_chapter(workspace, "science-book", "reaction", None)
+            record = page_record(workspace, "science-book", 1)
+            record["blocks"][0]["type"] = "paragraph_title"
+            record["blocks"][2]["type"] = "paragraph_title"
+            write_json(page_path(workspace, "science-book", 1), record)
             save_review(workspace, "science-book", 1, "accepted", {}, 1)
             proposal = build_enrichment_proposal(workspace, "science-book", "reaction", [1])
             self.assertEqual(proposal["status"], "proposed")
             self.assertTrue(proposal["sections"][0]["sourceBlockIds"])
             self.assertTrue(proposal["knowledgeUnits"][0]["claims"])
+            self.assertEqual(len(proposal["sections"]), 2)
+            self.assertEqual(len(proposal["knowledgeUnits"]), 2)
+            self.assertEqual(proposal["title"], "2. Phan ung hoa hoc")
+            self.assertEqual(proposal["summary"], " ".join(unit["claims"][0]["text"] for unit in proposal["knowledgeUnits"]))
+            self.assertEqual(proposal["knowledgeUnits"][0]["claims"][0]["sourceBlockIds"], [proposal["blocks"][1]["id"]])
             self.assertNotEqual(proposal["blocks"][0]["originalText"], "")
 
             draft = {
