@@ -8,6 +8,7 @@ from .backend import run_apply, run_plan
 from .extract import extract_native_pdf
 from .identity import reserve_id
 from .manifest import export_manifest
+from .m0a_review import launch_review, launch_studio
 from .report import render_report
 from .workspace import ContentToolError, Workspace, init_workspace
 
@@ -35,6 +36,17 @@ def _parser() -> argparse.ArgumentParser:
     report = commands.add_parser("report", help="render a static local review report")
     report.add_argument("workspace")
     report.add_argument("--output")
+
+    review = commands.add_parser("review", help="review local MinerU OCR beside source PDF pages")
+    review.add_argument("workspace")
+    review.add_argument("--pdf", required=True)
+    review.add_argument("--mineru-zip", required=True)
+    review.add_argument("--port", type=int, default=0)
+
+    studio = commands.add_parser("studio", help="open the local PDF import and OCR review UI")
+    studio.add_argument("workspace")
+    studio.add_argument("--port", type=int, default=8765)
+    studio.add_argument("--mineru-bin", help="path to local mineru-kit executable; defaults to NEXALAB_MINERU_KIT or PATH")
 
     export = commands.add_parser("export", help="export a deterministic current-schema release manifest")
     export.add_argument("workspace")
@@ -71,6 +83,12 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         if args.command == "report":
             print(render_report(workspace, args.output))
+            return 0
+        if args.command == "review":
+            launch_review(workspace, args.pdf, args.mineru_zip, args.port)
+            return 0
+        if args.command == "studio":
+            launch_studio(workspace, args.port, args.mineru_bin)
             return 0
         if args.command == "export":
             path, digest = export_manifest(workspace, args.output)

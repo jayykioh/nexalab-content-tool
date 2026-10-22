@@ -134,7 +134,6 @@ def init_workspace(root: str | Path, name: str) -> Path:
                 "createdAt": datetime.now(timezone.utc).isoformat(),
                 "name": name,
                 "reviewPolicy": {
-                    "hReviewMaxHours": None,
                     "localSourceRightsConfirmed": False,
                     "ocrAcceptanceThreshold": None,
                 },

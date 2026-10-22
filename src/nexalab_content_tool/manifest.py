@@ -74,11 +74,12 @@ def _stable_id(value: Any, label: str) -> str:
     return value
 
 
-def _expected_ids(relative: str, pack: dict[str, Any]) -> list[tuple[str, str, str]]:
+def _expected_ids(relative: str, pack: dict[str, Any], inventory_sources: set[str] | None = None) -> list[tuple[str, str, str]]:
     result = [("pack", _stable_id(pack.get("key"), "pack.key"), f"{relative}#pack")]
     for source in pack.get("sources", []):
         identifier = _stable_id(source.get("id"), "pack source.id")
-        result.append(("source", identifier, f"{relative}#source:{identifier}"))
+        owner = f"source-inventory.json#source:{identifier}" if identifier in (inventory_sources or set()) else f"{relative}#source:{identifier}"
+        result.append(("source", identifier, owner))
     for unit in pack.get("knowledgeUnits", []):
         unit_id = _stable_id(unit.get("id"), "knowledge unit.id")
         result.append(("unit", unit_id, f"{relative}#unit:{unit_id}"))
@@ -160,9 +161,9 @@ def _validate_evidence(
             if target != "lesson.content":
                 raise ContentToolError(f"{path}: unsupported contentRef {target}")
             target_key = target
-        mapping = (target_key, item["sourceId"])
+        mapping = (target_key, item["sourceId"], page_index)
         if mapping in targets:
-            raise ContentToolError(f"{path}: duplicate evidence mapping {target_key} -> {item['sourceId']}")
+            raise ContentToolError(f"{path}: duplicate evidence mapping {target_key} -> {item['sourceId']} page {page_index}")
         targets.add(mapping)
 
         if item["extractionMethod"] == "synthetic-fixture":
@@ -184,9 +185,11 @@ def _validate_evidence(
             not isinstance(extraction, dict)
             or extraction.get("sourceSha256") != item["sourceSha256"]
             or extraction.get("sourceVersion") != item["sourceVersion"]
-            or extraction.get("extractionMethod") != item["extractionMethod"]
+            or (extraction.get("pageMethods", {}).get(str(page_index), extraction.get("extractionMethod")) != item["extractionMethod"])
         ):
             raise ContentToolError(f"{path}: evidence does not match the extraction artifact")
+        if extraction.get("schemaVersion") == 2 and page_index not in extraction.get("reviewedPages", []):
+            raise ContentToolError(f"{path}: evidence page {page_index} has not passed OCR review")
         page_count = extraction.get("pageCount")
         if isinstance(page_count, bool) or not isinstance(page_count, int) or page_index > page_count:
             raise ContentToolError(f"{path}: evidence page is outside the extraction artifact")
@@ -241,8 +244,9 @@ def _validate_reviews(namespace: str, pack: dict[str, Any], review_log: Any, pat
         raise ContentToolError(f"{path}: subject and rights reviewers must differ")
 
 
-def build_manifest(workspace: Workspace) -> dict[str, Any]:
+def build_manifest(workspace: Workspace, *, allow_unreviewed: bool = False) -> dict[str, Any]:
     release, wrappers = load_authoring(workspace)
+    inventory_sources = {item.get("key") for item in workspace.inventory()["sources"] if isinstance(item, dict)}
     packs = []
     expected_ids: list[tuple[str, str, str]] = []
     for path, wrapper in wrappers:
@@ -259,9 +263,10 @@ def build_manifest(workspace: Workspace) -> dict[str, Any]:
         if lesson.get("questions") != []:
             raise ContentToolError(f"{path}: lesson.questions must stay empty in M1 to avoid creating a public QUIZ")
         _validate_evidence(workspace, release["namespace"], pack, wrapper.get("evidence"), path)
-        _validate_reviews(release["namespace"], pack, wrapper.get("reviewLog"), path)
+        if not allow_unreviewed:
+            _validate_reviews(release["namespace"], pack, wrapper.get("reviewLog"), path)
         relative = path.relative_to(workspace.root).as_posix()
-        expected_ids.extend(_expected_ids(relative, pack))
+        expected_ids.extend(_expected_ids(relative, pack, inventory_sources))
         packs.append(pack)
     duplicate_pack_keys = _duplicates([item["key"] for item in packs])
     if duplicate_pack_keys:

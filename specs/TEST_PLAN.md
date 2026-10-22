@@ -11,6 +11,13 @@
 
 | Lớp | Kiểm tra bắt buộc | Kết quả mong đợi |
 |---|---|---|
+| Book import UI | Import PDF mới / cùng file trùng hash / file thay phiên bản; sample và full | Nguồn có version/hash; duplicate được nhận diện; lựa chọn scope rõ; không gửi dữ liệu ra ngoài |
+| Pipeline progression | Dừng/reopen sau import, OCR, review và authoring; thử lỗi OCR/thiếu runtime | UI tiếp tục từ checkpoint; lỗi hiển thị tại stage đúng; không đánh dấu bước sau complete khi prerequisite chưa đạt |
+| MinerU | Xác minh local `mineru-kit` version, tier, model và source hash; sample rồi full | UI gọi MinerU local đúng; trạng thái chỉ báo dữ liệu engine thật cung cấp; lỗi/timeout có thể retry/resume an toàn |
+| OCR review | Sửa/chấp nhận/đánh dấu block; kiểm tra source crop, history, elapsed time và hash | Original/source locator giữ nguyên; thao tác OCR không yêu cầu reviewer name và không tính là formal release approval |
+| Gemini LaTeX (gated) | Gemini tắt; quyền/provider policy chưa xác nhận; sau khi gate mở thử đề xuất sửa công thức | Mặc định/manual flow vẫn hoạt động; khi bật thì chỉ proposal/diff, giữ original, cần operator áp dụng; không auto-review/publish |
+| Lesson authoring UI | Tạo 2–3 Lesson từ OCR/reviewed content, lưu/reopen, sửa wording và export lại | Không cần chỉnh JSON; stable IDs và source evidence giữ nguyên; thiếu curriculum/evidence được chỉ rõ |
+| Tool → BE plan | Export UI-authored pack rồi chạy BE `plan` | Manifest đúng contract; blocker/diff được hiển thị; plan không ghi DB; digest/export deterministic |
 | Manifest/schema | Legacy fixture không có `basicExercises`; parse và digest golden value | Vẫn hợp lệ; digest cũ không đổi |
 | Manifest/schema | Field `basicExercises` sai shape, duplicate IDs, answer không thuộc options | Bị từ chối ở validator phù hợp; ID hợp lệ giữ nguyên |
 | Release gates | Baseline thiếu một trong 4 review; reviewer không active; subject = rights | Plan blocked với blocker cụ thể |
@@ -25,6 +32,7 @@
 | Apply/versioning | Sửa pack tạo digest chưa từng apply rồi apply | Tạo version/Lesson mới; version/Lesson cũ archive; historical attempts giữ nguyên và đúng step |
 | Apply/atomicity | Gây lỗi có kiểm soát giữa transaction trong integration test | Không để lại release/content update một phần |
 | Open Curriculum | GET list/detail sau staging apply | Chỉ Lesson released/published/shared xuất hiện; exercise hiển thị và attempt hoạt động |
+| Progress semantics | Pipeline stage progress vs active-course/student progress | UI không gọi OCR/authoring stage là student progress; release không tự thêm Lesson vào course hoặc cập nhật course denominator |
 | OCR/review | Mẫu trang native text/OCR; đo disagreement, lỗi, review time và uncovered-ink flags | Có số liệu trước quyết định mở rộng; flag chỉ hỗ trợ review, không tự sửa |
 
 ## Trình tự chạy
@@ -32,7 +40,8 @@
 1. **BE unit:** từ `D:\coding\nexalab-be`, chạy `npm test`; tập trung pack schema/gates, materialization, pathway, progress và release service.
 2. **BE integration:** từ BE, chạy `npm run test:integration` với DB/API seeded đã xác nhận; kiểm tra apply, idempotency, rollback transaction và version mới.
 3. **FE:** từ `D:\coding\nexalab-fe`, chạy `npm run lint` và `npm run build`; sau đó `npm run test:e2e` với API/FE và browser đã cấu hình.
-4. **Staging manual:** làm preflight NexaLab riêng; plan → review digest/blockers → apply baseline có người duyệt thật → Open Curriculum → exercise attempt → đổi digest → kiểm tra Lesson/attempt cũ.
+4. **Local UI M1:** import KHTN 8, sample OCR, sửa block, đóng/mở lại workspace, tạo Lesson trong UI, export và BE plan. Chạy lại manual-only khi Gemini tắt; chưa gọi apply.
+5. **Staging manual M2b/M3:** chỉ sau khi M1/M2a integration đạt; làm preflight NexaLab riêng; plan → review digest/blockers → apply baseline qua BE với approvals thật → Open Curriculum → exercise attempt → đổi digest → kiểm tra Lesson/attempt cũ.
 
 Không bỏ qua preflight database vì unit tests xanh. Không cần thêm test suite mới chỉ để kiểm tra các hành vi đã có; bổ sung test đúng tại BE/FE module bị thay đổi.
 

@@ -17,3 +17,6 @@ nexalab-content = "nexalab_content_tool.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+nexalab_content_tool = ["m1_ui.html"]
