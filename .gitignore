@@ -7,6 +7,7 @@ __pycache__/
 
 # Operator workspaces can contain restricted source material.
 /workspaces/
+/tmp/
 /.tmp/
 **/.local/
 **/extracts/
