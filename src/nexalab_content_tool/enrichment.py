@@ -26,13 +26,13 @@ def normalize_text(value: str) -> str:
     return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
 
 
-def _reviewed_blocks(workspace: Workspace, book_key: str, pages: list[int]) -> list[dict[str, Any]]:
+def _reviewed_blocks(workspace: Workspace, book_key: str, pages: list[int], *, allow_pending: bool = False) -> list[dict[str, Any]]:
     from .m1_workflow import page_record
 
     result: list[dict[str, Any]] = []
     for number in pages:
         page = page_record(workspace, book_key, number)
-        if not page or page.get("review", {}).get("status") != "accepted":
+        if not page or (not allow_pending and page.get("review", {}).get("status") != "accepted") or not any(str(block.get("text", "")).strip() for block in page.get("blocks", [])):
             raise ContentToolError(f"PDF page {number} must be accepted before enrichment")
         edits = page.get("review", {}).get("edits", {})
         for index, block in enumerate(page.get("blocks", [])):
@@ -58,10 +58,10 @@ def _stable_id(prefix: str, seed: str) -> str:
     return f"{prefix}-{clean}-{hashlib.sha256(seed.encode()).hexdigest()[:8]}"
 
 
-def build_enrichment_proposal(workspace: Workspace, book_key: str, chapter_id: str, pages: list[int]) -> dict[str, Any]:
+def build_enrichment_proposal(workspace: Workspace, book_key: str, chapter_id: str, pages: list[int], *, allow_pending: bool = False) -> dict[str, Any]:
     from .m1_workflow import _book, _chapter
 
-    blocks = _reviewed_blocks(workspace, book_key, pages)
+    blocks = _reviewed_blocks(workspace, book_key, pages, allow_pending=allow_pending)
     sections: list[dict[str, Any]] = []
     current = {"id": _stable_id("section", f"{chapter_id}-intro"), "heading": "Nội dung bài học", "content": [], "sourceBlockIds": []}
     for block in blocks:
@@ -103,7 +103,7 @@ def build_enrichment_proposal(workspace: Workspace, book_key: str, chapter_id: s
     title = next((section["heading"] for section in sections if section["heading"] != "Nội dung bài học"), chapter_title)
     summary = " ".join(unit["claims"][0]["text"] for unit in units[:2])
     proposal = {"schemaVersion": 1, "kind": "local", "status": "proposed", "bookKey": book_key, "chapterId": chapter_id, "pages": sorted(set(pages)), "title": title, "summary": summary, "learningObjective": f"Trình bày nội dung chính của {title}", "sections": sections, "knowledgeUnits": units, "blocks": blocks, "createdAt": _now()}
-    path = workspace.inside(".local", "proposals", f"{book_key}-{chapter_id}-local.json")
+    path = workspace.inside(".local", "proposals", f"{book_key}-{chapter_id}-{min(pages)}-{max(pages)}-local.json")
     write_json(path, proposal)
     return proposal
 
@@ -145,16 +145,23 @@ _LAB_MODELS = (
 )
 
 
-def suggest_lab_candidates(workspace: Workspace, draft: dict[str, Any], *, outcome_verified: bool) -> list[dict[str, Any]]:
+def suggest_lab_candidates(workspace: Workspace, draft: dict[str, Any]) -> list[dict[str, Any]]:
+    from .authoring_contract import load_verification
+
     outcome = str(draft.get("outcomeCode", "")).strip()
-    if not outcome or not outcome_verified:
-        raise ContentToolError("A verified curriculum outcome is required before suggesting a Lab")
+    verification = load_verification(workspace, str(draft.get("packKey", "")))
+    verified_outcome = verification.get("outcome", {})
+    verified_draft = verification.get("verifiedDraft", {})
+    if not outcome or verified_outcome.get("code") != outcome or verified_outcome.get("status") != "active" or any(verified_draft.get(key) != draft.get(key) for key in ("outcomeCode", "grade", "domain")):
+        raise ContentToolError("The draft outcome is not verified against the current BE curriculum")
     text = normalize_text(" ".join([str(draft.get("title", "")), str(draft.get("learningObjective", "")), str(draft.get("claim", "")), *(str(section.get("content", "")) for section in draft.get("sections", []))])).lower()
     candidates = []
     for model, terms, capability in _LAB_MODELS:
         evidence = sorted(term for term in terms if term in text)
         if evidence:
-            candidates.append({"id": _stable_id("lab-candidate", f"{draft['packKey']}-{model}"), "status": "proposed", "modelRef": model, "outcomeCodes": [outcome], "objective": draft.get("learningObjective", ""), "rationale": f"Nội dung khớp: {', '.join(evidence)}", "capability": capability, "sourcePages": draft.get("pages", []), "editableNotes": "", "requiresScientificReview": True})
+            lab = next((item for item in verification.get("labs", []) if item.get("modelRef") == model), None)
+            if lab:
+                candidates.append({"id": _stable_id("lab-candidate", f"{draft['packKey']}-{model}"), "status": "proposed", "modelRef": model, "outcomeCodes": [outcome], "objective": draft.get("learningObjective", ""), "rationale": f"Nội dung khớp: {', '.join(evidence)}", "capability": capability, "sourcePages": draft.get("pages", []), "editableNotes": "", "requiresScientificReview": True, "blueprint": {"labId": lab["id"], "modelRef": model, "challengeIds": lab.get("challengeIds", []), "config": {"challengeParams": {}, "goldenCases": [], "reason": "Draft from verified PDF Lesson"}}})
     path = workspace.inside(".local", "lab-candidates", f"{draft['packKey']}.json")
     wrapper = {"schemaVersion": 1, "packKey": draft["packKey"], "status": "proposed", "candidates": candidates, "updatedAt": _now()}
     write_json(path, wrapper)
@@ -173,6 +180,7 @@ def save_lab_candidates(workspace: Workspace, pack_key: str, candidates: list[di
         or not isinstance(item.get("outcomeCodes"), list)
         or not item.get("outcomeCodes")
         or any(not str(code).strip() for code in item["outcomeCodes"])
+        or not isinstance(item.get("blueprint"), dict)
         for item in candidates
     ):
         raise ContentToolError("Lab candidates must remain proposals for an existing simulation model")

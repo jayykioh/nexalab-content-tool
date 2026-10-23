@@ -9,6 +9,8 @@ from .extract import extract_native_pdf
 from .identity import reserve_id
 from .manifest import export_manifest
 from .m0a_review import launch_review, launch_studio
+from .m1_workflow import export_status
+from .structured import export_chapter_candidates
 from .report import render_report
 from .workspace import ContentToolError, Workspace, init_workspace
 
@@ -52,6 +54,11 @@ def _parser() -> argparse.ArgumentParser:
     export.add_argument("workspace")
     export.add_argument("--output")
 
+    structured = commands.add_parser("export-structured", help="export reviewable source Lesson JSON and a BE mapping candidate")
+    structured.add_argument("workspace")
+    structured.add_argument("--book", required=True)
+    structured.add_argument("--chapter", required=True)
+
     plan = commands.add_parser("plan", help="run the authoritative NexaLab backend dry run")
     plan.add_argument("workspace")
     plan.add_argument("--backend", required=True)
@@ -91,8 +98,18 @@ def main(argv: list[str] | None = None) -> int:
             launch_studio(workspace, args.port, args.mineru_bin)
             return 0
         if args.command == "export":
+            status = export_status(workspace, write_manifest=False)
+            if not status["ready"]:
+                blockers = "\n".join(f"- {blocker}" for blocker in status["blockers"])
+                raise ContentToolError(f"Export blocked:\n{blockers}")
             path, digest = export_manifest(workspace, args.output)
             print(f"{path}\nsha256={digest}")
+            return 0
+        if args.command == "export-structured":
+            result = export_chapter_candidates(workspace, args.book, args.chapter)
+            print(result["candidatePath"])
+            for lesson in result["lessons"]:
+                print(f"{lesson['title']}: {lesson['structuredPath'] or 'missing OCR text'}")
             return 0
         if args.command == "plan":
             return run_plan(workspace, args.backend, args.target)

@@ -221,12 +221,31 @@ class _Handler(BaseHTTPRequestHandler):
             self._json(400, {"error": str(error)})
 
     def _m1_get(self, route: str, query: dict[str, list[str]]) -> None:
-        from .m1_workflow import _book, _pdf, books, chapter_state, page_record
+        from .m1_workflow import _book, _pdf, books, chapter_state, detect_toc, page_record, whole_book_report
 
         try:
             book_key = query.get("book", [""])[0]
             if route == "/api/m1/books":
                 self._json(200, {"books": books(self.server.workspace), "job": self.server.job})
+                return
+            if route == "/api/m1/structured-status":
+                book = _book(self.server.workspace, book_key)
+                lessons = []
+                from .structured import _lesson_artifact_path
+                checkpoint_path = self.server.workspace.inside(".local", "books", book_key, "processing.json")
+                checkpoint = read_json(checkpoint_path) if checkpoint_path.is_file() else None
+                for chapter in sorted(book.get("chapters", []), key=lambda item: item.get("start", 0)):
+                    for lesson in chapter.get("lessons", []):
+                        path = _lesson_artifact_path(self.server.workspace, lesson["id"])
+                        artifact = read_json(path) if path.is_file() else None
+                        review = artifact.get("contentReview") if artifact and isinstance(artifact.get("contentReview"), dict) else {}
+                        status = review.get("status") if review.get("status") in {"accepted", "needs_review"} else "needs_review" if artifact else "not_generated"
+                        lessons.append({"id": lesson["id"], "chapterId": chapter["id"], "title": lesson["title"], "pdfPageRange": {"start": lesson["start"], "end": lesson["end"]}, "status": status, "path": str(path) if artifact else None})
+                self._json(200, {"bookKey": book_key, "lessons": lessons, "report": whole_book_report(self.server.workspace, book_key, processing=checkpoint)})
+                return
+            if route == "/api/m1/toc":
+                book = _book(self.server.workspace, book_key)
+                self._json(200, {"bookKey": book_key, "tree": [{key: chapter.get(key) for key in ("id", "title", "start", "end", "lessons", "tocConfirmedAt", "tocProvenance")} for chapter in book.get("chapters", []) if chapter.get("lessons")], "status": "confirmed" if any(chapter.get("lessons") for chapter in book.get("chapters", [])) else "empty"})
                 return
             if route == "/api/m1/chapter":
                 self._json(200, chapter_state(self.server.workspace, book_key, query.get("chapter", [""])[0]))
@@ -264,10 +283,20 @@ class _Handler(BaseHTTPRequestHandler):
                 path = draft_path(self.server.workspace, query.get("pack", [""])[0])
                 self._json(200, read_json(path))
                 return
+            if route == "/api/m1/structured":
+                from .structured import load_structured_lesson
+                self._json(200, load_structured_lesson(self.server.workspace, book_key, query.get("chapter", [""])[0], query.get("lesson", [""])[0]))
+                return
             if route == "/api/m1/lab-candidates":
                 pack = query.get("pack", [""])[0]
                 path = self.server.workspace.inside(".local", "lab-candidates", f"{pack}.json")
                 self._json(200, read_json(path) if path.exists() else {"packKey": pack, "status": "proposed", "candidates": []})
+                return
+            if route == "/api/m1/authoring-verification":
+                from .authoring_contract import verification_path
+                pack = query.get("pack", [""])[0]
+                path = verification_path(self.server.workspace, pack)
+                self._json(200, read_json(path) if path.exists() else {"packKey": pack, "status": "unverified"})
                 return
             self._json(404, {"error": "Not found"})
         except (ContentToolError, ValueError) as error:
@@ -283,7 +312,7 @@ class _Handler(BaseHTTPRequestHandler):
         return value
 
     def _m1_post(self, route: str) -> None:
-        from .m1_workflow import import_book, process_chapter, save_chapter, save_draft, save_formal_reviews, save_review, export_status
+        from .m1_workflow import import_book, process_chapter, process_lesson, process_pdf_pages, save_chapter, save_draft, save_formal_reviews, save_review, save_toc_tree, detect_toc, export_status
 
         try:
             if route == "/api/m1/import":
@@ -303,13 +332,39 @@ class _Handler(BaseHTTPRequestHandler):
                 self._json(200, result)
                 return
             body = self._m1_body()
+            if route == "/api/m1/toc/ocr":
+                if self.server.job["status"] == "running":
+                    raise ContentToolError("Another OCR job is already running")
+                pages, book_key = body.get("pages"), body.get("bookKey")
+                if not isinstance(pages, list) or not pages or any(isinstance(page, bool) or not isinstance(page, int) or page > 40 for page in pages):
+                    raise ContentToolError("TOC OCR accepts selected pages in the first 40 PDF pages")
+                self.server.job = {"status": "running", "message": "Đang OCR trang mục lục bằng MinerU cục bộ…"}
+                def toc_worker() -> None:
+                    try:
+                        result = process_pdf_pages(self.server.workspace, book_key, pages, self.server.mineru_bin, body.get("tier", "standard"), lambda page, end: self.server.job.update({"status": "running", "message": f"Đang OCR PDF {page}/{end}"}), body.get("rerun") is True)
+                        self.server.job = {"status": "done", "message": f"Đã OCR {result['completed']}/{result['total']} trang mục lục; chạy phát hiện TOC để review cây."}
+                    except Exception as error:
+                        self.server.job = {"status": "error", "message": str(error)}
+                threading.Thread(target=toc_worker, daemon=True).start()
+                self._json(202, {"started": True})
+                return
+            if route == "/api/m1/toc/detect":
+                self._json(200, detect_toc(self.server.workspace, body["bookKey"], pages=body.get("pages")))
+                return
+            if route == "/api/m1/toc/confirm":
+                self._json(200, save_toc_tree(self.server.workspace, body["bookKey"], body["tree"], body.get("provenance", {})))
+                return
+            if route == "/api/m1/toc/propose":
+                self._json(200, save_toc_tree(self.server.workspace, body["bookKey"], body["tree"], body.get("provenance", {}), confirmed=False))
+                return
             if route == "/api/m1/chapter":
                 self._json(200, save_chapter(self.server.workspace, body["bookKey"], chapter_id=body["id"], title=body["title"], start=body["start"], end=body["end"], printed_start=body.get("printedStart")))
                 return
             if route == "/api/m1/ocr":
                 if self.server.job["status"] == "running":
                     raise ContentToolError("OCR is already running")
-                book_key, chapter_id = body["bookKey"], body["chapterId"]
+                book_key, chapter_id = body["bookKey"], body.get("chapterId")
+                lesson_id = body.get("lessonId")
                 tier = body.get("tier", "standard")
                 rerun = body.get("rerun") is True
                 self.server.job = {"status": "running", "message": "Đang trích xuất chương…"}
@@ -318,11 +373,33 @@ class _Handler(BaseHTTPRequestHandler):
                     try:
                         def progress(page: int, end: int) -> None:
                             self.server.job = {"status": "running", "message": f"Đang xử lý trang PDF {page}/{end}"}
-                        state = process_chapter(self.server.workspace, book_key, chapter_id, self.server.mineru_bin, tier, progress, rerun)
+                        state = process_lesson(self.server.workspace, book_key, lesson_id, self.server.mineru_bin, tier, progress, rerun) if lesson_id else process_chapter(self.server.workspace, book_key, chapter_id, self.server.mineru_bin, tier, progress, rerun)
                         self.server.job = {"status": "done", "message": f"Đã lưu {state['completed']}/{state['total']} trang; mở Review để kiểm tra."}
                     except Exception as error:
                         self.server.job = {"status": "error", "message": str(error)}
                 threading.Thread(target=worker, daemon=True).start()
+                self._json(202, {"started": True})
+                return
+            if route == "/api/m1/process-book":
+                if self.server.job["status"] == "running":
+                    raise ContentToolError("An OCR job is already running")
+                book_key, tier = body["bookKey"], body.get("tier", "standard")
+                self.server.job = {"status": "running", "message": "Đang chuẩn bị tiếp tục các Lesson có mapping…"}
+
+                def book_worker() -> None:
+                    try:
+                        from .m1_workflow import process_book
+                        from .structured import export_book_candidates, validate_book_outputs
+                        def progress(page: int, total: int) -> None:
+                            self.server.job = {"status": "running", "message": f"Đang OCR/tiếp tục trang PDF {page}/{total}"}
+                        result = process_book(self.server.workspace, book_key, self.server.mineru_bin, tier, progress)
+                        exports = export_book_candidates(self.server.workspace, book_key)
+                        validation = validate_book_outputs(self.server.workspace, book_key)
+                        report = result["report"]
+                        self.server.job = {"status": "done" if report["status"] == "complete" and validation["status"] == "valid" else "partial", "message": f"Lesson OCR hoàn tất: {report['completedPageCount']}/{report['mappedPageCount']} trang; {report['failedPageCount']} lỗi, {report['unmappedPageCount']} trang ngoài vùng Lesson. Candidate: {exports['candidatePath']}"}
+                    except Exception as error:
+                        self.server.job = {"status": "error", "message": str(error)}
+                threading.Thread(target=book_worker, daemon=True).start()
                 self._json(202, {"started": True})
                 return
             if route == "/api/m1/review":
@@ -340,13 +417,22 @@ class _Handler(BaseHTTPRequestHandler):
                 self._json(200, gemini_proposal(self.server.workspace, body["bookKey"], body["chapterId"], body["pages"], provider_confirmed=body.get("providerConfirmed") is True, transmission_allowed=body.get("transmissionAllowed") is True))
                 return
             if route == "/api/m1/lab-candidates":
+                from .authoring_contract import validate_lab_blueprint
                 from .enrichment import save_lab_candidates, suggest_lab_candidates
                 if body.get("action") == "suggest":
-                    self._json(200, {"candidates": suggest_lab_candidates(self.server.workspace, body["draft"], outcome_verified=body.get("outcomeVerified") is True)})
+                    self._json(200, {"candidates": suggest_lab_candidates(self.server.workspace, body["draft"])})
                 elif body.get("action") == "save":
                     self._json(200, save_lab_candidates(self.server.workspace, body["packKey"], body.get("candidates", [])))
+                elif body.get("action") == "validate":
+                    self._json(200, validate_lab_blueprint(body["backend"], body["blueprint"]))
                 else:
-                    raise ContentToolError("Choose suggest or save for Lab candidates")
+                    raise ContentToolError("Choose suggest, save or validate for Lab candidates")
+                return
+            if route == "/api/m1/authoring-verification":
+                from .authoring_contract import fetch_authoring_context, save_verification, verify_authoring_context
+                context = fetch_authoring_context(str(body.get("apiBase", "")), str(body.get("accessToken", "")))
+                verification = verify_authoring_context(body["draft"], context, str(body.get("apiBase", "")))
+                self._json(200, save_verification(self.server.workspace, verification))
                 return
             if route == "/api/m1/formal-reviews":
                 save_formal_reviews(self.server.workspace, body["packKey"], body["reviews"])
@@ -354,6 +440,28 @@ class _Handler(BaseHTTPRequestHandler):
                 return
             if route == "/api/m1/export":
                 self._json(200, export_status(self.server.workspace))
+                return
+            if route == "/api/m1/export-structured":
+                from .structured import export_chapter_candidates
+                self._json(200, export_chapter_candidates(self.server.workspace, body["bookKey"], body["chapterId"]))
+                return
+            if route == "/api/m1/export-book":
+                from .structured import export_book_candidates, validate_book_outputs
+                self._json(200, {**export_book_candidates(self.server.workspace, body["bookKey"]), "validation": validate_book_outputs(self.server.workspace, body["bookKey"])})
+                return
+            if route == "/api/m1/structured-review":
+                from .structured import accept_structured_content, save_structured_content
+                if body.get("action") == "save":
+                    result = save_structured_content(self.server.workspace, body["bookKey"], body["chapterId"], body["lessonId"], body["learningContent"])
+                elif body.get("action") == "accept":
+                    result = accept_structured_content(self.server.workspace, body["bookKey"], body["chapterId"], body["lessonId"], human_review_confirmed=body.get("humanReviewConfirmed") is True)
+                else:
+                    raise ContentToolError("Choose save or accept for local Lesson content review")
+                self._json(200, result)
+                return
+            if route == "/api/m1/export-approved":
+                from .structured import export_approved_lesson
+                self._json(200, export_approved_lesson(self.server.workspace, body["bookKey"], body["chapterId"], body["lessonId"]))
                 return
             if route == "/api/m1/plan":
                 from .backend import TARGET_PATTERN
