@@ -13,6 +13,7 @@ from unittest.mock import patch
 import pymupdf
 
 from nexalab_content_tool.backend import run_apply, run_plan
+from nexalab_content_tool.cli import main
 from nexalab_content_tool.extract import extract_native_pdf
 from nexalab_content_tool.identity import reserve_id
 from nexalab_content_tool.m0a_review import _ReviewServer
@@ -108,6 +109,24 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(exercise["questions"][0]["id"], "practice-current-question")
         self.assertEqual(exercise["questions"][0]["options"][0]["id"], "same-current")
         self.assertEqual(manifest["packs"][0]["lesson"]["questions"], [])
+
+    def test_cli_export_writes_only_requested_output(self) -> None:
+        workspace = self.copy_example()
+        output = workspace.inside("exports", "custom-manifest.json")
+        workspace.inside("exports", "release-manifest.json").unlink(missing_ok=True)
+        with patch("sys.stdout") as stdout:
+            self.assertEqual(main(["export", str(workspace.root), "--output", str(output)]), 0)
+        self.assertTrue(output.is_file())
+        self.assertFalse(workspace.inside("exports", "release-manifest.json").exists())
+        self.assertIn(str(output), "".join(call.args[0] for call in stdout.write.call_args_list))
+
+    def test_empty_release_cannot_build_or_report_manifest(self) -> None:
+        workspace = Workspace.open(init_workspace(self.root / "empty", "empty"))
+        with self.assertRaisesRegex(ContentToolError, "Lesson pack"):
+            build_manifest(workspace)
+        with self.assertRaisesRegex(ContentToolError, "Lesson pack"):
+            export_manifest(workspace)
+        self.assertFalse(workspace.inside("exports", "release-manifest.json").exists())
 
     def test_legacy_pack_without_basic_exercises_remains_exportable(self) -> None:
         workspace = self.copy_example()

@@ -53,6 +53,8 @@ def load_authoring(workspace: Workspace) -> tuple[dict[str, Any], list[tuple[Pat
         raise ContentToolError("release namespace must be fixture or baseline")
     if not isinstance(release.get("sources"), list) or not isinstance(release.get("packFiles"), list):
         raise ContentToolError("release.json sources and packFiles must be arrays")
+    if not release["packFiles"]:
+        raise ContentToolError("Chưa có Lesson pack đủ metadata để export")
     duplicate_files = _duplicates([item for item in release["packFiles"] if isinstance(item, str)])
     if duplicate_files:
         raise ContentToolError(f"Duplicate packFiles entries: {', '.join(duplicate_files)}")
