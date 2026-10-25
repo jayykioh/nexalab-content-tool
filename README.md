@@ -84,6 +84,135 @@ uv run nexalab-content apply workspaces/pilot --backend ..\BE-NexaLab --target d
 
 The backend rechecks the active initiator, active ADMIN approver, baseline approver separation, plan gates, transaction, and idempotency. Its CLI email arguments look up accounts; they do not authenticate the operator or prove that a human completed the baseline reviews. Only run baseline apply after real editorial, subject, rights, and accessibility reviews are complete, and run it from the controlled backend environment whose database identity has been verified. No HTTP apply route is used.
 
+## Curriculum bootstrap for another textbook
+
+Start with `outcomes-propose` to build a deterministic local proposal from existing Structured Lesson JSON in `exports/structured`. It reads explicit objective fields and text blocks following an existing `Mục tiêu`/`Objectives` section heading; it does not rerun OCR or invent objective wording. Knowledge Unit headings stay separately labeled as source concepts, never promoted to outcomes solely because they are headings. Candidates include measurable-action and source-grounding checks, stable ordered-text identities, near-duplicate flags, Lesson and multi-outcome Knowledge Unit mapping suggestions, provenance, confidence basis, and proposal-only Lab opportunity classes. A candidate is never approved automatically, and no official curriculum code is generated. The review queue groups evidence by book, chapter, Lesson and source topic, with ambiguous items first.
+
+```powershell
+uv run python -m nexalab_content_tool.cli outcomes-propose workspaces/pilot --name textbook-a
+```
+
+The report is written to `.local/outcomes/textbook-a.json`. Optional `--curriculum-source-metadata path/to/catalog.json` pins the local catalog digest separately from an official source document digest; a missing official document checksum stays `null`. The extraction is generic and does not assume one outcome per Knowledge Unit. The local `outcomes-review` workflow records named human decisions for internal outcomes and mappings after source text verification; it does not make an outcome official. Explicitly approved internal outcomes can sync through the separate guarded BE Registry workflow. Official curriculum crosswalk remains an optional, separate verification stage.
+
+```powershell
+uv run python -m nexalab_content_tool.cli outcomes-review workspaces/pilot --name textbook-a --input outcome-review.json
+```
+
+The existing Content Tool Studio includes a grouped visual review screen at **4. Duyệt outcomes**. Start it from this repository root and open the printed loopback URL:
+
+```powershell
+uv run python -m nexalab_content_tool.cli studio workspaces/m1-khtn8-acceptance --port 8765
+```
+
+Open `http://127.0.0.1:8765`, choose **4. Duyệt outcomes**, and load `khtn8-quality-review`. The screen groups candidates and mappings by Chapter and Lesson and displays source phrase, PDF page, source blocks, source digest, ambiguity, confidence and mapping suggestion. The operator must select each row, choose a decision, enter a real reviewer identity/reason, and confirm source verification. It supports approve, revise, reject, merge, reuse, ambiguous and unmapped actions. Loading or displaying proposals does not record a decision.
+
+Each review input explicitly selects candidate IDs. Outcome decisions are `approve`, `revise`, `reject`, `merge`, or `reuse`; mapping decisions are `approve`, `revise`, `reject`, `ambiguous`, or `unmapped`. Every selected decision includes the exact `verifiedSourceBlockIds`; the ID list must cover all evidence blocks for that candidate or mapping. Approval also requires a named reviewer, email, reason, source verification and, when relevant, explicit duplicate/quality resolution. A revised statement remains pending until a later explicit approval. `merge` points to an approved internal outcome; `reuse` selects another candidate or an existing BE code. An `unmapped` decision requires a documented reason. Decisions append to `.local/outcomes/review-events.jsonl`; immutable proposal snapshots are stored under `.local/outcomes/versions/` and referenced by SHA-256 proposal version.
+
+```json
+{
+  "sourceTextVerified": true,
+  "reviewerName": "Actual reviewer name",
+  "reviewerEmail": "reviewer@example.org",
+  "reason": "Checked the cited source blocks and page locators",
+  "outcomeDecisions": {
+    "<candidate-id>": {
+      "decision": "approve",
+      "verifiedSourceBlockIds": ["<source-block-id>"],
+      "registryAttributes": {"grade": 8, "domain": "MATTER", "chapter": "Reviewed chapter title"}
+    }
+  },
+  "mappingDecisions": {
+    "<mapping-id>": {"decision": "approve", "verifiedSourceBlockIds": ["<source-block-id>"]}
+  }
+}
+```
+
+Run `outcomes-export` to produce the approved-only bundle, rejected/merged records, reviewed Lesson/Knowledge Unit mappings, remaining queue and preflight report. `outcomes-sync` writes approved internal outcomes only, after checking the BE development target and provenance column; it never writes Lessons or publishes content. New outcomes receive stable `NXO-…` NexaLab codes; `officialCode` remains null. The separate `curriculum-propose/review/sync` flow remains for an optional verified official curriculum crosswalk.
+
+```powershell
+uv run python -m nexalab_content_tool.cli outcomes-export workspaces/pilot --name textbook-a
+$env:NEXALAB_ADMIN_ACCESS_TOKEN = '<current admin token>'
+uv run python -m nexalab_content_tool.cli outcomes-sync workspaces/pilot --name textbook-a --api-base http://127.0.0.1:4000/api
+```
+
+The additive BE migration `20261025100000_curriculum_outcome_source_evidence` adds append-only JSONB provenance to new and reused `CurriculumOutcome` records. Existing rows remain null until explicitly backfilled. Sync checks the current BE target response for `outcomeSourceEvidencePersisted=true` and stops before taxonomy reads/writes when the migration is absent. Deploy migrations with the repository's `npm run db:migrate` workflow; do not modify Prisma migration history manually.
+
+For optional model assistance, pass `--llm-proposals reviewed-model-output.json`. Each candidate ID must map to exactly `normalizedStatement`, `evidenceSourceBlockIds`, `confidence`, `ambiguity`, `mergeWithOutcomeId`, and `suggestedOutcomeIds`; cited blocks and mapping targets must be allowed for that candidate, and a merge target must be one of its flagged possible duplicates. Model output remains a suggestion requiring human review.
+
+The existing BE Registry sync remains constrained by the current BE Registry contract (Grades 8–9 and its configured domains). Internal textbook-derived outcomes require their own explicit human outcome/mapping decisions, provenance and BE target/environment preflight; they do not require or receive invented official codes. If an official curriculum crosswalk is later needed, verify its source document and locators through the separate `curriculum-propose/review/sync` workflow.
+
+Curriculum and textbook structure have separate identities. Keep stable `framework.key`, Subject IDs, chapter/topic codes and semantic outcome keys in the proposal; never derive those keys from PDF page numbers or OCR headings. `curriculum-propose` creates NexaLab-owned outcome codes (`NX-…`) and stores official statements/source locators separately. It suggests exact active, non-synthetic BE matches and exposes other active outcomes for the same grade/domain as human-review candidates. Only the explicit reviewer choice reuses a non-exact candidate. A source's official outcome code is never invented.
+
+Create an input JSON with this shape. The source PDF digest and each outcome locator are required evidence fields; enter verified source text and references from the authoritative curriculum source:
+
+```json
+{
+  "framework": {
+    "key": "VN2018",
+    "version": "2018.1",
+    "title": "Verified curriculum framework title",
+    "source": {
+      "authority": "Issuing authority",
+      "url": "https://authority.example/curriculum.pdf",
+      "publishedAt": "2018-12-26",
+      "accessedAt": "2026-10-24",
+      "sha256": "<64-character source file SHA-256>"
+    }
+  },
+  "textbookIdentity": {"bookKey": "book-key", "version": "edition-key"},
+  "subjects": [{
+    "id": "KHTN",
+    "name": "Khoa học tự nhiên",
+    "chapters": [{
+      "code": "KHTN-G8-MATTER-01",
+      "title": "Stable curriculum chapter title",
+      "grade": 8,
+      "domain": "MATTER",
+      "topics": [{
+        "code": "KHTN-G8-MATTER-ATOMS",
+        "title": "Stable curriculum topic",
+        "outcomes": [{"key": "atomic-model", "statement": "Verified official statement", "sourceLocator": "page 14, section 2"}]
+      }]
+    }]
+  }],
+  "mappings": [{
+    "lessonId": "book-key-lesson-id",
+    "knowledgeUnitId": "knowledge-unit-id",
+    "outcomeKeys": ["atomic-model"],
+    "sourcePages": [8],
+    "rationale": "Human-reviewable mapping rationale"
+  }]
+}
+```
+
+Run the proposal and inspect the generated registry. The first command can query BE read-only to add exact-match reuse suggestions. Then record explicit source, outcome and mapping approvals. `NEXALAB_ADMIN_ACCESS_TOKEN` is read from the process environment and is not saved in workspace files. Curriculum sync writes only through BE admin APIs and is hard-restricted to a loopback API URL. Before any writes it calls the read-only `/admin/curriculum-target` check and requires `APP_ENV=development` plus loopback `DATABASE_URL` and `DIRECT_URL`; a local BE connected to a remote database is rejected. It creates a versioned BE Framework plus Subject/grade links, then uses existing Chapter/Topic/Outcome endpoints. It refuses unapproved registries and conflicting existing records. The sync command never publishes content. It asks the existing release exporter to regenerate a manifest only when all normal content/release gates are already satisfied.
+
+```powershell
+$env:NEXALAB_ADMIN_ACCESS_TOKEN = '<current admin token>'
+uv run nexalab-content curriculum-propose workspaces/pilot --input curriculum-proposal.json --api-base http://127.0.0.1:4000/api
+```
+
+Open `.local/curriculum/<framework>@<version>.json`, review the generated internal codes and reuse candidates, then create a separate review JSON containing the selected `outcomeCodes` mapping from each semantic key to either an exact existing BE code or the proposed `NX-…` code; `mappingIds` contains the proposal's mapping IDs. The reviewer fields and reason are required:
+
+```json
+{
+  "sourceVerified": true,
+  "outcomeCodes": {"atomic-model": "NX-VN2018-8-MA-ATOMIC-MOD-1234ABCD"},
+  "mappingIds": ["<mapping id from the registry>"],
+  "reviewerName": "Actual reviewer name",
+  "reviewerEmail": "reviewer@example.org",
+  "reason": "Source locator and outcome-to-Lesson mapping reviewed"
+}
+```
+
+```powershell
+uv run nexalab-content curriculum-review workspaces/pilot --framework VN2018 --version 2018.1 --input curriculum-review.json
+uv run nexalab-content curriculum-sync workspaces/pilot --framework VN2018 --version 2018.1 --api-base http://127.0.0.1:4000/api
+Remove-Item Env:NEXALAB_ADMIN_ACCESS_TOKEN
+```
+
+Review approval is a local operator record; BE admin authentication and its audit log record any authoritative taxonomy creation. The local BE URL guard prevents accidental remote/production writes. A BE curriculum record remains separate from a textbook Lesson; no Lesson JSON is rewritten by bootstrap. The full release manifest remains blocked until the existing source-rights, pack-content, and formal-review requirements pass. Use `plan` only after inspecting the regenerated manifest and verifying its actual target database identity.
+
 ## Synthetic example
 
 `examples/synthetic-pilot` demonstrates registry, evidence, fixture review markers, report, and export. Its reviewers and sources are synthetic. It is not approved baseline content and must not be presented as evidence that a human completed review.

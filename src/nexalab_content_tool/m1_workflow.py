@@ -777,6 +777,11 @@ def save_draft(workspace: Workspace, data: dict[str, Any]) -> dict[str, Any]:
     if len(title) < 3 or len(objective) < 5 or len(claim) < 5:
         raise ContentToolError("Lesson title, objective and source-grounded claim are required")
     outcome = str(data.get("outcomeCode", "")).strip()
+    outcomes = data.get("outcomeCodes", [outcome] if outcome else [])
+    if not isinstance(outcomes, list) or any(not isinstance(item, str) or not item.strip() for item in outcomes) or len(outcomes) != len(set(outcomes)):
+        raise ContentToolError("Outcome mappings must be a list of unique non-empty BE codes")
+    outcomes = [item.strip() for item in outcomes]
+    outcome = outcomes[0] if outcomes else ""
     if data.get("domain") not in {"MATTER", "ENERGY", "LIVING", "EARTH_SKY"}:
         raise ContentToolError("Choose a valid content domain")
     grade = data.get("grade")
@@ -835,7 +840,7 @@ def save_draft(workspace: Workspace, data: dict[str, Any]) -> dict[str, Any]:
     source_artifact = str(data.get("sourceArtifactVersionId", "")).strip()
     if source_artifact and not re.fullmatch(r"[a-z0-9]{20,40}", source_artifact):
         raise ContentToolError("Source artifact must be a pinned AssetVersion ID")
-    clean = {**data, "title": title, "learningObjective": objective, "claim": claim, "outcomeCode": outcome, "pages": sorted(set(selected)), "materials": materials, "sourceArtifactVersionId": source_artifact, "savedAt": _now()}
+    clean = {**data, "title": title, "learningObjective": objective, "claim": claim, "outcomeCode": outcome, "outcomeCodes": outcomes, "pages": sorted(set(selected)), "materials": materials, "sourceArtifactVersionId": source_artifact, "savedAt": _now()}
     if source_lesson:
         clean["sourceLesson"] = {"id": source_lesson["id"], "title": source_lesson["title"], "chapterId": chapter["id"], "pdfPageRange": {"start": source_lesson["start"], "end": source_lesson["end"]}, "printedPageRange": {"start": source_lesson.get("printedStart"), "end": source_lesson.get("printedEnd")}, "tocProvenance": source_lesson.get("tocProvenance") or chapter.get("tocProvenance"), "sourceSha256": book["sha256"], "sourceVersion": book["version"]}
     if outcome and str(data.get("subjectId", "")).strip():
@@ -871,8 +876,11 @@ def _write_pack(workspace: Workspace, draft: dict[str, Any]) -> None:
         source["artifactVersionId"] = draft["sourceArtifactVersionId"]
     old = existing_pack
     authored_units = draft.get("knowledgeUnits") or [{"id": unit_id, "claims": [{"id": claim_id, "text": draft["claim"]}], "terms": [], "misconceptions": []}]
-    knowledge_units = [{"id": unit["id"], "outcomeCodes": [draft["outcomeCode"]], "claims": [{"id": claim["id"], "text": claim["text"], "important": False, "sourceIds": [source_id]} for claim in unit.get("claims", [])], "terms": unit.get("terms", []), "misconceptions": unit.get("misconceptions", [])} for unit in authored_units]
-    pack = {"key": pack_key, "title": draft["title"], "grade": draft["grade"], "domain": draft["domain"], "chapter": chapter["title"], "topic": str(draft.get("topic", chapter["title"])).strip(), "subjectId": draft["subjectId"], "outcomeCodes": [draft["outcomeCode"]], "synthetic": False, "sources": [source], "knowledgeUnits": knowledge_units, "lesson": {"learningObjective": draft["learningObjective"], "prerequisites": str(draft.get("prerequisites", "")), "content": sections, "materials": draft.get("materials", []), "questions": [], "labId": None}, "reviews": {}}
+    lesson_outcomes = draft.get("outcomeCodes") or ([draft["outcomeCode"]] if draft.get("outcomeCode") else [])
+    if not lesson_outcomes:
+        raise ContentToolError("A BE pack requires an approved curriculum outcome mapping")
+    knowledge_units = [{"id": unit["id"], "outcomeCodes": unit.get("outcomeCodes") or lesson_outcomes, "claims": [{"id": claim["id"], "text": claim["text"], "important": False, "sourceIds": [source_id]} for claim in unit.get("claims", [])], "terms": unit.get("terms", []), "misconceptions": unit.get("misconceptions", [])} for unit in authored_units]
+    pack = {"key": pack_key, "title": draft["title"], "grade": draft["grade"], "domain": draft["domain"], "chapter": chapter["title"], "topic": str(draft.get("topic", chapter["title"])).strip(), "subjectId": draft["subjectId"], "outcomeCodes": lesson_outcomes, "synthetic": False, "sources": [source], "knowledgeUnits": knowledge_units, "lesson": {"learningObjective": draft["learningObjective"], "prerequisites": str(draft.get("prerequisites", "")), "content": sections, "materials": draft.get("materials", []), "questions": [], "labId": None}, "reviews": {}}
     if draft.get("basicExercises"):
         pack["lesson"]["basicExercises"] = draft["basicExercises"]
     previous_pack = old.get("pack", {})

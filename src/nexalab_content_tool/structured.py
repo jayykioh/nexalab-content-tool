@@ -203,9 +203,22 @@ def save_structured_content(workspace: Workspace, book_key: str, chapter_id: str
     return artifact
 
 
-def accept_structured_content(workspace: Workspace, book_key: str, chapter_id: str, lesson_id: str, *, human_review_confirmed: bool) -> dict[str, Any]:
+def accept_structured_content(
+    workspace: Workspace,
+    book_key: str,
+    chapter_id: str,
+    lesson_id: str,
+    *,
+    human_review_confirmed: bool,
+    reviewer_name: str,
+    reviewer_email: str,
+    reason: str,
+) -> dict[str, Any]:
     if human_review_confirmed is not True:
         raise ValueError("Human source and warning review confirmation is required")
+    reviewer_name, reviewer_email, reason = reviewer_name.strip(), reviewer_email.strip().lower(), reason.strip()
+    if len(reviewer_name) < 2 or not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", reviewer_email) or not 5 <= len(reason) <= 500:
+        raise ValueError("A named reviewer, valid email and 5–500 character reason are required")
     artifact = load_structured_lesson(workspace, book_key, chapter_id, lesson_id)
     content = artifact.get("learningContent", {})
     if not str(content.get("summary", "")).strip() or not content.get("sections") or not content.get("knowledgeUnits"):
@@ -220,10 +233,11 @@ def accept_structured_content(workspace: Workspace, book_key: str, chapter_id: s
     review = copy.deepcopy(previous_review) if isinstance(previous_review, dict) else {"history": []}
     review["status"] = "accepted"
     review["acceptedAt"] = now
-    review["acceptedBy"] = None  # The local UI records the action, not a fabricated reviewer identity.
+    review["acceptedBy"] = {"name": reviewer_name, "email": reviewer_email}
+    review["reason"] = reason
     review["acceptedContentSha256"] = _content_hash(content)
     review["acceptedSourceBlocksSha256"] = _source_blocks_hash(artifact.get("sourceBlocks", []))
-    review.setdefault("history", []).append({"action": "accepted", "at": now, "contentSha256": review["acceptedContentSha256"]})
+    review.setdefault("history", []).append({"action": "accepted", "at": now, "reviewerName": reviewer_name, "reviewerEmail": reviewer_email, "reason": reason, "contentSha256": review["acceptedContentSha256"]})
     artifact["contentReview"] = review
     artifact["updatedAt"] = now
     write_json(_lesson_artifact_path(workspace, lesson_id), artifact)
@@ -235,6 +249,9 @@ def export_approved_lesson(workspace: Workspace, book_key: str, chapter_id: str,
     review = artifact.get("contentReview", {})
     if (
         review.get("status") != "accepted"
+        or not isinstance(review.get("acceptedBy"), dict)
+        or not review["acceptedBy"].get("name")
+        or not review["acceptedBy"].get("email")
         or review.get("acceptedContentSha256") != _content_hash(artifact.get("learningContent", {}))
         or review.get("acceptedSourceBlocksSha256") != _source_blocks_hash(artifact.get("sourceBlocks", []))
     ):

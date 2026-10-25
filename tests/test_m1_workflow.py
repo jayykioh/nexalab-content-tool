@@ -93,9 +93,10 @@ class M1WorkflowTests(unittest.TestCase):
             self.assertEqual(persisted["learningContent"]["summary"], "A human-edited concise source summary.")
             self.assertEqual(persisted["sourceLesson"]["id"], "source-lesson-one")
             with self.assertRaisesRegex(ValueError, "confirmation"):
-                accept_structured_content(workspace, "science-book", "chapter-one", "source-lesson-one", human_review_confirmed=False)
-            accepted = accept_structured_content(workspace, "science-book", "chapter-one", "source-lesson-one", human_review_confirmed=True)
+                accept_structured_content(workspace, "science-book", "chapter-one", "source-lesson-one", human_review_confirmed=False, reviewer_name="Reviewer", reviewer_email="reviewer@example.test", reason="Source checked")
+            accepted = accept_structured_content(workspace, "science-book", "chapter-one", "source-lesson-one", human_review_confirmed=True, reviewer_name="Reviewer", reviewer_email="reviewer@example.test", reason="Source checked")
             self.assertEqual(accepted["contentReview"]["status"], "accepted")
+            self.assertEqual(accepted["contentReview"]["acceptedBy"]["email"], "reviewer@example.test")
             approved = export_approved_lesson(workspace, "science-book", "chapter-one", "source-lesson-one")
             self.assertTrue(Path(approved["path"]).is_file())
             content = accepted["learningContent"]
