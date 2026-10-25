@@ -575,6 +575,10 @@ class _Handler(BaseHTTPRequestHandler):
             if route == "/api/m1/draft":
                 self._json(200, save_draft(self.server.workspace, body))
                 return
+            if route == "/api/m1/videos":
+                from .m1_workflow import save_video_mapping
+                self._json(200, save_video_mapping(self.server.workspace, body["packKey"], body.get("videos", []), body.get("sections", [])))
+                return
             if route == "/api/m1/enrichment":
                 from .enrichment import build_enrichment_proposal
                 self._json(200, build_enrichment_proposal(self.server.workspace, body["bookKey"], body["chapterId"], body["pages"]))

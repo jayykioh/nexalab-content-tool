@@ -24,6 +24,32 @@ from .workspace import ContentToolError, Workspace, read_json, sha256_file, writ
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
+VIDEO_URL = re.compile(r"^https://(?:www\\.)?(?:youtube\\.com/watch\\?v=[^\\s&]+|youtu\\.be/[^\\s?]+|[^\\s]+\\.(?:mp4|webm)(?:\\?[^\\s]*)?)$", re.I)
+
+def validate_video_mapping(videos: Any) -> list[dict[str, Any]]:
+    if not isinstance(videos, list) or len(videos) > 20: raise ContentToolError("videos must be an array with at most 20 items")
+    clean = []
+    for item in videos:
+        if not isinstance(item, dict) or not ID_PATTERN.fullmatch(str(item.get("id", ""))): raise ContentToolError("Video needs a stable ID")
+        url = str(item.get("url", "")).strip()
+        if not VIDEO_URL.fullmatch(url) or not str(item.get("title", "")).strip(): raise ContentToolError("Video title and HTTPS YouTube/MP4 URL are required")
+        value = {"id": item["id"], "title": str(item["title"]).strip(), "url": url}
+        for key in ("captionUrl", "transcript"):
+            if item.get(key): value[key] = str(item[key]).strip()
+        clean.append(value)
+    return clean
+
+def save_video_mapping(workspace: Workspace, pack_key: str, videos: Any, sections: Any) -> dict[str, Any]:
+    path = draft_path(workspace, pack_key)
+    if not path.exists(): raise ContentToolError("Lesson draft not found")
+    draft = read_json(path)
+    draft["videos"] = validate_video_mapping(videos)
+    draft["sectionVideos"] = [{"id": s["id"], "videos": validate_video_mapping(s.get("videos", []))} for s in (sections or [])]
+    draft["savedAt"] = _now()
+    write_json(path, draft)
+    _write_pack(workspace, draft)
+    return {"packKey": pack_key, "videos": draft["videos"], "sections": draft["sectionVideos"]}
+
 
 class _ReadableHtml(HTMLParser):
     def __init__(self) -> None:
@@ -888,6 +914,8 @@ def _write_pack(workspace: Workspace, draft: dict[str, Any]) -> None:
         if converted["pack"]["key"] != pack_key:
             raise ContentToolError(f"CANONICAL_PACK_KEY_MISMATCH: the draft says {pack_key}, the canonical lesson says {converted['pack']['key']}")
         pack, evidence = converted["pack"], converted["evidence"]
+        pack["lesson"]["videos"] = draft.get("videos", [])
+        pack["lesson"]["sections"] = draft.get("sectionVideos", [])
         previous = read_json(pack_path) if pack_path.exists() else {}
         before = previous.get("pack", {})
         if {k: v for k, v in before.items() if k != "reviews"} == {k: v for k, v in pack.items() if k != "reviews"} and previous.get("evidence") == evidence:
