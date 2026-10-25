@@ -16,7 +16,7 @@ def candidate(source_id: str = "source-lesson-1") -> dict:
         "schemaVersion": 1,
         "kind": "structured-lesson-candidate",
         "status": "needs_review",
-        "book": {"key": "sgk-khtn8", "title": "Local fixture", "author": "Fixture", "version": "1", "sha256": "a" * 64},
+        "book": {"key": "sgk-khtn8", "title": "Local fixture", "author": "Fixture", "version": "1", "sha256": "a" * 64, "grade": 8},
         "chapter": {"id": "chapter-1", "title": "Chapter"},
         "sourceLesson": {"id": source_id, "title": "Lesson", "tocProvenance": {"row": 4}},
         "printedPageRange": {"start": 10, "end": 11},
@@ -91,6 +91,37 @@ class StructuredImportTests(unittest.TestCase):
                 with self.assertRaises(ContentToolError):
                     import_structured_lessons(workspace, "https://api.example.test/api", "admin-token", "expected-project")
                 self.assertEqual(api.call_count, 1)
+
+    def test_applies_only_a_reviewed_local_curriculum_classification(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            lesson = candidate()
+            workspace = self.make_workspace(Path(temporary) / "workspace", [lesson])
+            local_lessons = workspace.inside(".local", "lessons")
+            local_lessons.mkdir(parents=True, exist_ok=True)
+            write_json(local_lessons / "mapped.json", {
+                "sourceLessonId": "source-lesson-1", "subjectId": "khtn", "grade": 8, "domain": "MATTER",
+                "curriculum": {"confirmed": True, "chapterCode": "KHTN8-CH01", "topicCode": "KHTN8-CH01-T01", "order": 1, "outcomeCodes": ["KHTN8-MATTER-01"], "review": {"reviewerName": "Reviewer", "reviewerEmail": "reviewer@example.test", "reason": "Verified curriculum mapping"}},
+            })
+            calls = []
+
+            def api(_base, _token, path, *, body=None, expected_project_ref=None, method=None):
+                calls.append((path, body, method))
+                if path == "/admin/curriculum-target":
+                    return {"environment": "development", "configuredConnections": 2, "localDevelopmentTarget": True}
+                if path == "/admin/structured-lessons/import":
+                    digest = hashlib.sha256(json.dumps(lesson, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
+                    return {"count": 1, "results": [{"sourceLessonId": "source-lesson-1", "identity": "sgk-khtn8:chapter-1:source-lesson-1", "status": "imported", "draftId": "draft-1", "digest": digest}]}
+                if path == "/admin/structured-lessons/drafts/draft-1":
+                    return {"id": "draft-1", "digest": calls[1][1]["lessons"] and hashlib.sha256(json.dumps(lesson, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest(), "status": "draft", "manifest": lesson}
+                return {"id": "draft-1"}
+
+            with patch("nexalab_content_tool.structured_import._request_json", side_effect=api):
+                result = import_structured_lessons(workspace, "http://127.0.0.1:4100/api", "admin-token")
+            classification_call = next(call for call in calls if call[0].endswith("/classification"))
+            self.assertEqual(classification_call[2], "PUT")
+            self.assertEqual(classification_call[1]["subjectId"], "khtn")
+            self.assertEqual(classification_call[1]["domain"], "MATTER")
+            self.assertEqual(result["results"][0]["classification"], "applied")
 
 
 if __name__ == "__main__":

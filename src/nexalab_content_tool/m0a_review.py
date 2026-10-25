@@ -350,11 +350,15 @@ class _Handler(BaseHTTPRequestHandler):
 
     def _m1_get(self, route: str, query: dict[str, list[str]]) -> None:
         from .m1_workflow import _book, _pdf, books, chapter_state, detect_toc, page_record, whole_book_report
+        from .catalog_registry import load_catalog_registry
 
         try:
             book_key = query.get("book", [""])[0]
             if route == "/api/m1/outcomes":
                 self._json(200, _outcome_review_payload(self.server.workspace, query.get("name", ["proposal"])[0]))
+                return
+            if route == "/api/m1/catalog":
+                self._json(200, load_catalog_registry(self.server.workspace))
                 return
             if route == "/api/m1/books":
                 self._json(200, {"books": books(self.server.workspace), "job": self.server.job})
@@ -459,7 +463,7 @@ class _Handler(BaseHTTPRequestHandler):
                 if pdf is None:
                     raise ContentToolError("Choose a PDF")
                 start = value("printedStart")
-                result = import_book(self.server.workspace, pdf.get_payload(decode=True), key=value("key"), version=value("version"), title=value("title"), author=value("author"), local_rights=value("localRights").lower() in {"on", "yes", "true"}, printed_start=int(start) if start else None)
+                result = import_book(self.server.workspace, pdf.get_payload(decode=True), key=value("key"), version=value("version"), title=value("title"), author=value("author"), local_rights=value("localRights").lower() in {"on", "yes", "true"}, printed_start=int(start) if start else None, grade=int(value("grade")) if value("grade") else None)
                 self._json(200, result)
                 return
             body = self._m1_body()

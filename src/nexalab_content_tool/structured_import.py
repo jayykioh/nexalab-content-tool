@@ -20,6 +20,7 @@ def _request_json(
     *,
     body: dict[str, Any] | None = None,
     expected_project_ref: str | None = None,
+    method: str | None = None,
 ) -> Any:
     parts = urllib.parse.urlsplit(api_base)
     local = parts.hostname in {"localhost", "127.0.0.1", "::1"}
@@ -30,6 +31,7 @@ def _request_json(
         api_base.rstrip("/") + path,
         data=data,
         headers={"Authorization": f"Bearer {access_token}", "Content-Type": "application/json"},
+        method=method,
     )
     try:
         with urllib.request.urlopen(request, timeout=60) as response:
@@ -65,6 +67,9 @@ def _load_lessons(workspace: Workspace) -> list[tuple[Path, dict[str, Any], str]
             raise ContentToolError(f"Missing stable source identity in {file.name}") from error
         if not all(isinstance(value, str) and value for value in (identity, source_id)):
             raise ContentToolError(f"Invalid stable source identity in {file.name}")
+        grade = lesson.get("book", {}).get("grade")
+        if isinstance(grade, bool) or not isinstance(grade, int) or grade not in (8, 9):
+            raise ContentToolError(f"Missing or invalid book.grade in {file.name}; assign grade 8 or 9 before import")
         if identity in identities:
             raise ContentToolError(f"Duplicate source identity in Structured Lesson files: {identity}")
         identities.add(identity)
@@ -92,6 +97,41 @@ def _batches(lessons: list[tuple[Path, dict[str, Any], str]]) -> list[list[tuple
     return batches
 
 
+def _reviewed_classifications(workspace: Workspace) -> dict[str, dict[str, Any]]:
+    classifications: dict[str, dict[str, Any]] = {}
+    lesson_dir = workspace.inside(".local", "lessons")
+    for path in lesson_dir.glob("*.json") if lesson_dir.is_dir() else []:
+        draft = read_json(path)
+        source_id = draft.get("sourceLessonId")
+        curriculum = draft.get("curriculum")
+        review = curriculum.get("review") if isinstance(curriculum, dict) else None
+        outcomes = curriculum.get("outcomeCodes") if isinstance(curriculum, dict) else None
+        if not source_id or not isinstance(curriculum, dict) or curriculum.get("confirmed") is not True:
+            continue
+        if draft.get("subjectId") != "khtn" or draft.get("domain") not in {"ENERGY", "MATTER", "LIVING", "EARTH_SKY"}:
+            continue
+        if not isinstance(outcomes, list) or not outcomes or not isinstance(review, dict):
+            continue
+        if not all(isinstance(review.get(key), str) and review[key].strip() for key in ("reviewerName", "reviewerEmail", "reason")):
+            continue
+        order = curriculum.get("order")
+        if isinstance(order, bool) or not isinstance(order, int) or order <= 0:
+            continue
+        classifications[str(source_id)] = {
+            "subjectId": "khtn",
+            "grade": draft.get("grade"),
+            "domain": draft.get("domain"),
+            "chapterCode": curriculum.get("chapterCode"),
+            "topicCode": curriculum.get("topicCode"),
+            "order": order,
+            "outcomeCodes": outcomes,
+            "reviewerName": review["reviewerName"],
+            "reviewerEmail": review["reviewerEmail"],
+            "reason": review["reason"],
+        }
+    return classifications
+
+
 def import_structured_lessons(
     workspace: Workspace,
     api_base: str,
@@ -101,6 +141,7 @@ def import_structured_lessons(
     if not access_token.strip():
         raise ContentToolError("A current NexaLab ADMIN access token is required")
     lessons = _load_lessons(workspace)
+    classifications = _reviewed_classifications(workspace)
     target = _request_json(api_base, access_token, "/admin/curriculum-target", expected_project_ref=expected_project_ref)
     local_target = isinstance(target, dict) and target.get("localDevelopmentTarget") is True
     remote_target = (
@@ -151,12 +192,23 @@ def import_structured_lessons(
                 or manifest.get("sourceLesson", {}).get("id") != source_id
             ):
                 raise ContentToolError(f"Persisted draft readback did not match source JSON for Lesson {source_id}")
+            classification = classifications.get(source_id)
+            if classification:
+                _request_json(
+                    api_base,
+                    access_token,
+                    "/admin/structured-lessons/drafts/" + urllib.parse.quote(result["draftId"], safe="") + "/classification",
+                    body=classification,
+                    expected_project_ref=expected_project_ref,
+                    method="PUT",
+                )
             imported.append({
                 "sourceLessonId": source_id,
                 "identity": identity,
                 "digest": draft["digest"],
                 "draftId": draft["id"],
                 "status": "imported" if result["status"] == "imported" else "reused",
+                "classification": "applied" if classification else "unclassified",
             })
 
     counts = {status: sum(item["status"] == status for item in imported) for status in ("imported", "reused", "rejected")}

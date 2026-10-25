@@ -363,7 +363,10 @@ def apply_approved_mappings(workspace: Workspace, registry: dict[str, Any]) -> d
             for topic in chapter["topics"]:
                 for outcome in topic["outcomes"]:
                     if outcome.get("status") == "approved" and outcome.get("approvedCode") and _review_record(outcome.get("review"), "approved"):
-                        outcome_owner[outcome["key"]] = {"subjectId": subject["id"], "grade": chapter["grade"], "domain": chapter["domain"]}
+                        outcome_owner[outcome["key"]] = {
+                            "subjectId": subject["id"], "grade": chapter["grade"], "domain": chapter["domain"],
+                            "chapterCode": chapter["code"], "topicCode": topic["code"],
+                        }
 
     drafts = [read_json(path) for path in workspace.inside(".local", "lessons").glob("*.json")]
     by_source = {draft.get("sourceLessonId"): draft for draft in drafts if draft.get("sourceLessonId")}
@@ -377,7 +380,8 @@ def apply_approved_mappings(workspace: Workspace, registry: dict[str, Any]) -> d
         if draft is None:
             blockers.append(f"{mapping['lessonId']}: no saved Content Tool Lesson draft to map")
             continue
-        target = assignments.setdefault(draft["packKey"], {"draft": draft, "subjectIds": set(), "grades": set(), "domains": set(), "lessonCodes": set(), "unitCodes": {unit.get("id"): set() for unit in draft.get("knowledgeUnits", [])}})
+        target = assignments.setdefault(draft["packKey"], {"draft": draft, "subjectIds": set(), "grades": set(), "domains": set(), "chapterCodes": set(), "topicCodes": set(), "lessonCodes": set(), "unitCodes": {unit.get("id"): set() for unit in draft.get("knowledgeUnits", [])}, "reviews": []})
+        target["reviews"].append(mapping["review"])
         codes = []
         for key in mapping["outcomeKeys"]:
             outcome = next((item for subject in registry["subjects"] for chapter in subject["chapters"] for topic in chapter["topics"] for item in topic["outcomes"] if item["key"] == key), None)
@@ -389,6 +393,8 @@ def apply_approved_mappings(workspace: Workspace, registry: dict[str, Any]) -> d
             target["subjectIds"].add(owner["subjectId"])
             target["grades"].add(owner["grade"])
             target["domains"].add(owner["domain"])
+            target["chapterCodes"].add(owner["chapterCode"])
+            target["topicCodes"].add(owner["topicCode"])
         if mapping.get("knowledgeUnitId"):
             unit_id = mapping["knowledgeUnitId"]
             if unit_id not in target["unitCodes"]:
@@ -404,8 +410,8 @@ def apply_approved_mappings(workspace: Workspace, registry: dict[str, Any]) -> d
     applied = []
     for pack_key, assignment in assignments.items():
         draft = assignment["draft"]
-        if len(assignment["subjectIds"]) != 1 or len(assignment["grades"]) != 1 or len(assignment["domains"]) != 1:
-            blockers.append(f"{pack_key}: mappings span multiple subjects, grades or domains")
+        if len(assignment["subjectIds"]) != 1 or len(assignment["grades"]) != 1 or len(assignment["domains"]) != 1 or len(assignment["chapterCodes"]) != 1 or len(assignment["topicCodes"]) != 1:
+            blockers.append(f"{pack_key}: mappings span multiple subjects, grades, domains, chapters or topics")
             continue
         if draft.get("grade") not in assignment["grades"] or draft.get("domain") not in assignment["domains"]:
             blockers.append(f"{pack_key}: draft grade/domain differs from approved curriculum mapping")
@@ -422,8 +428,34 @@ def apply_approved_mappings(workspace: Workspace, registry: dict[str, Any]) -> d
         for unit in draft.get("knowledgeUnits", []):
             codes = unit_codes.get(unit["id"], set()) or assignment["lessonCodes"]
             updated_units.append({**unit, "outcomeCodes": sorted(codes)})
-        updated = {**draft, "subjectId": next(iter(assignment["subjectIds"])), "outcomeCodes": lesson_codes, "outcomeCode": lesson_codes[0], "knowledgeUnits": updated_units}
-        save_draft(workspace, updated)
+        reviews = assignment["reviews"]
+        review_identities = {(review.get("reviewerName"), review.get("reviewerEmail"), review.get("reason")) for review in reviews}
+        if len(review_identities) != 1:
+            blockers.append(f"{pack_key}: mappings must share one accountable reviewer and reason")
+            continue
+        reviewer_name, reviewer_email, review_reason = next(iter(review_identities))
+        updated = {
+            **draft,
+            "subjectId": next(iter(assignment["subjectIds"])),
+            "outcomeCodes": lesson_codes,
+            "outcomeCode": lesson_codes[0],
+            "knowledgeUnits": updated_units,
+            "curriculum": {
+                "chapterCode": next(iter(assignment["chapterCodes"])),
+                "topicCode": next(iter(assignment["topicCodes"])),
+                "order": draft.get("curriculumOrder"),
+                "outcomeCodes": lesson_codes,
+                "confirmed": True,
+                "review": {"reviewerName": reviewer_name, "reviewerEmail": reviewer_email, "reason": review_reason, "reviewIds": sorted({review["reviewId"] for review in reviews})},
+            },
+        }
+        saved = save_draft(workspace, updated)
+        if saved.get("packBlockers"):
+            blockers.extend(f"{pack_key}: {item}" for item in saved["packBlockers"])
+            continue
+        if not workspace.inside("packs", f"{pack_key}.json").is_file():
+            blockers.append(f"{pack_key}: save_draft completed without producing a pack")
+            continue
         applied.append(pack_key)
     return {"applied": applied, "blockers": blockers}
 

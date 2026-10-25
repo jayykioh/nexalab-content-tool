@@ -39,7 +39,7 @@ class M1WorkflowTests(unittest.TestCase):
                 pdf.new_page().insert_text((60, 80), f"Source content for Lesson page {page + 1}. " * 5)
             payload = pdf.tobytes()
             pdf.close()
-            book = import_book(workspace, payload, key="science-book", version="v1", title="Science", author="Publisher", local_rights=True)
+            book = import_book(workspace, payload, key="science-book", version="v1", title="Science", author="Publisher", local_rights=True, grade=9)
             tree = [{
                 "id": "chapter-one", "title": "Chapter one", "start": 1, "end": 4,
                 "lessons": [
@@ -54,6 +54,16 @@ class M1WorkflowTests(unittest.TestCase):
             self.assertEqual(result["report"]["completedPageCount"], 4)
             self.assertEqual(result["report"]["unmappedPages"], [5])
             self.assertTrue(all(item["status"] == "completed" for item in result["checkpoint"]["lessons"].values()))
+            before = validate_book_outputs(workspace, "science-book")
+            self.assertEqual(before["status"], "invalid")
+            self.assertEqual(before["missingJsonCount"], 2)
+            exported = export_book_candidates(workspace, "science-book")
+            candidate = json.loads(Path(exported["candidatePath"]).read_text(encoding="utf-8"))
+            self.assertEqual(candidate["releaseManifestCandidate"]["packs"][0]["grade"], 9)
+            artifact = json.loads(Path(candidate["mappings"][0]["structuredPath"]).read_text(encoding="utf-8"))
+            self.assertTrue(artifact["learningContent"]["sections"])
+            self.assertEqual(artifact["learningContent"]["sections"], artifact["sourceReading"]["sections"])
+            self.assertIn("Lesson page 2", " ".join(s["content"] for s in artifact["learningContent"]["sections"]))
             self.assertEqual(_page_batches(list(range(1, 45)), limit=20), [list(range(1, 21)), list(range(21, 41)), list(range(41, 45))])
 
     def test_structured_edits_survive_restart_and_acceptance_is_human_only(self) -> None:
@@ -114,6 +124,11 @@ class M1WorkflowTests(unittest.TestCase):
             self.assertIsNone(candidate["releaseManifestCandidate"]["packs"][0]["domain"])
             self.assertTrue(Path(exported["blockerMarkdownPath"]).is_file())
             self.assertTrue(any("domain" in item.lower() for item in exported["blockers"]["source-lesson-one"]))
+            accept_structured_content(workspace, "science-book", "chapter-one", "source-lesson-one", human_review_confirmed=True, reviewer_name="Reviewer", reviewer_email="reviewer@example.test", reason="Reviewed updated source")
+            save_review(workspace, "science-book", 1, "accepted", {"0": "Corrected source now differs from the accepted snapshot."}, 1)
+            with self.assertRaisesRegex(ValueError, "OCR changed"):
+                export_approved_lesson(workspace, "science-book", "chapter-one", "source-lesson-one")
+            self.assertEqual(validate_book_outputs(workspace, "science-book")["status"], "invalid")
     def test_toc_to_lesson_ocr_and_reopened_draft_stays_in_source_range(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             workspace = Workspace.open(init_workspace(Path(temporary) / "workspace", "toc-lesson"))
@@ -239,10 +254,22 @@ class M1WorkflowTests(unittest.TestCase):
             process_chapter(workspace, "test-book", "chapter-one", None, rerun=True)
             self.assertEqual(page_record(workspace, "test-book", 1)["review"]["edits"]["0"], "Manually corrected source text")
             workspace = Workspace.open(root / "workspace")  # Restart the tool from saved files.
+            first_block = page_record(workspace, "test-book", 1)["blocks"][0]["id"]
+            incomplete = save_draft(workspace, {
+                "bookKey": "test-book", "chapterId": "chapter-one", "packKey": "test-book-incomplete-lesson",
+                "title": "A source-grounded lesson", "grade": 8, "domain": "ENERGY", "subjectId": "physics",
+                "outcomeCode": "REAL-OUTCOME-TO-CONFIRM", "topic": "Chapter one", "learningObjective": "Read the source text carefully",
+                "prerequisites": "", "claim": "This claim is authored from the reviewed source", "pages": [1],
+                "sections": [{"heading": "Introduction", "content": "Manually corrected source text and additional operator-authored explanation."}],
+                "license": "UNKNOWN", "attribution": "Test science book — Test author", "basicExercises": None,
+            })
+            self.assertTrue(incomplete["packBlockers"][0].startswith("MISSING_SOURCE_ACCESSED_AT"))
+            self.assertFalse((workspace.root / "packs" / "test-book-incomplete-lesson.json").exists())
             draft = save_draft(workspace, {
                 "bookKey": "test-book", "chapterId": "chapter-one", "packKey": "test-book-chapter-one-lesson",
                 "title": "A source-grounded lesson", "grade": 8, "domain": "ENERGY", "subjectId": "physics",
                 "outcomeCode": "REAL-OUTCOME-TO-CONFIRM", "topic": "Chapter one", "learningObjective": "Read the source text carefully",
+                "sourceAccessedAt": "2026-01-01", "claimImportant": False, "claimSourceBlockIds": [first_block],
                 "prerequisites": "", "claim": "This claim is authored from the reviewed source", "pages": [1],
                 "sections": [{"heading": "Introduction", "content": "Manually corrected source text and additional operator-authored explanation."}],
                 "license": "UNKNOWN", "attribution": "Test science book — Test author", "sourceUrl": "https://example.test/source",
@@ -251,8 +278,9 @@ class M1WorkflowTests(unittest.TestCase):
                 "basicExercises": {"id": "exercise-one", "passThreshold": 50, "questions": [{"id": "question-one", "prompt": "What is in the source?", "options": [{"id": "option-a", "text": "Source text"}, {"id": "option-b", "text": "No text"}], "correctOptionId": "option-a"}]},
             })
             self.assertTrue(draft_path(workspace, draft["packKey"]).is_file())
-            self.assertEqual(chapter_state(Workspace.open(root / "workspace"), "test-book", "chapter-one")["lessonDrafts"], [draft["packKey"]])
+            self.assertEqual(sorted(chapter_state(Workspace.open(root / "workspace"), "test-book", "chapter-one")["lessonDrafts"]), sorted([draft["packKey"], "test-book-incomplete-lesson"]))
             manifest = build_manifest(workspace, allow_unreviewed=True)
+            self.assertEqual(manifest["packs"][0]["sources"][0]["accessedAt"], "2026-01-01")
             self.assertEqual(manifest["packs"][0]["lesson"]["basicExercises"]["id"], "exercise-one")
             self.assertEqual(manifest["packs"][0]["lesson"]["questions"], [])
             self.assertEqual(manifest["packs"][0]["lesson"]["materials"][0]["url"], "assetv:videoversion00000001")

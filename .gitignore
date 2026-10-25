@@ -9,6 +9,10 @@ __pycache__/
 /workspaces/
 /tmp/
 /.tmp/
+/codex-work-*/
+*.pdf
+**/crop*/
+**/crops*/
 **/.local/
 **/extracts/
 **/exports/
