@@ -24,7 +24,7 @@ from .workspace import ContentToolError, Workspace, read_json, sha256_file, writ
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
-VIDEO_URL = re.compile(r"^https://(?:www\\.)?(?:youtube\\.com/watch\\?v=[^\\s&]+|youtu\\.be/[^\\s?]+|[^\\s]+\\.(?:mp4|webm)(?:\\?[^\\s]*)?)$", re.I)
+VIDEO_URL = re.compile(r"^https://(?:www\.)?(?:youtube\.com/watch\?v=[^\s&]+|youtu\.be/[^\s?]+|[^\s]+\.(?:mp4|webm)(?:\?[^\s]*)?)$", re.I)
 
 def validate_video_mapping(videos: Any) -> list[dict[str, Any]]:
     if not isinstance(videos, list) or len(videos) > 20: raise ContentToolError("videos must be an array with at most 20 items")

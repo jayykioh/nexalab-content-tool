@@ -20,9 +20,9 @@ Mục đích: một nguồn duy nhất cho biết **đang làm task nào, trạn
 
 | Ưu tiên | Hạng mục | Trạng thái 2026-10-25 | Bằng chứng / bước kế tiếp |
 |---|---|---|---|
-| P0 | Sửa OCR/nội dung nghiêm trọng | **CONTENT FIXED; RELEASE BLOCKED** | Canonical/export đã sửa Bài 11, 32, 40, 42, 43, 47; pytest 92/92. BE `content:release --apply --dev-seed` đã kiểm tra nhưng chặn bởi license/source URL và 4 formal reviews; chưa ghi DB/UI |
+| P0 | Sửa OCR/nội dung nghiêm trọng | **HOÀN TẤT** | Đã apply manifest p0v3 lên Supabase bằng `--dev-seed`; query DB xác nhận Bài 11 có `47,00 ± 2,35 Ω`, Bài 32 không còn đoạn lặp, Bài 42 có mô tả NST ruồi giấm. |
 | P1 | SGK Source Viewer | **READY NEXT** | Viewer theo sourceId + physicalPageIndex + printedPageLabel + bbox |
-| P2 | Video Mapping | **READY NEXT** | Mapping Lesson/section → asset video/caption/transcript |
+| P2 | Video Mapping | **HOÀN TẤT** | API/form độc lập, contract/schema/FE player đã triển khai; Bài 02 đã release URL YouTube thật `g7u6pIfUVy4`, transcript hiển thị qua E2E browser. |
 | P3 | Foundational Lab Definition | **PLANNED** | Chuẩn hóa blueprint lab, outcome, vật liệu, completion criteria |
 | P4 | Legacy cleanup | **PARTIAL** | Dọn schema/dữ liệu cũ sau P0 |
 | P5 | UI/UX + Performance | **PARTIAL** | Bổ sung mobile/performance evidence sau P1/P2 |

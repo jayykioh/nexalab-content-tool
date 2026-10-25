@@ -6,9 +6,9 @@ Checklist này bám theo canonical SPEC và Master Plan v5.5. “Done” chỉ �
 
 | Ưu tiên | Hạng mục | Trạng thái | DoD tiếp theo |
 |---|---|---|---|
-| P0 | OCR/nội dung nghiêm trọng | **CONTENT FIXED; RELEASE BLOCKED** | Canonical/export đã sửa Bài 11/32/40/42/43/47; release apply bị BE chặn bởi license/source URL và 4 formal reviews |
+| P0 | OCR/nội dung nghiêm trọng | **HOÀN TẤT** | p0v3 đã apply lên Supabase bằng `--dev-seed`; DB query xác nhận các bài 11/32/42 và các bài 40/43/47 đã materialize. |
 | P1 | SGK Source Viewer | **READY NEXT** | Mở đúng trang nguồn và vùng bbox từ Lesson |
-| P2 | Video Mapping | **READY NEXT** | Mapping video + transcript + WebVTT theo Lesson/section |
+| P2 | Video Mapping | **HOÀN TẤT** | Video mapping Lesson/section, transcript/WebVTT, API độc lập và FE responsive player đã nghiệm thu Bài 02 trên browser. |
 | P3 | Foundational Lab Definition | **PLANNED** | Lab blueprint và completion criteria |
 | P4 | Legacy cleanup | **PARTIAL** | Dọn luồng/schema/dữ liệu lịch sử |
 | P5 | UI/UX + Performance | **PARTIAL** | Mobile và performance evidence |
