@@ -487,7 +487,7 @@ def canonical_to_pack(canonical: dict[str, Any], source_blocks: list[dict[str, A
         "outcomeCodes": metadata["outcomeCodes"], "synthetic": False,
         "sources": [{"id": source["id"], "title": source["title"], "author": source["author"], "accessedAt": source["accessedAt"], "license": source["license"], "attribution": source["attribution"], "authoritative": source["authoritative"]}],
         "knowledgeUnits": units,
-        "lesson": {"learningObjective": metadata["learningObjective"], "prerequisites": metadata["prerequisites"], "content": render_content(canonical), "materials": [], "questions": [], "labId": None},
+        "lesson": {"learningObjective": metadata["learningObjective"], "prerequisites": metadata["prerequisites"], "content": render_content(canonical), "materials": [], "videos": canonical.get("videos", []), "sections": [{"id": s["id"], "videos": s.get("videos", [])} for s in canonical["sections"]], "questions": [], "labId": None},
         "reviews": {},
     }
     if canonical["basicExercises"]:
