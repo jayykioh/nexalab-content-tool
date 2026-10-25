@@ -14,7 +14,19 @@ Mục đích: một nguồn duy nhất cho biết **đang làm task nào, trạn
 
 ## Task hiện tại
 
-**Chốt sổ kỹ thuật 2026-10-25:** Content Tool `69 pytest passed`; BE `200 tests passed`; FE `tsc --noEmit` và production build passed. Catalog registry đã xuất từ BE/Supabase (`14 chapters`, `13 topics`, `110 outcomes`). Pilot E2E baseline không dùng `--dev-seed` đã chạy cho Bài 02 và Bài 38: `ContentRelease` v1 `cmvnefm980000nmkonkcz4kz7`, retry cùng digest trả lại receipt cũ (`idempotent: true`), v2 `cmvnehasz0000nmf8n085j6yn`, Attempt được bảo toàn `cmvnegudj0001nm48x9mwh6i4`. Hai Pilot vẫn được giữ trong DB để audit nhưng đã bị loại khỏi public student catalog/API.
+**Chốt sổ kỹ thuật 2026-10-25:** Content Tool `92 pytest passed`; BE `220 BE vitest passed`; FE typecheck và production build passed. Catalog registry nghiệm thu gồm `1 framework (MOET-TT32-2018-KHTN-KNTT)`, `22 chapters`, `60 topics`, `259 outcomes`, `47 bài KHTN 8 + 51 bài KHTN 9`. Pilot E2E baseline không dùng `--dev-seed` đã chạy cho Bài 02 và Bài 38: `ContentRelease` v1 `cmvnefm980000nmkonkcz4kz7`, retry cùng digest trả lại receipt cũ (`idempotent: true`), v2 `cmvnehasz0000nmf8n085j6yn`, Attempt được bảo toàn `cmvnegudj0001nm48x9mwh6i4`. Hai Pilot vẫn được giữ trong DB để audit nhưng đã bị loại khỏi public student catalog/API.
+
+## Theo dõi ưu tiên P0–P6
+
+| Ưu tiên | Hạng mục | Trạng thái 2026-10-25 | Bằng chứng / bước kế tiếp |
+|---|---|---|---|
+| P0 | Sửa OCR/nội dung nghiêm trọng | **CONTENT FIXED; RELEASE BLOCKED** | Canonical/export đã sửa Bài 11, 32, 40, 42, 43, 47; pytest 92/92. BE `content:release --apply --dev-seed` đã kiểm tra nhưng chặn bởi license/source URL và 4 formal reviews; chưa ghi DB/UI |
+| P1 | SGK Source Viewer | **READY NEXT** | Viewer theo sourceId + physicalPageIndex + printedPageLabel + bbox |
+| P2 | Video Mapping | **READY NEXT** | Mapping Lesson/section → asset video/caption/transcript |
+| P3 | Foundational Lab Definition | **PLANNED** | Chuẩn hóa blueprint lab, outcome, vật liệu, completion criteria |
+| P4 | Legacy cleanup | **PARTIAL** | Dọn schema/dữ liệu cũ sau P0 |
+| P5 | UI/UX + Performance | **PARTIAL** | Bổ sung mobile/performance evidence sau P1/P2 |
+| P6 | Generic Content Tool | **PLANNED** | Chạy book khác để loại giả định KHTN 8–9 |
 
 **Đang ở: G10–G13 kỹ thuật Pilot đã hoàn tất; baseline 51 bài vẫn là dev-seed.** Luồng Pilot đã plan/apply/version/retry trên `APP_ENV=development` mà không dùng `--dev-seed`. 51 bài kho chung hiện hữu không bị xóa hoặc thay đổi trạng thái nghiệm thu; trước production vẫn cần human review chính thức.
 
@@ -131,6 +143,6 @@ Chạy lại: `powershell -File scripts/run-bai02-slice.ps1` (ca bị chặn tho
   6. `cmvmk87740000nmxk86ql2jyg`: Lô Final (14 bài: 26, 27, 28, 29, 30, 31, 32, 38, 40, 41, 42, 43, 46, 47).
 - **Kiểm thử và xác nhận**:
   - `query-supabase.ts`: Xác nhận 51/51 bài hiện diện đầy đủ trên cơ sở dữ liệu Supabase.
-  - Python test suite: `pytest tests` -> 67/67 passed.
-  - Backend test suite: `vitest run` -> 23 test files, 186/186 passed.
+  - Python test suite: `pytest tests` -> 92/92 passed.
+  - Backend test suite: `vitest run` -> 220/220 passed.
   - Typecheck: `tsc --noEmit` -> 0 lỗi, sạch hoàn toàn.

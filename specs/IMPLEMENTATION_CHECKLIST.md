@@ -4,6 +4,16 @@ Checklist này bám theo canonical SPEC và Master Plan v5.5. “Done” chỉ �
 
 ## Trạng thái tổng thể — 2026-10-25
 
+| Ưu tiên | Hạng mục | Trạng thái | DoD tiếp theo |
+|---|---|---|---|
+| P0 | OCR/nội dung nghiêm trọng | **CONTENT FIXED; RELEASE BLOCKED** | Canonical/export đã sửa Bài 11/32/40/42/43/47; release apply bị BE chặn bởi license/source URL và 4 formal reviews |
+| P1 | SGK Source Viewer | **READY NEXT** | Mở đúng trang nguồn và vùng bbox từ Lesson |
+| P2 | Video Mapping | **READY NEXT** | Mapping video + transcript + WebVTT theo Lesson/section |
+| P3 | Foundational Lab Definition | **PLANNED** | Lab blueprint và completion criteria |
+| P4 | Legacy cleanup | **PARTIAL** | Dọn luồng/schema/dữ liệu lịch sử |
+| P5 | UI/UX + Performance | **PARTIAL** | Mobile và performance evidence |
+| P6 | Generic Content Tool | **PLANNED** | Book khác chạy độc lập với KHTN |
+
 | Mốc | Trạng thái hiện tại | Bằng chứng / phần còn thiếu |
 |---|---|---|
 | M0a — OCR feasibility | **Hoàn tất kỹ thuật cho KHTN 8** | Đã so sánh flash/basic/standard trên 20 trang, chọn standard, và chạy PDF 200 trang / OCR mẫu 20 trang end-to-end qua UI. Chưa đo thời gian review người dùng hoặc CER/WER (không có gold text). Đây chứng minh OCR feasibility, không chứng minh book-to-Lesson. Chi tiết: `specs/M0A_SPIKE_REPORT.md`. |
@@ -81,7 +91,7 @@ Ink-coverage experiment (2026-10-22): the planned cheap comparison of dark rende
 
 ## Chốt sổ bổ sung — 2026-10-25
 
-Các ghi chú lịch sử ngày 2026-10-22/24 bên trên mô tả trạng thái trước khi chạy Pilot và không còn là trạng thái hiện tại. Bằng chứng hiện tại là: Content Tool `69 pytest passed`; BE `200 tests passed / 29 files`, `tsc --noEmit` sạch; FE `tsc --noEmit` và `npm run build` sạch. Catalog registry đã đồng bộ từ BE/Supabase (14 chapters, 13 topics, 110 outcomes). Pilot không dùng `--dev-seed` đã apply v1 `cmvnefm980000nmkonkcz4kz7`, retry idempotent trả receipt cũ, và apply v2 `cmvnehasz0000nmf8n085j6yn`; Attempt `cmvnegudj0001nm48x9mwh6i4` vẫn gắn đúng LessonStep/BASIC_EXERCISE sau version mới. 51 bài kho chung vẫn là dev-seed và cần human review chính thức trước production.
+Các ghi chú lịch sử ngày 2026-10-22/24 bên trên mô tả trạng thái trước khi chạy Pilot và không còn là trạng thái hiện tại. Bằng chứng hiện tại là: Content Tool `92 pytest passed`; BE `220 vitest passed`; FE typecheck/build sạch. Catalog registry: `1 framework (MOET-TT32-2018-KHTN-KNTT)`, `22 chapters`, `60 topics`, `259 outcomes`, gồm `47 bài KHTN 8 + 51 bài KHTN 9`. Pilot không dùng `--dev-seed` đã apply v1 `cmvnefm980000nmkonkcz4kz7`, retry idempotent trả receipt cũ, và apply v2 `cmvnehasz0000nmf8n085j6yn`; Attempt `cmvnegudj0001nm48x9mwh6i4` vẫn gắn đúng LessonStep/BASIC_EXERCISE sau version mới. 51 bài kho chung vẫn là dev-seed và cần human review chính thức trước production.
 
 - [ ] Read-only: xác minh target, đếm tổng `TextbookSourceChunk` và số `studentFacing=true`; đối chiếu con số 47.
 - [ ] Nếu có dòng bật, xác minh target rồi chỉ cập nhật dòng đó về `false`; ghi số trước/sau và xác nhận lại.
