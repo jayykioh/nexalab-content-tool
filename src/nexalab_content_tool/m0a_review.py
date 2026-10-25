@@ -98,6 +98,134 @@ class _ReviewServer(ThreadingHTTPServer):
         return path
 
 
+def _outcome_review_payload(workspace: Workspace, name: str) -> dict[str, Any]:
+    from .outcome_normalization import _proposal_digest
+
+    safe_name = re.sub(r"[^A-Za-z0-9_-]+", "-", name).strip("-") or "proposal"
+    path = workspace.inside(".local", "outcomes", f"{safe_name}.json")
+    if not path.is_file():
+        raise ContentToolError(f"Outcome proposal not found: {safe_name}")
+    proposal = read_json(path)
+    version = proposal.get("proposalVersion")
+    immutable = workspace.inside(".local", "outcomes", "versions", safe_name, f"{version}.json") if isinstance(version, str) else None
+    if not immutable or not immutable.is_file() or _proposal_digest(read_json(immutable)) != version:
+        raise ContentToolError("The outcome proposal version is missing or does not match its immutable snapshot")
+
+    outcomes = {item["id"]: item for item in proposal.get("outcomes", [])}
+    concepts = {item["id"]: item for item in proposal.get("sourceConcepts", [])}
+    block_refs: dict[str, dict[str, Any]] = {}
+    for item in [*proposal.get("outcomes", []), *proposal.get("sourceConcepts", [])]:
+        for evidence in item.get("evidence", []):
+            digest = evidence.get("bookSha256")
+            for page in evidence.get("pages", []):
+                block_id = page.get("sourceBlockId")
+                if block_id:
+                    block_refs[block_id] = {
+                        "pdfPage": page.get("physicalPageIndex"),
+                        "printedPage": page.get("printedPageLabel"),
+                        "sourceDigest": page.get("sourceSha256") or digest,
+                    }
+            for block_id in evidence.get("sourceBlockIds", []):
+                block_refs.setdefault(block_id, {"pdfPage": None, "printedPage": None, "sourceDigest": digest})
+
+    groups: dict[str, dict[str, Any]] = {}
+
+    def group_for(source_lesson_id: str, evidence: dict[str, Any] | None = None) -> dict[str, Any]:
+        group = groups.setdefault(
+            source_lesson_id,
+            {
+                "chapterTitle": (evidence or {}).get("chapterTitle") or "Chapter not set",
+                "lessonIdentity": (evidence or {}).get("lessonIdentity") or source_lesson_id,
+                "sourceLessonId": source_lesson_id,
+                "lessonTitle": (evidence or {}).get("sourceLessonTitle") or source_lesson_id,
+                "outcomes": {},
+                "lessonMappings": [],
+                "knowledgeUnitMappings": [],
+            },
+        )
+        if evidence:
+            if group["chapterTitle"] == "Chapter not set" and evidence.get("chapterTitle"):
+                group["chapterTitle"] = evidence["chapterTitle"]
+            if group["lessonTitle"] == source_lesson_id and evidence.get("sourceLessonTitle"):
+                group["lessonTitle"] = evidence["sourceLessonTitle"]
+        return group
+
+    for candidate in proposal.get("outcomes", []):
+        all_evidence = candidate.get("evidence", []) or [{}]
+        all_source_blocks = candidate.get("evidenceSourceBlockIds") or sorted({block_id for row in all_evidence for block_id in row.get("sourceBlockIds", [])})
+        all_pages = [page for row in all_evidence for page in row.get("pages", [])]
+        all_digests = sorted({row.get("bookSha256") for row in all_evidence if row.get("bookSha256")})
+        for evidence in all_evidence:
+            source_lesson_id = evidence.get("sourceLessonId") or candidate.get("sourceLessonId") or "unassigned"
+            group = group_for(source_lesson_id, evidence)
+            group["outcomes"][candidate["id"]] = {
+                "id": candidate["id"],
+                "statement": candidate.get("statement"),
+                "sourcePhrase": evidence.get("sourcePhrase"),
+                "sourceBlockIds": all_source_blocks,
+                "sourceDigest": evidence.get("bookSha256"),
+                "sourceDigests": all_digests,
+                "pages": all_pages,
+                "ambiguity": candidate.get("ambiguity", []),
+                "qualityGate": candidate.get("qualityGate", {}),
+                "confidence": candidate.get("confidence"),
+                "status": candidate.get("status"),
+            }
+
+    def mapping_view(mapping: dict[str, Any], is_unit: bool) -> dict[str, Any]:
+        candidate = outcomes.get(mapping.get("outcomeId"), {})
+        concept = concepts.get(mapping.get("sourceConceptId"), {})
+        block_ids = mapping.get("sourceBlockIds", [])
+        pages: dict[tuple[Any, Any], dict[str, Any]] = {}
+        digests: set[str] = set()
+        for block_id in block_ids:
+            ref = block_refs.get(block_id, {})
+            if ref.get("sourceDigest"):
+                digests.add(ref["sourceDigest"])
+            if ref.get("pdfPage") is not None:
+                pages[(ref["pdfPage"], block_id)] = {
+                    "pdfPage": ref["pdfPage"],
+                    "printedPage": ref.get("printedPage"),
+                    "sourceBlockId": block_id,
+                }
+        for evidence in concept.get("evidence", []):
+            if evidence.get("bookSha256"):
+                digests.add(evidence["bookSha256"])
+        return {
+            "mappingId": mapping["mappingId"],
+            "knowledgeUnitId": mapping.get("knowledgeUnitId"),
+            "sourceConceptId": mapping.get("sourceConceptId"),
+            "sourceConceptStatement": concept.get("statement"),
+            "outcomeId": mapping.get("outcomeId"),
+            "outcomeStatement": candidate.get("statement"),
+            "status": mapping.get("status"),
+            "mappingConfidence": mapping.get("mappingConfidence"),
+            "ambiguity": mapping.get("ambiguity", []),
+            "sharedTerms": mapping.get("sharedTerms", []),
+            "sourceBlockIds": block_ids,
+            "pages": list(pages.values()),
+            "sourceDigests": sorted(digests),
+        }
+
+    for mapping in proposal.get("lessonMappings", []):
+        group_for(mapping.get("sourceLessonId") or "unassigned")["lessonMappings"].append(mapping_view(mapping, False))
+    for mapping in proposal.get("knowledgeUnitMappings", []):
+        group_for(mapping.get("sourceLessonId") or "unassigned")["knowledgeUnitMappings"].append(mapping_view(mapping, True))
+
+    priorities = {item.get("sourceLessonId"): item.get("priority", 99) for item in proposal.get("reviewQueue", [])}
+    ordered = sorted(groups.values(), key=lambda item: (priorities.get(item["sourceLessonId"], 99), item["chapterTitle"], item["lessonTitle"]))
+    for group in ordered:
+        group["outcomes"] = list(group["outcomes"].values())
+    return {
+        "name": safe_name,
+        "proposalVersion": version,
+        "coverage": proposal.get("coverage", {}),
+        "reviewHistory": proposal.get("reviewHistory", []),
+        "outcomeOptions": [{"id": item["id"], "statement": item.get("statement"), "status": item.get("status")} for item in proposal.get("outcomes", [])],
+        "groups": ordered,
+    }
+
+
 class _Handler(BaseHTTPRequestHandler):
     server: _ReviewServer
 
@@ -225,6 +353,9 @@ class _Handler(BaseHTTPRequestHandler):
 
         try:
             book_key = query.get("book", [""])[0]
+            if route == "/api/m1/outcomes":
+                self._json(200, _outcome_review_payload(self.server.workspace, query.get("name", ["proposal"])[0]))
+                return
             if route == "/api/m1/books":
                 self._json(200, {"books": books(self.server.workspace), "job": self.server.job})
                 return
@@ -332,6 +463,38 @@ class _Handler(BaseHTTPRequestHandler):
                 self._json(200, result)
                 return
             body = self._m1_body()
+            if route == "/api/m1/outcomes/review":
+                from .outcome_normalization import export_outcome_sync_bundle, review_outcome_proposal
+
+                name = str(body.get("name", ""))
+                state = _outcome_review_payload(self.server.workspace, name)
+                if body.get("proposalVersion") != state["proposalVersion"]:
+                    self._json(409, {"error": "The proposal changed since it was loaded. Reload before saving decisions."})
+                    return
+                result = review_outcome_proposal(
+                    self.server.workspace,
+                    name,
+                    outcome_decisions=body.get("outcomeDecisions", {}),
+                    mapping_decisions=body.get("mappingDecisions", {}),
+                    reviewer_name=str(body.get("reviewerName", "")),
+                    reviewer_email=str(body.get("reviewerEmail", "")),
+                    reason=str(body.get("reason", "")),
+                    source_text_verified=body.get("sourceTextVerified") is True,
+                )
+                bundle = export_outcome_sync_bundle(self.server.workspace, name)["bundle"]
+                self._json(
+                    200,
+                    {
+                        "saved": True,
+                        "reviewId": result["reviewEvent"]["reviewId"],
+                        "proposalVersion": result["reviewEvent"]["proposalVersion"],
+                        "reviewedAt": result["reviewEvent"]["reviewedAt"],
+                        "approvedOutcomes": bundle["registrySyncPreflight"]["approvedOutcomeCount"],
+                        "pendingOutcomes": bundle["registrySyncPreflight"]["unapprovedOutcomeCount"],
+                        "pendingMappings": bundle["registrySyncPreflight"]["unapprovedMappingCount"],
+                    },
+                )
+                return
             if route == "/api/m1/toc/ocr":
                 if self.server.job["status"] == "running":
                     raise ContentToolError("Another OCR job is already running")
@@ -454,7 +617,16 @@ class _Handler(BaseHTTPRequestHandler):
                 if body.get("action") == "save":
                     result = save_structured_content(self.server.workspace, body["bookKey"], body["chapterId"], body["lessonId"], body["learningContent"])
                 elif body.get("action") == "accept":
-                    result = accept_structured_content(self.server.workspace, body["bookKey"], body["chapterId"], body["lessonId"], human_review_confirmed=body.get("humanReviewConfirmed") is True)
+                    result = accept_structured_content(
+                        self.server.workspace,
+                        body["bookKey"],
+                        body["chapterId"],
+                        body["lessonId"],
+                        human_review_confirmed=body.get("humanReviewConfirmed") is True,
+                        reviewer_name=str(body.get("reviewerName", "")),
+                        reviewer_email=str(body.get("reviewerEmail", "")),
+                        reason=str(body.get("reason", "")),
+                    )
                 else:
                     raise ContentToolError("Choose save or accept for local Lesson content review")
                 self._json(200, result)
