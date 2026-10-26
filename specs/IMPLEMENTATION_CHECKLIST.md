@@ -8,7 +8,7 @@ Checklist này bám theo canonical SPEC và Master Plan v5.5. “Done” chỉ �
 |---|---|---|---|
 | P0 | OCR/nội dung nghiêm trọng | **HOÀN TẤT** | p0v3 đã apply lên Supabase bằng `--dev-seed`; DB query xác nhận các bài 11/32/42 và các bài 40/43/47 đã materialize. |
 | P1 | SGK Source Viewer | **READY NEXT** | Mở đúng trang nguồn và vùng bbox từ Lesson |
-| P2 | Video Mapping | **HOÀN TẤT** | Playlist OLM 74 entries đã kiểm tra; URL `watch?v=...&list=...`, youtu.be và embed đều parse về video ID sạch; Bài 02 đã release video OLM thật và transcript. |
+| P2 | Full Video System | **PARTIAL — TECHNICAL BASELINE DONE** | Mapping/playback và basic `lastPosition` đã có. Full P2 gồm provenance/review, một VIDEO step/video, watched-range coverage, learning journey và teacher dashboard theo `P2_VIDEO_SYSTEM_FULL_SPEC.md`. |
 | P3 | Foundational Lab Definition | **PLANNED** | Lab blueprint và completion criteria |
 | P4 | Legacy cleanup | **PARTIAL** | Dọn luồng/schema/dữ liệu lịch sử |
 | P5 | UI/UX + Performance | **PARTIAL** | Mobile và performance evidence |

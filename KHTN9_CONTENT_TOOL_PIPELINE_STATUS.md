@@ -22,7 +22,7 @@ Mục đích: một nguồn duy nhất cho biết **đang làm task nào, trạn
 |---|---|---|---|
 | P0 | Sửa OCR/nội dung nghiêm trọng | **HOÀN TẤT** | Đã apply manifest p0v3 lên Supabase bằng `--dev-seed`; query DB xác nhận Bài 11 có `47,00 ± 2,35 Ω`, Bài 32 không còn đoạn lặp, Bài 42 có mô tả NST ruồi giấm. |
 | P1 | SGK Source Viewer | **READY NEXT** | Viewer theo sourceId + physicalPageIndex + printedPageLabel + bbox |
-| P2 | Video Mapping | **HOÀN TẤT** | Playlist OLM đã kiểm tra bằng yt-dlp: 74 entries, 2 unavailable; parser FE đã khóa bằng URL/URLSearchParams. Bài 02 release URL thật `5bYlFrS-xTw` với playlist params được loại khi embed; transcript hiển thị E2E. |
+| P2 | Full Video System | **PARTIAL — TECHNICAL BASELINE DONE** | Playlist/URL mapping, YouTube IFrame playback, basic heartbeat/lastPosition và Bài 02 E2E đã có. Full P2 còn provenance/review, watched-range coverage, một VIDEO step/video, learning journey và teacher dashboard; xem `specs/P2_VIDEO_SYSTEM_FULL_SPEC.md`. |
 | P3 | Foundational Lab Definition | **PLANNED** | Chuẩn hóa blueprint lab, outcome, vật liệu, completion criteria |
 | P4 | Legacy cleanup | **PARTIAL** | Dọn schema/dữ liệu cũ sau P0 |
 | P5 | UI/UX + Performance | **PARTIAL** | Bổ sung mobile/performance evidence sau P1/P2 |

@@ -9,6 +9,7 @@
 3. `content-tool-nexalab-contract.md` — snapshot hợp đồng BE/FE; đối chiếu source ở commit implement trước khi code.
 4. `IMPLEMENTATION_CHECKLIST.md` — các gate và việc cần hoàn thành theo mốc.
 5. `TEST_PLAN.md` — kiểm thử UI, BE, FE, release và staging E2E.
+6. `P2_VIDEO_SYSTEM_FULL_SPEC.md` — spec P2 đầy đủ từ mapping/provenance, release và playback tới tracking từng đoạn, learning journey và dashboard giáo viên.
 
 Canonical SPEC/master plan xác định phạm vi pilot; contract là snapshot kỹ thuật, không phải API promise. Khi khác biệt, kiểm tra code/PRD hiện hành và đồng bộ decision trước khi implement. Checklist/test plan là tài liệu dẫn xuất; không tự mở rộng scope. Master plan v5.5 supersedes v5.4; story M1 cũ chỉ ghi lịch sử một CLI slice, không phải DoD luồng sản phẩm.
 
