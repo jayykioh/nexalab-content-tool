@@ -335,6 +335,9 @@ def build_canonical(lesson: dict[str, Any], decisions_doc: dict[str, Any] | None
             "curriculumVerification": authoring.get("curriculumVerification", "unverified"),
             "learningObjective": authoring["learningObjective"], "prerequisites": authoring.get("prerequisites", ""),
             "pdfPageRange": lesson.get("pdfPageRange"), "printedPageRange": lesson.get("printedPageRange"),
+            "sourceLessonId": (lesson.get("sourceLesson") or {}).get("id"),
+            "sourceLessonTitle": (lesson.get("sourceLesson") or {}).get("title"),
+            "sourceChapterId": (lesson.get("chapter") or {}).get("id"),
         },
         "sources": [{
             "id": book_key, "version": book["version"], "sha256": book["sha256"], "title": book["title"], "author": book["author"],
@@ -487,7 +490,13 @@ def canonical_to_pack(canonical: dict[str, Any], source_blocks: list[dict[str, A
         "outcomeCodes": metadata["outcomeCodes"], "synthetic": False,
         "sources": [{"id": source["id"], "title": source["title"], "author": source["author"], "accessedAt": source["accessedAt"], "license": source["license"], "attribution": source["attribution"], "authoritative": source["authoritative"]}],
         "knowledgeUnits": units,
-        "lesson": {"learningObjective": metadata["learningObjective"], "prerequisites": metadata["prerequisites"], "content": render_content(canonical), "materials": [], "videos": canonical.get("videos", []), "sections": [{"id": s["id"], "videos": s.get("videos", [])} for s in canonical["sections"]], "questions": [], "labId": None},
+        "lesson": {"learningObjective": metadata["learningObjective"], "prerequisites": metadata["prerequisites"], "content": render_content(canonical), "materials": [], "videos": canonical.get("videos", []), "sections": [{"id": s["id"], "videos": s.get("videos", [])} for s in canonical["sections"]], "questions": [], "labId": None,
+            "sgkReference": {
+                "sourceId": source["id"], "sourceVersion": source["version"], "sourceSha256": source["sha256"],
+                "sourceLessonId": metadata.get("sourceLessonId"), "sourceLessonTitle": metadata.get("sourceLessonTitle"),
+                "chapterId": metadata.get("sourceChapterId"), "chapterTitle": metadata["chapter"],
+                "pdfPageRange": metadata.get("pdfPageRange"), "printedPageRange": metadata.get("printedPageRange"),
+            }},
         "reviews": {},
     }
     if canonical["basicExercises"]:

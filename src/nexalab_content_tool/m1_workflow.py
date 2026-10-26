@@ -8,6 +8,7 @@ from datetime import date, datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
+from urllib.parse import parse_qs, urlparse
 
 import pymupdf
 
@@ -24,18 +25,78 @@ from .workspace import ContentToolError, Workspace, read_json, sha256_file, writ
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
-VIDEO_URL = re.compile(r"^https://(?:www\.)?(?:youtube\.com/watch\?v=[^\s&]+|youtu\.be/[^\s?]+|[^\s]+\.(?:mp4|webm)(?:\?[^\s]*)?)$", re.I)
+VIDEO_URL = re.compile(r"^https://(?:www\.)?(?:youtube\.com/watch\?[^\s]+|youtu\.be/[^\s?]+|[^\s]+\.(?:mp4|webm)(?:\?[^\s]*)?)$", re.I)
+VIDEO_PROVIDERS = {"YOUTUBE", "DIRECT"}
+VIDEO_REVIEW_STATUSES = {"PENDING_REVIEW", "APPROVED", "REJECTED"}
+VIDEO_AVAILABILITY = {"AVAILABLE", "UNAVAILABLE"}
+PLACEHOLDER_TRANSCRIPT = re.compile(r"^(?:video\s+)?(?:minh\s+h[oọ]a|b[aà]i\s+gi[aả]ng)(?:\s+(?:n[oộ]i\s+dung|b[aà]i\s+h[oọ]c))?[.!]?$", re.I)
+
+
+def _youtube_id(url: str) -> str | None:
+    parsed = urlparse(url)
+    host = (parsed.hostname or "").lower().removeprefix("www.")
+    if host == "youtu.be":
+        return parsed.path.strip("/").split("/")[0] or None
+    if host == "youtube.com" and parsed.path == "/watch":
+        return (parse_qs(parsed.query).get("v") or [None])[0]
+    return None
+
+
+def _iso_timestamp(value: Any, label: str) -> str:
+    text = str(value or "").strip()
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError as error:
+        raise ContentToolError(f"{label} must be an ISO-8601 timestamp") from error
+    if parsed.tzinfo is None:
+        raise ContentToolError(f"{label} must include a timezone")
+    return text
 
 def validate_video_mapping(videos: Any) -> list[dict[str, Any]]:
     if not isinstance(videos, list) or len(videos) > 20: raise ContentToolError("videos must be an array with at most 20 items")
     clean = []
+    seen: set[str] = set()
     for item in videos:
         if not isinstance(item, dict) or not ID_PATTERN.fullmatch(str(item.get("id", ""))): raise ContentToolError("Video needs a stable ID")
+        video_id = str(item["id"])
+        if video_id in seen: raise ContentToolError(f"Duplicate video ID: {video_id}")
+        seen.add(video_id)
         url = str(item.get("url", "")).strip()
         if not VIDEO_URL.fullmatch(url) or not str(item.get("title", "")).strip(): raise ContentToolError("Video title and HTTPS YouTube/MP4 URL are required")
-        value = {"id": item["id"], "title": str(item["title"]).strip(), "url": url}
+        provider = str(item.get("provider", "")).strip().upper()
+        if provider not in VIDEO_PROVIDERS: raise ContentToolError("Video provider must be YOUTUBE or DIRECT")
+        provider_video_id = str(item.get("providerVideoId", "")).strip()
+        if not provider_video_id or len(provider_video_id) > 200: raise ContentToolError("Video providerVideoId is required")
+        canonical_youtube_id = _youtube_id(url)
+        if provider == "YOUTUBE" and canonical_youtube_id != provider_video_id:
+            raise ContentToolError("YouTube URL and providerVideoId must identify the same video")
+        if provider == "DIRECT" and canonical_youtube_id:
+            raise ContentToolError("YouTube URLs must use provider YOUTUBE")
+        threshold = item.get("completionThresholdPercent", 90)
+        if isinstance(threshold, bool) or not isinstance(threshold, int) or not 50 <= threshold <= 100:
+            raise ContentToolError("completionThresholdPercent must be an integer from 50 to 100")
+        review_status = str(item.get("reviewStatus", "")).strip().upper()
+        if review_status not in VIDEO_REVIEW_STATUSES:
+            raise ContentToolError("reviewStatus must be PENDING_REVIEW, APPROVED or REJECTED")
+        provenance = item.get("provenance")
+        if not isinstance(provenance, dict): raise ContentToolError("Video provenance is required")
+        source_url = str(provenance.get("sourceUrl", "")).strip()
+        source_label = str(provenance.get("sourceLabel", "")).strip()
+        availability = str(provenance.get("availability", "")).strip().upper()
+        if not source_url.startswith("https://") or not source_label:
+            raise ContentToolError("Video provenance requires HTTPS sourceUrl and sourceLabel")
+        if availability not in VIDEO_AVAILABILITY:
+            raise ContentToolError("Video provenance availability must be AVAILABLE or UNAVAILABLE")
+        clean_provenance = {"sourceUrl": source_url, "sourceLabel": source_label, "checkedAt": _iso_timestamp(provenance.get("checkedAt"), "provenance.checkedAt"), "availability": availability}
+        for key in ("rightsStatus", "accessibilityStatus", "operatorDecision"):
+            if provenance.get(key): clean_provenance[key] = str(provenance[key]).strip()
+        value = {"id": video_id, "title": str(item["title"]).strip(), "url": url, "provider": provider, "providerVideoId": provider_video_id, "completionThresholdPercent": threshold, "reviewStatus": review_status, "provenance": clean_provenance}
         for key in ("captionUrl", "transcript"):
             if item.get(key): value[key] = str(item[key]).strip()
+        if value.get("captionUrl") and not str(value["captionUrl"]).startswith("https://"):
+            raise ContentToolError("Video captionUrl must use HTTPS")
+        if value.get("transcript") and PLACEHOLDER_TRANSCRIPT.fullmatch(str(value["transcript"]).strip()):
+            raise ContentToolError("Video transcript must be reviewed learning text, not placeholder metadata")
         clean.append(value)
     return clean
 
@@ -43,8 +104,14 @@ def save_video_mapping(workspace: Workspace, pack_key: str, videos: Any, section
     path = draft_path(workspace, pack_key)
     if not path.exists(): raise ContentToolError("Lesson draft not found")
     draft = read_json(path)
+    if not isinstance(sections, list): raise ContentToolError("sections must be an array")
     draft["videos"] = validate_video_mapping(videos)
-    draft["sectionVideos"] = [{"id": s["id"], "videos": validate_video_mapping(s.get("videos", []))} for s in (sections or [])]
+    draft["sectionVideos"] = [{"id": s["id"], "videos": validate_video_mapping(s.get("videos", []))} for s in sections if isinstance(s, dict) and ID_PATTERN.fullmatch(str(s.get("id", "")))]
+    if len(draft["sectionVideos"]) != len(sections): raise ContentToolError("Every video section needs a stable ID")
+    section_ids = [section["id"] for section in draft["sectionVideos"]]
+    if len(section_ids) != len(set(section_ids)): raise ContentToolError("Duplicate video section ID")
+    all_video_ids = [video["id"] for video in draft["videos"]] + [video["id"] for section in draft["sectionVideos"] for video in section["videos"]]
+    if len(all_video_ids) != len(set(all_video_ids)): raise ContentToolError("Video IDs must be unique across Lesson and sections")
     draft["savedAt"] = _now()
     write_json(path, draft)
     _write_pack(workspace, draft)

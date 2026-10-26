@@ -165,6 +165,12 @@ def test_converter_emits_evidence_per_claim_page_only(tmp_path):
     assert pages == {"c1": {1}, "c2": {2}}
     assert [c["important"] for u in out["pack"]["knowledgeUnits"] for c in u["claims"]] == [False, True]
     assert out["pack"]["knowledgeUnits"][0]["outcomeCodes"] == ["O/1"] and out["pack"]["knowledgeUnits"][1]["outcomeCodes"] == ["O/2"]
+    assert out["pack"]["lesson"]["sgkReference"] == {
+        "sourceId": "bk", "sourceVersion": "v1", "sourceSha256": "a" * 64,
+        "sourceLessonId": LESSON, "sourceLessonTitle": "Lesson",
+        "chapterId": "c", "chapterTitle": "Chapter",
+        "pdfPageRange": {"start": 1, "end": 2}, "printedPageRange": {"start": 1, "end": 2},
+    }
 
 
 def test_converter_is_deterministic_and_candidate_equals_pack(tmp_path):
