@@ -88,7 +88,7 @@ def validate_video_mapping(videos: Any) -> list[dict[str, Any]]:
         if availability not in VIDEO_AVAILABILITY:
             raise ContentToolError("Video provenance availability must be AVAILABLE or UNAVAILABLE")
         clean_provenance = {"sourceUrl": source_url, "sourceLabel": source_label, "checkedAt": _iso_timestamp(provenance.get("checkedAt"), "provenance.checkedAt"), "availability": availability}
-        for key in ("rightsStatus", "accessibilityStatus", "operatorDecision"):
+        for key in ("rightsStatus", "accessibilityStatus", "operatorDecision", "transcriptSource", "reviewedBy", "reviewedAt"):
             if provenance.get(key): clean_provenance[key] = str(provenance[key]).strip()
         value = {"id": video_id, "title": str(item["title"]).strip(), "url": url, "provider": provider, "providerVideoId": provider_video_id, "completionThresholdPercent": threshold, "reviewStatus": review_status, "provenance": clean_provenance}
         for key in ("captionUrl", "transcript"):

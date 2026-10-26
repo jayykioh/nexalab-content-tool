@@ -1,0 +1,1787 @@
+{
+  "kind": "read-only-db-baseline",
+  "capturedAt": "2026-10-26T09:28:34.765Z",
+  "lessons": [
+    {
+      "id": "dev-khtn8-ch00-lesson-01",
+      "title": "Bài 1. Sử dụng một số hoá chất, thiết bị cơ bản trong phòng thí nghiệm",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch00-lesson-01-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch01-lesson-02",
+      "title": "Bài 2. Phản ứng hoá học",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch01-lesson-02-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch01-lesson-03",
+      "title": "Bài 3. Mol và tỉ khối chất khí",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch01-lesson-03-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch01-lesson-04",
+      "title": "Bài 4. Dung dịch và nồng độ",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch01-lesson-04-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch01-lesson-05",
+      "title": "Bài 5. Định luật bảo toàn khối lượng và phương trình hoá học",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch01-lesson-05-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch01-lesson-06",
+      "title": "Bài 6. Tính theo phương trình hoá học",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch01-lesson-06-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch01-lesson-07",
+      "title": "Bài 7. Tốc độ phản ứng và chất xúc tác",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch01-lesson-07-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch02-lesson-08",
+      "title": "Bài 8. Acid",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch02-lesson-08-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch02-lesson-09",
+      "title": "Bài 9. Base. Thang pH",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch02-lesson-09-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch02-lesson-10",
+      "title": "Bài 10. Oxide",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch02-lesson-10-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch02-lesson-11",
+      "title": "Bài 11. Muối",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch02-lesson-11-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch02-lesson-12",
+      "title": "Bài 12. Phân bón hoá học",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch02-lesson-12-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch03-lesson-13",
+      "title": "Bài 13. Khối lượng riêng",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch03-lesson-13-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch03-lesson-14",
+      "title": "Bài 14. Thực hành xác định khối lượng riêng",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch03-lesson-14-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch03-lesson-15",
+      "title": "Bài 15. Áp suất trên một bề mặt",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch03-lesson-15-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch03-lesson-16",
+      "title": "Bài 16. Áp suất chất lỏng. Áp suất khí quyển",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch03-lesson-16-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch03-lesson-17",
+      "title": "Bài 17. Lực đẩy Archimedes",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch03-lesson-17-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch04-lesson-18",
+      "title": "Bài 18. Tác dụng làm quay của lực. Moment lực",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch04-lesson-18-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch04-lesson-19",
+      "title": "Bài 19. Đòn bẩy và ứng dụng",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch04-lesson-19-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch05-lesson-20",
+      "title": "Bài 20. Hiện tượng nhiễm điện do cọ xát",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch05-lesson-20-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch05-lesson-21",
+      "title": "Bài 21. Dòng điện, nguồn điện",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch05-lesson-21-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch05-lesson-22",
+      "title": "Bài 22. Mạch điện đơn giản",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch05-lesson-22-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch05-lesson-23",
+      "title": "Bài 23. Tác dụng của dòng điện",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch05-lesson-23-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch05-lesson-24",
+      "title": "Bài 24. Cường độ dòng điện và hiệu điện thế",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch05-lesson-24-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch05-lesson-25",
+      "title": "Bài 25. Thực hành đo cường độ dòng điện và hiệu điện thế",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch05-lesson-25-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch06-lesson-26",
+      "title": "Bài 26. Năng lượng nhiệt và nội năng",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch06-lesson-26-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch06-lesson-27",
+      "title": "Bài 27. Thực hành đo năng lượng nhiệt bằng joulemeter",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch06-lesson-27-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch06-lesson-28",
+      "title": "Bài 28. Sự truyền nhiệt",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch06-lesson-28-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch06-lesson-29",
+      "title": "Bài 29. Sự nở vì nhiệt",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch06-lesson-29-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch07-lesson-30",
+      "title": "Bài 30. Khái quát về cơ thể người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch07-lesson-30-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch07-lesson-31",
+      "title": "Bài 31. Hệ vận động ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch07-lesson-31-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch07-lesson-32",
+      "title": "Bài 32. Dinh dưỡng và tiêu hoá ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch07-lesson-32-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch07-lesson-33",
+      "title": "Bài 33. Máu và hệ tuần hoàn của cơ thể người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch07-lesson-33-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch07-lesson-34",
+      "title": "Bài 34. Hệ hô hấp ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch07-lesson-34-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch07-lesson-35",
+      "title": "Bài 35. Hệ bài tiết ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch07-lesson-35-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch07-lesson-36",
+      "title": "Bài 36. Điều hoà môi trường trong của cơ thể người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch07-lesson-36-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch07-lesson-37",
+      "title": "Bài 37. Hệ thần kinh và các giác quan ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch07-lesson-37-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch07-lesson-38",
+      "title": "Bài 38. Hệ nội tiết ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch07-lesson-38-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch07-lesson-39",
+      "title": "Bài 39. Da và điều hoà thân nhiệt ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch07-lesson-39-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch07-lesson-40",
+      "title": "Bài 40. Sinh sản ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch07-lesson-40-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch08-lesson-41",
+      "title": "Bài 41. Môi trường và các nhân tố sinh thái",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch08-lesson-41-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch08-lesson-42",
+      "title": "Bài 42. Quần thể sinh vật",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch08-lesson-42-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch08-lesson-43",
+      "title": "Bài 43. Quần xã sinh vật",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch08-lesson-43-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch08-lesson-44",
+      "title": "Bài 44. Hệ sinh thái",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch08-lesson-44-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch08-lesson-45",
+      "title": "Bài 45. Sinh quyển",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch08-lesson-45-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch08-lesson-46",
+      "title": "Bài 46. Cân bằng tự nhiên",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch08-lesson-46-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-khtn8-ch08-lesson-47",
+      "title": "Bài 47. Bảo vệ môi trường",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-dev-khtn8-ch08-lesson-47-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Video minh họa bài giảng (dùng chung để kiểm thử UI)",
+            "transcript": "Video mẫu dùng chung để kiểm tra giao diện phát video và theo dõi tiến độ. Nội dung video có thể không khớp với bài học."
+          }
+        }
+      ]
+    },
+    {
+      "id": "lesson-chemistry",
+      "title": "Xác định pH của dung dịch giấm ăn, nước xà phòng, nước vôi trong",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-lesson-chemistry-video",
+          "position": 20,
+          "config": {
+            "url": "https://eiotlkegrejjhldsvaqp.supabase.co/storage/v1/object/public/lesson-media/nexalab-ph-demo-under-50mb.mp4",
+            "title": "Giải thích: Xác định pH của dung dịch giấm ăn, nước xà phòng, nước vôi trong",
+            "equivalentText": "Dùng quỳ tím nhúng lần lượt vào ba lọ mất nhãn. Lọ axit (đại diện: giấm ăn) làm quỳ tím hóa đỏ, lọ trung tính giữ màu tím và lọ bazơ (đại diện: nước xà phòng hoặc nước vôi trong) làm quỳ tím hóa xanh."
+          }
+        }
+      ]
+    },
+    {
+      "id": "lesson-circuit",
+      "title": "Định luật Ohm",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-lesson-circuit-video",
+          "position": 20,
+          "config": {
+            "title": "Giải thích: Định luật Ohm",
+            "equivalentText": "Dòng điện chỉ chạy qua đường dẫn kín. Trong mô hình này, mỗi LED có sụt áp 2 V. Dòng điện qua một nhánh nối tiếp: I = (U − 2 × số LED) / R. Điện trở giới hạn dòng để bảo vệ LED. Hãy thay đổi từng tham số và ghi lại kết quả."
+          }
+        }
+      ]
+    },
+    {
+      "id": "lesson-eye",
+      "title": "Cấu tạo mắt người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-lesson-eye-video",
+          "position": 20,
+          "config": {
+            "title": "Giải thích: Cấu tạo mắt người",
+            "equivalentText": "Ánh sáng đi qua giác mạc, thủy dịch, đồng tử, thể thủy tinh và dịch kính, rồi đến võng mạc. Võng mạc biến ánh sáng thành tín hiệu thần kinh. Dây thần kinh thị giác truyền tín hiệu đến não. Khám phá từng bộ phận trong mô hình minh họa."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pack-fixture-khtn8-dong-dien-noi-tiep-v1",
+      "title": "Dòng điện trong mạch nối tiếp (gói minh họa)",
+      "subjectId": "khtn",
+      "curriculumChapterCode": null,
+      "curriculumTopicCode": null,
+      "curriculumOrder": null,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": [
+        {
+          "id": "step-pack-fixture-khtn8-dong-dien-noi-tiep-v1-video",
+          "position": 20,
+          "config": {
+            "title": "Nội dung thay thế",
+            "equivalentText": "<p>Trong đoạn mạch nối tiếp, dòng điện chỉ có một đường đi duy nhất, vì vậy cường độ dòng điện tại mọi điểm trên mạch là như nhau. Đây là gói minh họa phục vụ kiểm thử, không phải học liệu đã phát hành.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pack-structured-03b2dcaf5fd4851dbd229b2d01c7d14ac8c1544c-v1",
+      "title": "Môi trường và các nhân tố sinh thái",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH08",
+      "curriculumTopicCode": "KHTN8-L41",
+      "curriculumOrder": 41,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-0733be477c2eaf0e87c1fb8055348d1eeb76a7ed-v1",
+      "title": "Thực hành xác định khối lượng riêng",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH03",
+      "curriculumTopicCode": "KHTN8-L14",
+      "curriculumOrder": 14,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-08ed449d58fd5a1cbfa84a6fee3f2f0c88a7b95f-v1",
+      "title": "Thực hành đo năng lượng nhiệt bằng joulemeter",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH06",
+      "curriculumTopicCode": "KHTN8-L27",
+      "curriculumOrder": 27,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-0a58cecf6b2203dc60724f470d0c055c882f63e2-v1",
+      "title": "Năng lượng nhiệt và nội năng",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH06",
+      "curriculumTopicCode": "KHTN8-L26",
+      "curriculumOrder": 26,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-12e8e1dacaf73698a00fab4c3e3ed1e4d8f6a74c-v1",
+      "title": "Định luật bảo toàn khối lượng và phương trình hoá học",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH01",
+      "curriculumTopicCode": "KHTN8-L05",
+      "curriculumOrder": 5,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-12f8956ea5bf3ac1bd186a97882b7ddc67741598-v1",
+      "title": "Áp suất chất lỏng. Áp suất khí quyển",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH03",
+      "curriculumTopicCode": "KHTN8-L16",
+      "curriculumOrder": 16,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-1b3956974eac5962ce1799570274520d6ebfc2f5-v1",
+      "title": "Sự nở vì nhiệt",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH06",
+      "curriculumTopicCode": "KHTN8-L29",
+      "curriculumOrder": 29,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-224cf04f147bbd206755a21b6189dda45903460d-v1",
+      "title": "Hệ thần kinh và các giác quan ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH07",
+      "curriculumTopicCode": "KHTN8-L37",
+      "curriculumOrder": 37,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-2bbbebc2843a163b51fd8b4d2088c884565c2ea8-v1",
+      "title": "Lực đẩy Archimedes",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH03",
+      "curriculumTopicCode": "KHTN8-L17",
+      "curriculumOrder": 17,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-3430246af851d050727baaa4dee0449b90cbaa2c-v1",
+      "title": "Dinh dưỡng và tiêu hoá ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH07",
+      "curriculumTopicCode": "KHTN8-L32",
+      "curriculumOrder": 32,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-38f03d31878e58fc0d8a31b8c8aa9fab4af866f7-v1",
+      "title": "Mạch điện đơn giản",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH05",
+      "curriculumTopicCode": "KHTN8-L22",
+      "curriculumOrder": 22,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-3bf17d9348b3b2fd10eb0d6e841eae0c49109b3b-v1",
+      "title": "Oxide",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH02",
+      "curriculumTopicCode": "KHTN8-L10",
+      "curriculumOrder": 10,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-3ce4a56b56d1b1a1f85a8021ffdcd59159666ad8-v1",
+      "title": "Cân bằng tự nhiên",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH08",
+      "curriculumTopicCode": "KHTN8-L46",
+      "curriculumOrder": 46,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-3f56aa112766aaecfa83b73cf06f494ffb74ced9-v1",
+      "title": "Bảo vệ môi trường",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH08",
+      "curriculumTopicCode": "KHTN8-L47",
+      "curriculumOrder": 47,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-46ecd234fc56381f549d4051ac5ccae8745f2e75-v1",
+      "title": "Sự truyền nhiệt",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH06",
+      "curriculumTopicCode": "KHTN8-L28",
+      "curriculumOrder": 28,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-4703fdfc84a9134484e1791a1b35aca79ef9fc84-v1",
+      "title": "Sinh sản ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH07",
+      "curriculumTopicCode": "KHTN8-L40",
+      "curriculumOrder": 40,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-4e53445e1a423e7385e08451aa38c1ba1ce23596-v1",
+      "title": "Áp suất trên một bề mặt",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH03",
+      "curriculumTopicCode": "KHTN8-L15",
+      "curriculumOrder": 15,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-53c1ae7ae0e2c220f8f94e5172ec419f4cb6e81a-v1",
+      "title": "Hiện tượng nhiễm điện do cọ xát",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH05",
+      "curriculumTopicCode": "KHTN8-L20",
+      "curriculumOrder": 20,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-594b00e911db418eb4451f7cdc77d303ffb0e09d-v1",
+      "title": "Muối",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH02",
+      "curriculumTopicCode": "KHTN8-L11",
+      "curriculumOrder": 11,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-5cbaf2fe9c60d69b9222ecb0761d9783978ff13a-v1",
+      "title": "Khái quát về cơ thể người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH07",
+      "curriculumTopicCode": "KHTN8-L30",
+      "curriculumOrder": 30,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-6ad49838ad66f3b0ea9c5e3d563d8210f5da2a01-v1",
+      "title": "Máu và hệ tuần hoàn của cơ thể người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH07",
+      "curriculumTopicCode": "KHTN8-L33",
+      "curriculumOrder": 33,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-6e858b661e4608494563d4177e2378e83436c8f1-v1",
+      "title": "Điều hoà môi trường trong của cơ thể người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH07",
+      "curriculumTopicCode": "KHTN8-L36",
+      "curriculumOrder": 36,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-744d41cbf1bea66b5fae35903b35c3a45b0fced5-v1",
+      "title": "Thực hành đo cường độ dòng điện và hiệu điện thế",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH05",
+      "curriculumTopicCode": "KHTN8-L25",
+      "curriculumOrder": 25,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-82f423acb626f6880e86029916d078eee5361525-v1",
+      "title": "Đòn bẩy và ứng dụng",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH04",
+      "curriculumTopicCode": "KHTN8-L19",
+      "curriculumOrder": 19,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-8340b862d46ac1654b672fa9ac869f78d6795d8e-v1",
+      "title": "Dung dịch và nồng độ",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH01",
+      "curriculumTopicCode": "KHTN8-L04",
+      "curriculumOrder": 4,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-8e98603283b799c59d1b507d1483ea267dd3ed2f-v1",
+      "title": "Mol và tỉ khối chất khí",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH01",
+      "curriculumTopicCode": "KHTN8-L03",
+      "curriculumOrder": 3,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-941e733a8148b29a2860f45dd12302baf2aebf0b-v1",
+      "title": "Tác dụng làm quay của lực. Moment lực",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH04",
+      "curriculumTopicCode": "KHTN8-L18",
+      "curriculumOrder": 18,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-9840c97d54d47363a9b69daaf16359fc31816c63-v1",
+      "title": "Base. Thang pH",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH02",
+      "curriculumTopicCode": "KHTN8-L09",
+      "curriculumOrder": 9,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-9a392a36afc9cd4c72e7fe5449b9f0e682b55a79-v1",
+      "title": "Sử dụng một số hoá chất, thiết bị cơ bản trong phòng thí nghiệm",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-INTRO",
+      "curriculumTopicCode": "KHTN8-L01",
+      "curriculumOrder": 1,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-a627eeeadbb3dca734c4ba4ae27577c22f6e66f6-v1",
+      "title": "Hệ hô hấp ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH07",
+      "curriculumTopicCode": "KHTN8-L34",
+      "curriculumOrder": 34,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-aec4412ca7656e2823228773ee45e68852315850-v1",
+      "title": "Phản ứng hoá học",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH01",
+      "curriculumTopicCode": "KHTN8-L02",
+      "curriculumOrder": 2,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-af15f30afc3eb10589e674f9e38bc5aee174860b-v1",
+      "title": "Quần thể sinh vật",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH08",
+      "curriculumTopicCode": "KHTN8-L42",
+      "curriculumOrder": 42,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-b927cf8b5f1878c405a2cfec38da702597927030-v1",
+      "title": "Quần xã sinh vật",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH08",
+      "curriculumTopicCode": "KHTN8-L43",
+      "curriculumOrder": 43,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-bad6c781d4a7acf408acdf249319f86758dbf66f-v1",
+      "title": "Hệ sinh thái",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH08",
+      "curriculumTopicCode": "KHTN8-L44",
+      "curriculumOrder": 44,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-c6b80ff49fe27ce2f15878ff2550999a54a9d86f-v1",
+      "title": "Dòng điện, nguồn điện",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH05",
+      "curriculumTopicCode": "KHTN8-L21",
+      "curriculumOrder": 21,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-c9544b5c4dadff1e4621579d63aa871dd91ee2ed-v1",
+      "title": "Cường độ dòng điện và hiệu điện thế",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH05",
+      "curriculumTopicCode": "KHTN8-L24",
+      "curriculumOrder": 24,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-ceb6b605ddb85a28613893856f1e0361e37c09e9-v1",
+      "title": "Tốc độ phản ứng và chất xúc tác",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH01",
+      "curriculumTopicCode": "KHTN8-L07",
+      "curriculumOrder": 7,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-cf688e5131cdb5af4ea07696b3eb213488f20d44-v1",
+      "title": "Tác dụng của dòng điện",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH05",
+      "curriculumTopicCode": "KHTN8-L23",
+      "curriculumOrder": 23,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-d69b9df8a1375905ea1606d6146920508c06774b-v1",
+      "title": "Hệ vận động ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH07",
+      "curriculumTopicCode": "KHTN8-L31",
+      "curriculumOrder": 31,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-d8532ff675d45820e2857a7d868a930c14ceec19-v1",
+      "title": "Khối lượng riêng",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH03",
+      "curriculumTopicCode": "KHTN8-L13",
+      "curriculumOrder": 13,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-d9612d57538658c30791628bcdca474dfafa1499-v1",
+      "title": "Phân bón hoá học",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH02",
+      "curriculumTopicCode": "KHTN8-L12",
+      "curriculumOrder": 12,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-dda27409f7a9b5c71c02337eb757c5c38e647709-v1",
+      "title": "Sinh quyển",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH08",
+      "curriculumTopicCode": "KHTN8-L45",
+      "curriculumOrder": 45,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-dda4643b9acf4662905cfe50a9df60da7632d6a1-v1",
+      "title": "Hệ nội tiết ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH07",
+      "curriculumTopicCode": "KHTN8-L38",
+      "curriculumOrder": 38,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-ddba56b293bdb817683cddff458d73d9a390032d-v1",
+      "title": "Da và điều hoà thân nhiệt ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH07",
+      "curriculumTopicCode": "KHTN8-L39",
+      "curriculumOrder": 39,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-edde10ba89740c67605e1f5cae80110052acf7e3-v1",
+      "title": "Tính theo phương trình hoá học",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH01",
+      "curriculumTopicCode": "KHTN8-L06",
+      "curriculumOrder": 6,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-fa3fd242197e7b25c51c26a5fcabdb6720ddcd88-v1",
+      "title": "Acid",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH02",
+      "curriculumTopicCode": "KHTN8-L08",
+      "curriculumOrder": 8,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    },
+    {
+      "id": "pack-structured-fc6df5db02e6e5a7831fae2b585f3ea3394c04d7-v1",
+      "title": "Hệ bài tiết ở người",
+      "subjectId": "khtn",
+      "curriculumChapterCode": "KHTN8-CH07",
+      "curriculumTopicCode": "KHTN8-L35",
+      "curriculumOrder": 35,
+      "status": "published",
+      "scope": "SHARED_LIBRARY",
+      "videos": [],
+      "sections": [],
+      "steps": []
+    }
+  ]
+}

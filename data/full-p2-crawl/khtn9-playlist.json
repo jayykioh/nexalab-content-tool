@@ -1,0 +1,767 @@
+{
+  "schemaVersion": 1,
+  "kind": "olm-playlist-crawl",
+  "subject": "khtn9",
+  "playlistId": "PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+  "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+  "playlistTitle": "Khoa học tự nhiên 9",
+  "channel": "Học trực tuyến OLM",
+  "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+  "reportedEntryCount": 74,
+  "entries": [
+    {
+      "playlistIndex": 1,
+      "videoId": "5bYlFrS-xTw",
+      "title": "Động năng, thế năng - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=5bYlFrS-xTw",
+      "durationSec": 729,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 2,
+      "videoId": "BLauJXmadW8",
+      "title": "Gene là trung tâm của di truyền học (phần 1) - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=BLauJXmadW8",
+      "durationSec": 565,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 3,
+      "videoId": "jgAvivRrsxA",
+      "title": "Cơ năng - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=jgAvivRrsxA",
+      "durationSec": 680,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 4,
+      "videoId": "GK83XaGbLi0",
+      "title": "Công và công suất - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=GK83XaGbLi0",
+      "durationSec": 590,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 5,
+      "videoId": "U4OcKaatCnM",
+      "title": "Gene là trung tâm của di truyền học (phần 2) - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=U4OcKaatCnM",
+      "durationSec": 605,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 6,
+      "videoId": "PHCPJQmBERo",
+      "title": null,
+      "url": "https://www.youtube.com/watch?v=PHCPJQmBERo",
+      "durationSec": null,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNAVAILABLE"
+    },
+    {
+      "playlistIndex": 7,
+      "videoId": "VR8rdj8zMLs",
+      "title": "Phản xạ toàn phần - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=VR8rdj8zMLs",
+      "durationSec": 499,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 8,
+      "videoId": "f3L8xXvAthY",
+      "title": "Khúc xạ ánh sáng (phần 1) - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=f3L8xXvAthY",
+      "durationSec": 455,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 9,
+      "videoId": "3nSRyl1MBZ8",
+      "title": "Khúc xạ ánh sáng (phần 2) - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=3nSRyl1MBZ8",
+      "durationSec": 517,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 10,
+      "videoId": "E71l_BGBbBk",
+      "title": null,
+      "url": "https://www.youtube.com/watch?v=E71l_BGBbBk",
+      "durationSec": null,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNAVAILABLE"
+    },
+    {
+      "playlistIndex": 11,
+      "videoId": "y7Yeb2N62AA",
+      "title": "Tái bản DNA và phiên mã tạo RNA - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=y7Yeb2N62AA",
+      "durationSec": 650,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 12,
+      "videoId": "oMu4sjpOemI",
+      "title": "Lăng kính (phần 2) - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=oMu4sjpOemI",
+      "durationSec": 471,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 13,
+      "videoId": "q8gm2xAaJqY",
+      "title": "Dãy hoạt động hóa học - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=q8gm2xAaJqY",
+      "durationSec": 439,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 14,
+      "videoId": "XT0Ky7QWKi8",
+      "title": "Tách kim loại và việc sử dụng hợp kim  - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=XT0Ky7QWKi8",
+      "durationSec": 505,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 15,
+      "videoId": "guPo5HXxM0M",
+      "title": "Mã di truyền, dịch mã và mối quan hệ từ gene đến tính trạng - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=guPo5HXxM0M",
+      "durationSec": 748,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 16,
+      "videoId": "mTN7ijVi8GQ",
+      "title": "Bài 1. Nhận biết một số dụng cụ, hóa chất. Thuyết trình một vấn đề khoa học (p1) - KHTN 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=mTN7ijVi8GQ",
+      "durationSec": 457,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 17,
+      "videoId": "l5lylZsiViw",
+      "title": "Khái quát về di truyền học - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=l5lylZsiViw",
+      "durationSec": 681,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 18,
+      "videoId": "EDQqDgMS7aw",
+      "title": "Bài mở đầu. Học tập và trình bày báo cáo khoa học trong môn Khoa học tự nhiên 9 - KHTN 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=EDQqDgMS7aw",
+      "durationSec": 731,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 19,
+      "videoId": "8q4HOemkvm0",
+      "title": "Bài 1. Giới thiệu một số dụng cụ, hóa chất. Thuyết trình một vấn đề khoa học - KHTN 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=8q4HOemkvm0",
+      "durationSec": 536,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 20,
+      "videoId": "FN-sIQRXPQQ",
+      "title": "Lăng kính (phần 1) - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=FN-sIQRXPQQ",
+      "durationSec": 405,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 21,
+      "videoId": "Tn2QwPeBhhs",
+      "title": "Nhiễm sắc thể và bộ nhiễm sắc thể (phần 1) - KHTN 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=Tn2QwPeBhhs",
+      "durationSec": 462,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 22,
+      "videoId": "-R7Vpcb4w0o",
+      "title": "Nhiễm sắc thể và bộ nhiễm sắc thể (phần 2) - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=-R7Vpcb4w0o",
+      "durationSec": 466,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 23,
+      "videoId": "i5-3UuPYMdA",
+      "title": "Các quy luật di truyền của Mendel - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=i5-3UuPYMdA",
+      "durationSec": 566,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 24,
+      "videoId": "FeHx0g8D8IA",
+      "title": "Thực hành: Quan sát tiêu bản nhiễm sắc thể - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=FeHx0g8D8IA",
+      "durationSec": 416,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 25,
+      "videoId": "72zMq5ogOXU",
+      "title": "Sự khác nhau cơ bản giữa phi kim và kim loại - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=72zMq5ogOXU",
+      "durationSec": 466,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 26,
+      "videoId": "r60y9dImKMQ",
+      "title": "Bài 1. Nhận biết một số dụng cụ, hóa chất. Thuyết trình một vấn đề khoa học (p2) - KHTN 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=r60y9dImKMQ",
+      "durationSec": 570,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 27,
+      "videoId": "Z1uFtDcg1rU",
+      "title": "Đột biến gene - Khoa học tự nhiên 9 - OLM. VN",
+      "url": "https://www.youtube.com/watch?v=Z1uFtDcg1rU",
+      "durationSec": 510,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 28,
+      "videoId": "-E7XCNYPMPs",
+      "title": "Nucleic acid và gene - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=-E7XCNYPMPs",
+      "durationSec": 588,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 29,
+      "videoId": "tVzqGJj2NQs",
+      "title": "Nhiễm sắc thể giới tính và cơ chế xác định giới tính - Khoa học tự nhiên 9 - OLM.VN",
+      "url": "https://www.youtube.com/watch?v=tVzqGJj2NQs",
+      "durationSec": 606,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 30,
+      "videoId": "9oUxvAtnz7s",
+      "title": "Từ gene đến tính trạng - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=9oUxvAtnz7s",
+      "durationSec": 409,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 31,
+      "videoId": "VbA41p0KVds",
+      "title": "Alkane - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=VbA41p0KVds",
+      "durationSec": 426,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 32,
+      "videoId": "iQmkLrM8YDQ",
+      "title": "Giới thiệu về hợp chất hữu cơ  - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=iQmkLrM8YDQ",
+      "durationSec": 468,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 33,
+      "videoId": "9zz9mjyhQZ4",
+      "title": "Alkene - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=9zz9mjyhQZ4",
+      "durationSec": 464,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 34,
+      "videoId": "Fc6a6Q5drYE",
+      "title": "Điện trở. Định luật Ohm - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=Fc6a6Q5drYE",
+      "durationSec": 577,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 35,
+      "videoId": "J43kkIKab1o",
+      "title": "Đoạn mạch nối tiếp - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=J43kkIKab1o",
+      "durationSec": 538,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 36,
+      "videoId": "-ja1bla1gmk",
+      "title": "Đoạn mạch song song - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=-ja1bla1gmk",
+      "durationSec": 492,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 37,
+      "videoId": "5k6d1GscVLQ",
+      "title": "Năng lượng của dòng điện. Công suất điện - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=5k6d1GscVLQ",
+      "durationSec": 519,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 38,
+      "videoId": "SVHx6lKhxmo",
+      "title": "Nguyên phân và giảm phân (phần 1) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=SVHx6lKhxmo",
+      "durationSec": 362,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 39,
+      "videoId": "VK37oddJETc",
+      "title": "Thấu kính (phần 2) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=VK37oddJETc",
+      "durationSec": 464,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 40,
+      "videoId": "FVpyPSfLxeU",
+      "title": "Thực hành đo tiêu cự của thấu kính hội tụ - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=FVpyPSfLxeU",
+      "durationSec": 494,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 41,
+      "videoId": "ZBfk9N6vRcU",
+      "title": "Kính lúp - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=ZBfk9N6vRcU",
+      "durationSec": 421,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 42,
+      "videoId": "ZncHjXxUtuA",
+      "title": "Nguyên phân và giảm phân (phần 2) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=ZncHjXxUtuA",
+      "durationSec": 703,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 43,
+      "videoId": "ZiK7EEvCUIk",
+      "title": "Cảm ứng điện từ - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=ZiK7EEvCUIk",
+      "durationSec": 598,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 44,
+      "videoId": "qPo68FioYqU",
+      "title": "Di truyền liên kết - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=qPo68FioYqU",
+      "durationSec": 509,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 45,
+      "videoId": "cOhRNeJA1cM",
+      "title": "Khai thác đá vôi. Công nghiệp silicate - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=cOhRNeJA1cM",
+      "durationSec": 554,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 46,
+      "videoId": "3r8-4n4oaBA",
+      "title": "Sơ lược về tài nguyên trong vỏ trái đất và khai thác tài nguyên thiên nhiên từ vỏ trái đất - KHTN 9",
+      "url": "https://www.youtube.com/watch?v=3r8-4n4oaBA",
+      "durationSec": 454,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 47,
+      "videoId": "VTnG6AQ0uy0",
+      "title": "Tác dụng của dòng điện xoay chiều - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=VTnG6AQ0uy0",
+      "durationSec": 564,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 48,
+      "videoId": "B_eoRdhYz2U",
+      "title": "Thấu kính (phần 1) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=B_eoRdhYz2U",
+      "durationSec": 475,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 49,
+      "videoId": "0BJtY2ImrtQ",
+      "title": "Khai thác nhiên liệu hóa thạch - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=0BJtY2ImrtQ",
+      "durationSec": 408,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 50,
+      "videoId": "S63mx47_szg",
+      "title": "Tính chất chung của kim loại (phần 1) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=S63mx47_szg",
+      "durationSec": 419,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 51,
+      "videoId": "EFjki2w08hw",
+      "title": "Năng lượng tái tạo - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=EFjki2w08hw",
+      "durationSec": 698,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 52,
+      "videoId": "jvSYTd_iO0o",
+      "title": "Vòng năng lượng trên Trái Đất. Năng lượng hóa thạch - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=jvSYTd_iO0o",
+      "durationSec": 608,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 53,
+      "videoId": "5PyEeAKy6ME",
+      "title": "Đột biến nhiễm sắc thể - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=5PyEeAKy6ME",
+      "durationSec": 663,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 54,
+      "videoId": "aQa02tCEXW8",
+      "title": "Nguồn nhiên liệu - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=aQa02tCEXW8",
+      "durationSec": 486,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 55,
+      "videoId": "YbzYD2n1Yas",
+      "title": "Di truyền học với con người (phần 1) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=YbzYD2n1Yas",
+      "durationSec": 576,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 56,
+      "videoId": "VLTe4AQ8G8g",
+      "title": "Di truyền học với con người (phần 2) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=VLTe4AQ8G8g",
+      "durationSec": 545,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 57,
+      "videoId": "l-bujaD55xw",
+      "title": "Nguồn carbon. Chu trình carbon và sự ấm lên toàn cầu - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=l-bujaD55xw",
+      "durationSec": 637,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 58,
+      "videoId": "e5u0jZLEIl0",
+      "title": "Acetic acid (phần 1) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=e5u0jZLEIl0",
+      "durationSec": 663,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 59,
+      "videoId": "TjEKPmqNnSY",
+      "title": "Xóa",
+      "url": "https://www.youtube.com/watch?v=TjEKPmqNnSY",
+      "durationSec": 612,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 60,
+      "videoId": "mYy22UohL5k",
+      "title": "Xóa",
+      "url": "https://www.youtube.com/watch?v=mYy22UohL5k",
+      "durationSec": 567,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 61,
+      "videoId": "nVqLzOconnI",
+      "title": "Lipid - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=nVqLzOconnI",
+      "durationSec": 532,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 62,
+      "videoId": "sTUWzjeQmmE",
+      "title": "Ethylic alcohol (phần 2) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=sTUWzjeQmmE",
+      "durationSec": 546,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 63,
+      "videoId": "D9O0jOqyR_w",
+      "title": "Acetic acid (phần 2) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=D9O0jOqyR_w",
+      "durationSec": 500,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 64,
+      "videoId": "S4XUp2OUY0Q",
+      "title": "Carbohydrate. Glucose và saccharose - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=S4XUp2OUY0Q",
+      "durationSec": 570,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 65,
+      "videoId": "AMchMlywSp4",
+      "title": "Tinh bột và cellulose - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=AMchMlywSp4",
+      "durationSec": 612,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 66,
+      "videoId": "jkCjWNU_m7I",
+      "title": "Polymer (phần 1) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=jkCjWNU_m7I",
+      "durationSec": 567,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 67,
+      "videoId": "ixhCID2ee68",
+      "title": "Polymer (phần 2) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=ixhCID2ee68",
+      "durationSec": 510,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 68,
+      "videoId": "VBYO29HvJXk",
+      "title": "Protein - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=VBYO29HvJXk",
+      "durationSec": 450,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 69,
+      "videoId": "0mrhrex820E",
+      "title": "Ứng dụng công nghệ di truyền vào đời sống - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=0mrhrex820E",
+      "durationSec": 576,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 70,
+      "videoId": "rMh2w15crKE",
+      "title": "Ethylic alcohol (phần 1) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=rMh2w15crKE",
+      "durationSec": 494,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 71,
+      "videoId": "u_CEFznyxkQ",
+      "title": "Cơ chế tiến hoá (phần 1) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=u_CEFznyxkQ",
+      "durationSec": 415,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "playlistIndex": 72,
+      "videoId": "LmQEzM5TeQM",
+      "title": "Khái niệm tiến hóa và các hình thức chọn lọc - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=LmQEzM5TeQM",
+      "durationSec": 504,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 73,
+      "videoId": "XbyrCNShUeI",
+      "title": "Cơ chế tiến hoá (phần 2) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=XbyrCNShUeI",
+      "durationSec": 377,
+      "transcript": null,
+      "captionStatus": "VIDEO_UNAVAILABLE",
+      "availability": "UNKNOWN"
+    },
+    {
+      "playlistIndex": 74,
+      "videoId": "Wh9jD9cBagc",
+      "title": "Tính chất chung của kim loại (phần 2) - Khoa học tự nhiên 9",
+      "url": "https://www.youtube.com/watch?v=Wh9jD9cBagc",
+      "durationSec": 496,
+      "transcript": null,
+      "captionStatus": "FETCH_FAILED",
+      "availability": "UNKNOWN",
+      "captionError": "HTTP Error 429: Too Many Requests"
+    }
+  ]
+}
