@@ -1,0 +1,2197 @@
+{
+  "schemaVersion": 1,
+  "kind": "khtn8-full-p2-canonical-video-mapping-candidate",
+  "releaseReady": false,
+  "playlistId": "PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+  "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+  "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+  "sourceLessonRegistry": "catalog-registry.json",
+  "counts": {
+    "playlistEntries": 83,
+    "mappedVideos": 76,
+    "lessonsWithVideos": 44,
+    "lessonsWithoutVideos": 3,
+    "reviewQueue": 7
+  },
+  "lessons": [
+    {
+      "lessonCode": "KHTN8-L01",
+      "lessonTitle": "Sử dụng một số hoá chất, thiết bị cơ bản trong phòng thí nghiệm",
+      "chapterCode": "KHTN8-INTRO",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [],
+      "mappingReviewStatus": "NO_VIDEO_MATCH"
+    },
+    {
+      "lessonCode": "KHTN8-L02",
+      "lessonTitle": "Phản ứng hoá học",
+      "chapterCode": "KHTN8-CH01",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-qqpzprijwhs",
+          "title": "Phản ứng hoá học, năng lượng của phản ứng hoá học - KHTN lớp 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=QqPZPriJWhs",
+          "provider": "YOUTUBE",
+          "providerVideoId": "QqPZPriJWhs",
+          "durationSec": 527,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 7,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/QqPZPriJWhs.vi.vtt",
+            "characters": 74873
+          }
+        },
+        {
+          "id": "olm-rueuvhtoru8",
+          "title": "The Course of a Chemical Reaction - Grade 8 Natural Science",
+          "url": "https://www.youtube.com/watch?v=RuEuVhtOrU8",
+          "provider": "YOUTUBE",
+          "providerVideoId": "RuEuVhtOrU8",
+          "durationSec": 66,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 82,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L03",
+      "lessonTitle": "Mol và tỉ khối chất khí",
+      "chapterCode": "KHTN8-CH01",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-a2_nm-cjyba",
+          "title": "Mol và tỉ khối chất khí (Phần 1) - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=a2_NM-cjybA",
+          "provider": "YOUTUBE",
+          "providerVideoId": "a2_NM-cjybA",
+          "durationSec": 549,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 12,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/a2_NM-cjybA.vi.vtt",
+            "characters": 75885
+          }
+        },
+        {
+          "id": "olm-tqghki0ywie",
+          "title": "Mol và tỉ khối chất khí (Phần 2) - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=tQGhKi0YWiE",
+          "provider": "YOUTUBE",
+          "providerVideoId": "tQGhKi0YWiE",
+          "durationSec": 478,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 13,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/tQGhKi0YWiE.vi.vtt",
+            "characters": 64653
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L04",
+      "lessonTitle": "Dung dịch và nồng độ",
+      "chapterCode": "KHTN8-CH01",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-swbuq61tjzw",
+          "title": "Dung dịch và nồng độ (Phần 1) - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=sWBUq61tjzw",
+          "provider": "YOUTUBE",
+          "providerVideoId": "sWBUq61tjzw",
+          "durationSec": 455,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 14,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/sWBUq61tjzw.vi.vtt",
+            "characters": 66480
+          }
+        },
+        {
+          "id": "olm-i0rls67gt9y",
+          "title": "Dung dịch và nồng độ (Phần 2) - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=i0rls67gt9Y",
+          "provider": "YOUTUBE",
+          "providerVideoId": "i0rls67gt9Y",
+          "durationSec": 403,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 15,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/i0rls67gt9Y.vi.vtt",
+            "characters": 55000
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L05",
+      "lessonTitle": "Định luật bảo toàn khối lượng và phương trình hoá học",
+      "chapterCode": "KHTN8-CH01",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-vhsq6x_e-og",
+          "title": "Định luật bảo toàn khối lượng và phương trình hoá học (Phần 1) - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=VHSq6x_e-og",
+          "provider": "YOUTUBE",
+          "providerVideoId": "VHSq6x_e-og",
+          "durationSec": 501,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 16,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/VHSq6x_e-og.vi.vtt",
+            "characters": 73682
+          }
+        },
+        {
+          "id": "olm-gq-7dn2z1j8",
+          "title": "Định luật bảo toàn khối lượng và phương trình hoá học (Phần 2) - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=Gq-7dN2Z1J8",
+          "provider": "YOUTUBE",
+          "providerVideoId": "Gq-7dN2Z1J8",
+          "durationSec": 510,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 17,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/Gq-7dN2Z1J8.vi.vtt",
+            "characters": 68624
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L06",
+      "lessonTitle": "Tính theo phương trình hoá học",
+      "chapterCode": "KHTN8-CH01",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm--ulvisks8s4",
+          "title": "Tính theo phương trình hóa học - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=-ULVisKS8s4",
+          "provider": "YOUTUBE",
+          "providerVideoId": "-ULVisKS8s4",
+          "durationSec": 633,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 44,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L07",
+      "lessonTitle": "Tốc độ phản ứng và chất xúc tác",
+      "chapterCode": "KHTN8-CH01",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-zld2aufue28",
+          "title": "Tốc độ phản ứng và chất xúc tác - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=zLD2AUFUe28",
+          "provider": "YOUTUBE",
+          "providerVideoId": "zLD2AUFUe28",
+          "durationSec": 618,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 20,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/zLD2AUFUe28.vi.vtt",
+            "characters": 83984
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L08",
+      "lessonTitle": "Acid",
+      "chapterCode": "KHTN8-CH02",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-pgvujfjrizy",
+          "title": "Acid - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=pGvujfJRIZY",
+          "provider": "YOUTUBE",
+          "providerVideoId": "pGvujfJRIZY",
+          "durationSec": 545,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 21,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/pGvujfJRIZY.vi.vtt",
+            "characters": 74916
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L09",
+      "lessonTitle": "Base. Thang pH",
+      "chapterCode": "KHTN8-CH02",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-5zmepd6jmac",
+          "title": "Base. Thang pH (Phần 1) - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=5zmePD6JMAc",
+          "provider": "YOUTUBE",
+          "providerVideoId": "5zmePD6JMAc",
+          "durationSec": 465,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 81,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm--q4nah_8ygs",
+          "title": "Base. Thang pH (Phần 2) - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=-Q4NAH_8YGs",
+          "provider": "YOUTUBE",
+          "providerVideoId": "-Q4NAH_8YGs",
+          "durationSec": 435,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 22,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/-Q4NAH_8YGs.vi.vtt",
+            "characters": 60077
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L10",
+      "lessonTitle": "Oxide",
+      "chapterCode": "KHTN8-CH02",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-jynfqtx92lk",
+          "title": "Oxide (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=jyNfqtx92Lk",
+          "provider": "YOUTUBE",
+          "providerVideoId": "jyNfqtx92Lk",
+          "durationSec": 315,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 23,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/jyNfqtx92Lk.vi.vtt",
+            "characters": 40553
+          }
+        },
+        {
+          "id": "olm-pwxqayd5noa",
+          "title": "Oxide (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=pWxQayd5NoA",
+          "provider": "YOUTUBE",
+          "providerVideoId": "pWxQayd5NoA",
+          "durationSec": 300,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 24,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/pWxQayd5NoA.vi.vtt",
+            "characters": 34601
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L11",
+      "lessonTitle": "Muối",
+      "chapterCode": "KHTN8-CH02",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-9ltfzluv2ga",
+          "title": "Muối (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=9LtFzLuV2gA",
+          "provider": "YOUTUBE",
+          "providerVideoId": "9LtFzLuV2gA",
+          "durationSec": 399,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 26,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/9LtFzLuV2gA.vi.vtt",
+            "characters": 44114
+          }
+        },
+        {
+          "id": "olm-sj5tgdgh6t0",
+          "title": "Muối (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=sj5TgdGH6T0",
+          "provider": "YOUTUBE",
+          "providerVideoId": "sj5TgdGH6T0",
+          "durationSec": 479,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 32,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L12",
+      "lessonTitle": "Phân bón hoá học",
+      "chapterCode": "KHTN8-CH02",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-y9fa0nc72pu",
+          "title": "Phân bón hóa học - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=Y9FA0NC72pU",
+          "provider": "YOUTUBE",
+          "providerVideoId": "Y9FA0NC72pU",
+          "durationSec": 452,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 33,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L13",
+      "lessonTitle": "Khối lượng riêng",
+      "chapterCode": "KHTN8-CH03",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-a6npskv1icm",
+          "title": "Khối lượng riêng - Khoa học tự nhiên 8 [OLM.VN]",
+          "url": "https://www.youtube.com/watch?v=a6npSKV1IcM",
+          "provider": "YOUTUBE",
+          "providerVideoId": "a6npSKV1IcM",
+          "durationSec": 362,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 2,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/a6npSKV1IcM.vi.vtt",
+            "characters": 46699
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L14",
+      "lessonTitle": "Thực hành xác định khối lượng riêng",
+      "chapterCode": "KHTN8-CH03",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-hchq94rvcf0",
+          "title": "Thực hành xác định khối lượng riêng - Khoa học tự nhiên 8 [OLM.VN]",
+          "url": "https://www.youtube.com/watch?v=HcHq94RvcF0",
+          "provider": "YOUTUBE",
+          "providerVideoId": "HcHq94RvcF0",
+          "durationSec": 283,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 3,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/HcHq94RvcF0.vi.vtt",
+            "characters": 37209
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L15",
+      "lessonTitle": "Áp suất trên một bề mặt",
+      "chapterCode": "KHTN8-CH03",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-nurjplm0cz4",
+          "title": "Áp suất - Khoa học tự nhiên 8 [OLM.VN]",
+          "url": "https://www.youtube.com/watch?v=nuRjplm0Cz4",
+          "provider": "YOUTUBE",
+          "providerVideoId": "nuRjplm0Cz4",
+          "durationSec": 483,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 4,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/nuRjplm0Cz4.vi.vtt",
+            "characters": 68466
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L16",
+      "lessonTitle": "Áp suất chất lỏng. Áp suất khí quyển",
+      "chapterCode": "KHTN8-CH03",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-toqwu5boz6s",
+          "title": "Áp suất chất lỏng. Áp suất khí quyển (Phần 1)- Khoa học tự nhiên 8 [OLM.VN]",
+          "url": "https://www.youtube.com/watch?v=ToqwU5BOZ6s",
+          "provider": "YOUTUBE",
+          "providerVideoId": "ToqwU5BOZ6s",
+          "durationSec": 404,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 5,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/ToqwU5BOZ6s.vi.vtt",
+            "characters": 54739
+          }
+        },
+        {
+          "id": "olm-4y8vem9xuic",
+          "title": "Áp suất chất lỏng. Áp suất khí quyển (Phần 2)- Khoa học tự nhiên 8 [OLM.VN]",
+          "url": "https://www.youtube.com/watch?v=4y8Vem9xUIc",
+          "provider": "YOUTUBE",
+          "providerVideoId": "4y8Vem9xUIc",
+          "durationSec": 348,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 8,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/4y8Vem9xUIc.vi.vtt",
+            "characters": 53021
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L17",
+      "lessonTitle": "Lực đẩy Archimedes",
+      "chapterCode": "KHTN8-CH03",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-zwrx6-uwjdy",
+          "title": "Lực đẩy Archimedes - Khoa học tự nhiên 8 [OLM.VN]",
+          "url": "https://www.youtube.com/watch?v=zwrx6-UwjdY",
+          "provider": "YOUTUBE",
+          "providerVideoId": "zwrx6-UwjdY",
+          "durationSec": 351,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 10,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/zwrx6-UwjdY.vi.vtt",
+            "characters": 48036
+          }
+        },
+        {
+          "id": "olm-8myellakzsm",
+          "title": "The Buoyant Force - Grade 8 Natural Science",
+          "url": "https://www.youtube.com/watch?v=8MyEllAKzsM",
+          "provider": "YOUTUBE",
+          "providerVideoId": "8MyEllAKzsM",
+          "durationSec": 56,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 83,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L18",
+      "lessonTitle": "Tác dụng làm quay của lực. Moment lực",
+      "chapterCode": "KHTN8-CH04",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-moyndsp7eoo",
+          "title": "Bài 18: Tác dụng làm quay của lực. Moment lực (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=moYnDSp7eoo",
+          "provider": "YOUTUBE",
+          "providerVideoId": "moYnDSp7eoo",
+          "durationSec": 430,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 25,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/moYnDSp7eoo.vi.vtt",
+            "characters": 45887
+          }
+        },
+        {
+          "id": "olm-2yt1kmu186s",
+          "title": "Bài 18: Tác dụng làm quay của lực. Moment lực (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=2YT1kmu186s",
+          "provider": "YOUTUBE",
+          "providerVideoId": "2YT1kmu186s",
+          "durationSec": 285,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 27,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L19",
+      "lessonTitle": "Đòn bẩy và ứng dụng",
+      "chapterCode": "KHTN8-CH04",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-ruxrdhc6joc",
+          "title": "Bài 19. Đòn bẩy và ứng dụng (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=ruXrDHc6JOc",
+          "provider": "YOUTUBE",
+          "providerVideoId": "ruXrDHc6JOc",
+          "durationSec": 465,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 28,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/ruXrDHc6JOc.vi.vtt",
+            "characters": 58260
+          }
+        },
+        {
+          "id": "olm-3h4ynjgkunu",
+          "title": "Bài 19. Đòn bẩy và ứng dụng (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=3H4YnjGkUnU",
+          "provider": "YOUTUBE",
+          "providerVideoId": "3H4YnjGkUnU",
+          "durationSec": 453,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 29,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/3H4YnjGkUnU.vi.vtt",
+            "characters": 48389
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L20",
+      "lessonTitle": "Hiện tượng nhiễm điện do cọ xát",
+      "chapterCode": "KHTN8-CH05",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-yawfnq9qcca",
+          "title": "Hiện tượng nhiễm điện do cọ xát (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=YaWFnq9QcCA",
+          "provider": "YOUTUBE",
+          "providerVideoId": "YaWFnq9QcCA",
+          "durationSec": 314,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 30,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/YaWFnq9QcCA.vi.vtt",
+            "characters": 35926
+          }
+        },
+        {
+          "id": "olm-nbyzpxp-spu",
+          "title": "Hiện tượng nhiễm điện do cọ xát (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=NByZpxP-sPU",
+          "provider": "YOUTUBE",
+          "providerVideoId": "NByZpxP-sPU",
+          "durationSec": 494,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 31,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L21",
+      "lessonTitle": "Dòng điện, nguồn điện",
+      "chapterCode": "KHTN8-CH05",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-xrav84tvnik",
+          "title": "Dòng điện, nguồn điện - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=xRaV84tVNIk",
+          "provider": "YOUTUBE",
+          "providerVideoId": "xRaV84tVNIk",
+          "durationSec": 455,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 46,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L22",
+      "lessonTitle": "Mạch điện đơn giản",
+      "chapterCode": "KHTN8-CH05",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-0agudisama0",
+          "title": "Mạch điện đơn giản - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=0AgudISAmA0",
+          "provider": "YOUTUBE",
+          "providerVideoId": "0AgudISAmA0",
+          "durationSec": 666,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 47,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L23",
+      "lessonTitle": "Tác dụng của dòng điện",
+      "chapterCode": "KHTN8-CH05",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-qzs7jnlzu5w",
+          "title": "Tác dụng của dòng điện - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=qzS7jNlZu5w",
+          "provider": "YOUTUBE",
+          "providerVideoId": "qzS7jNlZu5w",
+          "durationSec": 647,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 80,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L24",
+      "lessonTitle": "Cường độ dòng điện và hiệu điện thế",
+      "chapterCode": "KHTN8-CH05",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-b3zdqqgtqie",
+          "title": "Cường độ dòng điện và hiệu điện thế - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=b3zdQQGTQiE",
+          "provider": "YOUTUBE",
+          "providerVideoId": "b3zdQQGTQiE",
+          "durationSec": 552,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 53,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L25",
+      "lessonTitle": "Thực hành đo cường độ dòng điện và hiệu điện thế",
+      "chapterCode": "KHTN8-CH05",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [],
+      "mappingReviewStatus": "NO_VIDEO_MATCH"
+    },
+    {
+      "lessonCode": "KHTN8-L26",
+      "lessonTitle": "Năng lượng nhiệt và nội năng",
+      "chapterCode": "KHTN8-CH06",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-pp-brwib7lw",
+          "title": "Năng lượng nhiệt và nội năng (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=PP-BrwIb7Lw",
+          "provider": "YOUTUBE",
+          "providerVideoId": "PP-BrwIb7Lw",
+          "durationSec": 512,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 55,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-p9aapo73bli",
+          "title": "Năng lượng nhiệt và nội năng (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=p9AaPO73BLI",
+          "provider": "YOUTUBE",
+          "providerVideoId": "p9AaPO73BLI",
+          "durationSec": 474,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 56,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L27",
+      "lessonTitle": "Thực hành đo năng lượng nhiệt bằng joulemeter",
+      "chapterCode": "KHTN8-CH06",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [],
+      "mappingReviewStatus": "NO_VIDEO_MATCH"
+    },
+    {
+      "lessonCode": "KHTN8-L28",
+      "lessonTitle": "Sự truyền nhiệt",
+      "chapterCode": "KHTN8-CH06",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-vrdn2pw0ajs",
+          "title": "Sự truyền nhiệt (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=Vrdn2PW0AJs",
+          "provider": "YOUTUBE",
+          "providerVideoId": "Vrdn2PW0AJs",
+          "durationSec": 434,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 65,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-ubpxuz2zt88",
+          "title": "Sự truyền nhiệt (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=ubpxUz2Zt88",
+          "provider": "YOUTUBE",
+          "providerVideoId": "ubpxUz2Zt88",
+          "durationSec": 474,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 66,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-taz_we8t2sm",
+          "title": "Sự truyền nhiệt (phần 3) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=tAZ_we8T2SM",
+          "provider": "YOUTUBE",
+          "providerVideoId": "tAZ_we8T2SM",
+          "durationSec": 561,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 67,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L29",
+      "lessonTitle": "Sự nở vì nhiệt",
+      "chapterCode": "KHTN8-CH06",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-b4iwvkcx7uq",
+          "title": "Sự nở vì nhiệt (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=b4iWvKcX7uQ",
+          "provider": "YOUTUBE",
+          "providerVideoId": "b4iWvKcX7uQ",
+          "durationSec": 532,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 75,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-ykuxw1dwj9m",
+          "title": "Sự nở vì nhiệt (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=YKUXW1dwJ9M",
+          "provider": "YOUTUBE",
+          "providerVideoId": "YKUXW1dwJ9M",
+          "durationSec": 451,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 73,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L30",
+      "lessonTitle": "Khái quát về cơ thể người",
+      "chapterCode": "KHTN8-CH07",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-dxntuatlace",
+          "title": "Khái quát về cơ thể người - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=dxNtuATLaCE",
+          "provider": "YOUTUBE",
+          "providerVideoId": "dxNtuATLaCE",
+          "durationSec": 496,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 9,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/dxNtuATLaCE.vi.vtt",
+            "characters": 61021
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L31",
+      "lessonTitle": "Hệ vận động ở người",
+      "chapterCode": "KHTN8-CH07",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-6i2lxlytxha",
+          "title": "Hệ vận động ở người - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=6I2lXLYtXhA",
+          "provider": "YOUTUBE",
+          "providerVideoId": "6I2lXLYtXhA",
+          "durationSec": 504,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 11,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/6I2lXLYtXhA.vi.vtt",
+            "characters": 65838
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L32",
+      "lessonTitle": "Dinh dưỡng và tiêu hoá ở người",
+      "chapterCode": "KHTN8-CH07",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-eowdeqrwlxg",
+          "title": "Dinh dưỡng và tiêu hoá ở người (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=eOwDeQrwLXg",
+          "provider": "YOUTUBE",
+          "providerVideoId": "eOwDeQrwLXg",
+          "durationSec": 513,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 18,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          },
+          "captionEvidence": {
+            "kind": "AUTOMATIC_VI",
+            "path": "captions/khtn8/eOwDeQrwLXg.vi.vtt",
+            "characters": 69253
+          }
+        },
+        {
+          "id": "olm-cu0mm6k2gua",
+          "title": "Dinh dưỡng và tiêu hoá ở người (phần 2) - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=cu0MM6k2GuA",
+          "provider": "YOUTUBE",
+          "providerVideoId": "cu0MM6k2GuA",
+          "durationSec": 445,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 35,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-jpnrzglk2hk",
+          "title": "Dinh dưỡng và tiêu hoá ở người (phần 3) - KHTN 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=JpnRZgLK2hk",
+          "provider": "YOUTUBE",
+          "providerVideoId": "JpnRZgLK2hk",
+          "durationSec": 384,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 36,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L33",
+      "lessonTitle": "Máu và hệ tuần hoàn của cơ thể người",
+      "chapterCode": "KHTN8-CH07",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-ji39qx23yr8",
+          "title": "Máu và hệ tuần hoàn của cơ thể người (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=Ji39Qx23Yr8",
+          "provider": "YOUTUBE",
+          "providerVideoId": "Ji39Qx23Yr8",
+          "durationSec": 593,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 37,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-pn8yhh9_pk4",
+          "title": "Máu và hệ tuần hoàn của cơ thể người (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=Pn8yhh9_Pk4",
+          "provider": "YOUTUBE",
+          "providerVideoId": "Pn8yhh9_Pk4",
+          "durationSec": 371,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 38,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-iui-pcutvuc",
+          "title": "Máu và hệ tuần hoàn của cơ thể người (phần 3) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=iui-pCUTvuc",
+          "provider": "YOUTUBE",
+          "providerVideoId": "iui-pCUTvuc",
+          "durationSec": 431,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 39,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L34",
+      "lessonTitle": "Hệ hô hấp ở người",
+      "chapterCode": "KHTN8-CH07",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-yeasc27dlp4",
+          "title": "Hệ hô hấp ở người (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=YEASC27dLp4",
+          "provider": "YOUTUBE",
+          "providerVideoId": "YEASC27dLp4",
+          "durationSec": 425,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 42,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm--gfkiaxwcq4",
+          "title": "Hệ hô hấp ở người (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=-GFkIAxwcQ4",
+          "provider": "YOUTUBE",
+          "providerVideoId": "-GFkIAxwcQ4",
+          "durationSec": 424,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 43,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L35",
+      "lessonTitle": "Hệ bài tiết ở người",
+      "chapterCode": "KHTN8-CH07",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-u_-tut7bmcs",
+          "title": "Hệ bài tiết ở người (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=u_-tUT7BMCs",
+          "provider": "YOUTUBE",
+          "providerVideoId": "u_-tUT7BMCs",
+          "durationSec": 290,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 40,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-cfz_z1op7tq",
+          "title": "Hệ bài tiết ở người (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=CFZ_Z1Op7TQ",
+          "provider": "YOUTUBE",
+          "providerVideoId": "CFZ_Z1Op7TQ",
+          "durationSec": 437,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 41,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L36",
+      "lessonTitle": "Điều hoà môi trường trong của cơ thể người",
+      "chapterCode": "KHTN8-CH07",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-7m_8y0myizu",
+          "title": "Điều hoà môi trường trong của cơ thể người - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=7m_8y0myIzU",
+          "provider": "YOUTUBE",
+          "providerVideoId": "7m_8y0myIzU",
+          "durationSec": 428,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 45,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L37",
+      "lessonTitle": "Hệ thần kinh và các giác quan ở người",
+      "chapterCode": "KHTN8-CH07",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-vvb_3zf6lpy",
+          "title": "Hệ thần kinh và các giác quan ở người (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=VvB_3ZF6lPY",
+          "provider": "YOUTUBE",
+          "providerVideoId": "VvB_3ZF6lPY",
+          "durationSec": 381,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 48,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm--piogplwqz0",
+          "title": "Hệ thần kinh và các giác quan ở người (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=-piOGPlwQz0",
+          "provider": "YOUTUBE",
+          "providerVideoId": "-piOGPlwQz0",
+          "durationSec": 427,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 49,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-vtpnil99wbo",
+          "title": "Hệ thần kinh và các giác quan ở người (phần 3) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=vTpNil99wBo",
+          "provider": "YOUTUBE",
+          "providerVideoId": "vTpNil99wBo",
+          "durationSec": 325,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 50,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L38",
+      "lessonTitle": "Hệ nội tiết ở người",
+      "chapterCode": "KHTN8-CH07",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-ageuasrhdhq",
+          "title": "Hệ nội tiết ở người (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=AgEUaSrhDHQ",
+          "provider": "YOUTUBE",
+          "providerVideoId": "AgEUaSrhDHQ",
+          "durationSec": 386,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 51,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-k2a85tsg8eg",
+          "title": "Hệ nội tiết ở người (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=k2a85tsG8Eg",
+          "provider": "YOUTUBE",
+          "providerVideoId": "k2a85tsG8Eg",
+          "durationSec": 395,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 52,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L39",
+      "lessonTitle": "Da và điều hoà thân nhiệt ở người",
+      "chapterCode": "KHTN8-CH07",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-1ulqlwadjf4",
+          "title": "Da và điều hoà thân nhiệt ở người (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=1UlQlWaDJF4",
+          "provider": "YOUTUBE",
+          "providerVideoId": "1UlQlWaDJF4",
+          "durationSec": 545,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 57,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-uejhvx7evpw",
+          "title": "Da và điều hoà thân nhiệt ở người (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=UeJhvX7Evpw",
+          "provider": "YOUTUBE",
+          "providerVideoId": "UeJhvX7Evpw",
+          "durationSec": 379,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 59,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L40",
+      "lessonTitle": "Sinh sản ở người",
+      "chapterCode": "KHTN8-CH07",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-afvzf4zlhzw",
+          "title": "Sinh sản ở người (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=AFVzF4ZLhzw",
+          "provider": "YOUTUBE",
+          "providerVideoId": "AFVzF4ZLhzw",
+          "durationSec": 293,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 58,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-m_q02p2r2ee",
+          "title": "Sinh sản ở người (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=m_q02p2R2EE",
+          "provider": "YOUTUBE",
+          "providerVideoId": "m_q02p2R2EE",
+          "durationSec": 413,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 60,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-rhb6vxpylam",
+          "title": "Sinh sản ở người (phần 3) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=RHb6vxpYLaM",
+          "provider": "YOUTUBE",
+          "providerVideoId": "RHb6vxpYLaM",
+          "durationSec": 447,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 62,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L41",
+      "lessonTitle": "Môi trường và các nhân tố sinh thái",
+      "chapterCode": "KHTN8-CH08",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-di2djcllrxc",
+          "title": "Môi trường và các nhân tố sinh thái (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=Di2dJClLRXc",
+          "provider": "YOUTUBE",
+          "providerVideoId": "Di2dJClLRXc",
+          "durationSec": 289,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 63,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-uio0tnnc_dc",
+          "title": "Môi trường và các nhân tố sinh thái (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=UIO0tnNc_Dc",
+          "provider": "YOUTUBE",
+          "providerVideoId": "UIO0tnNc_Dc",
+          "durationSec": 460,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 64,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L42",
+      "lessonTitle": "Quần thể sinh vật",
+      "chapterCode": "KHTN8-CH08",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-cn2f5wu0fvc",
+          "title": "Quần thể sinh vật (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=CN2f5WU0Fvc",
+          "provider": "YOUTUBE",
+          "providerVideoId": "CN2f5WU0Fvc",
+          "durationSec": 439,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 68,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-maxcwpx8g5c",
+          "title": "Quần thể sinh vật (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=MaxcWpx8g5c",
+          "provider": "YOUTUBE",
+          "providerVideoId": "MaxcWpx8g5c",
+          "durationSec": 480,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 69,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L43",
+      "lessonTitle": "Quần xã sinh vật",
+      "chapterCode": "KHTN8-CH08",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-cfs94kxgdzo",
+          "title": "Quần xã sinh vật - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=CFS94KxGdzo",
+          "provider": "YOUTUBE",
+          "providerVideoId": "CFS94KxGdzo",
+          "durationSec": 498,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 70,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L44",
+      "lessonTitle": "Hệ sinh thái",
+      "chapterCode": "KHTN8-CH08",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-fi3uamthymu",
+          "title": "Hệ sinh thái (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=FI3UAMTHYmU",
+          "provider": "YOUTUBE",
+          "providerVideoId": "FI3UAMTHYmU",
+          "durationSec": 375,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 71,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-wmsmwhktmlk",
+          "title": "Hệ sinh thái (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=wmSmWhKTmLk",
+          "provider": "YOUTUBE",
+          "providerVideoId": "wmSmWhKTmLk",
+          "durationSec": 530,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 72,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L45",
+      "lessonTitle": "Sinh quyển",
+      "chapterCode": "KHTN8-CH08",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-imnkchnmvog",
+          "title": "Sinh quyển - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=ImnKcHNMVOg",
+          "provider": "YOUTUBE",
+          "providerVideoId": "ImnKcHNMVOg",
+          "durationSec": 578,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 74,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L46",
+      "lessonTitle": "Cân bằng tự nhiên",
+      "chapterCode": "KHTN8-CH08",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-fmy1dt1e6oq",
+          "title": "Cân bằng tự nhiên - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=Fmy1DT1E6OQ",
+          "provider": "YOUTUBE",
+          "providerVideoId": "Fmy1DT1E6OQ",
+          "durationSec": 518,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 78,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    },
+    {
+      "lessonCode": "KHTN8-L47",
+      "lessonTitle": "Bảo vệ môi trường",
+      "chapterCode": "KHTN8-CH08",
+      "sgkReference": null,
+      "structuredJsonStatus": "NOT_PRESENT_IN_AVAILABLE_WORKSPACE",
+      "videos": [
+        {
+          "id": "olm-3osk2j1cl8s",
+          "title": "Bảo vệ môi trường (phần 1) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=3oSK2j1cl8s",
+          "provider": "YOUTUBE",
+          "providerVideoId": "3oSK2j1cl8s",
+          "durationSec": 575,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 76,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        },
+        {
+          "id": "olm-hpgqmwxwxaw",
+          "title": "Bảo vệ môi trường (phần 2) - Khoa học tự nhiên 8 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=HpgqmWxwXAw",
+          "provider": "YOUTUBE",
+          "providerVideoId": "HpgqmWxwXAw",
+          "durationSec": 575,
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve6YcMWpMnRDPcTxtkR6YPMB",
+            "sourceLabel": "OLM KHTN 8 YouTube playlist",
+            "playlistIndex": 77,
+            "checkedAt": "2026-10-26T09:17:50.567607+00:00",
+            "availability": "AVAILABLE",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW",
+            "operatorDecision": "TITLE_MATCH_PENDING_HUMAN_REVIEW"
+          }
+        }
+      ],
+      "mappingReviewStatus": "NEEDS_REVIEW"
+    }
+  ],
+  "reviewQueue": [
+    {
+      "playlistIndex": 1,
+      "videoId": "jrP2bfwDih0",
+      "title": null,
+      "reasonCode": "UNAVAILABLE",
+      "candidateLessonCode": null,
+      "reason": "YouTube hides the title and metadata."
+    },
+    {
+      "playlistIndex": 6,
+      "videoId": "bt1Zflvf2uE",
+      "title": "Biến đổi vật lí và biến đổi hoá học - KHTN lớp 8 - OLM.VN",
+      "reasonCode": "RELATED_SUBTOPIC",
+      "candidateLessonCode": "KHTN8-L02",
+      "reason": "Physical versus chemical change is related to Lesson 2; verify the relevant SGK section."
+    },
+    {
+      "playlistIndex": 19,
+      "videoId": "UPHJheeFx6Y",
+      "title": null,
+      "reasonCode": "UNAVAILABLE",
+      "candidateLessonCode": null,
+      "reason": "YouTube hides the title and metadata."
+    },
+    {
+      "playlistIndex": 34,
+      "videoId": "ZAK9tvvonvA",
+      "title": "Thực hành: Sơ cứu và băng bó khi người khác gãy xương - KHTN 8 - OLM.VN",
+      "reasonCode": "SUPPLEMENTAL_PRACTICAL",
+      "candidateLessonCode": "KHTN8-L31",
+      "reason": "First aid for fracture is related to the musculoskeletal lesson; verify section placement."
+    },
+    {
+      "playlistIndex": 54,
+      "videoId": "O7potKkhUNI",
+      "title": "Mol và tỉ khối chất khí (Phần 1) - KHTN 8 - OLM.VN",
+      "reasonCode": "DUPLICATE_PART_CANDIDATE",
+      "candidateLessonCode": "KHTN8-L03",
+      "reason": "Another Part 1 for moles and gas density is already mapped; compare contents before attaching both."
+    },
+    {
+      "playlistIndex": 61,
+      "videoId": "zBxmgFLMxAQ",
+      "title": "Nghe hạt dẻ hát - Tiếng Việt 4 (Chân trời sáng tạo) [OLM.VN]",
+      "reasonCode": "OUT_OF_SCOPE",
+      "candidateLessonCode": null,
+      "reason": "Vietnamese language grade 4 video is unrelated to KHTN 8."
+    },
+    {
+      "playlistIndex": 79,
+      "videoId": "1yMzCpH6Hgs",
+      "title": "Bài 31. Thực hành về máu và hệ tuần hoàn - Khoa học tự nhiên 8 - OLM.VN",
+      "reasonCode": "SUPPLEMENTAL_PRACTICAL",
+      "candidateLessonCode": "KHTN8-L33",
+      "reason": "Blood and circulation practical needs verified section placement."
+    }
+  ],
+  "releaseBlockers": [
+    "KHTN 8 Structured JSON and verified SGK page references are incomplete in the available workspace.",
+    "Video title mapping, rights, accessibility and transcript availability require human review."
+  ]
+}

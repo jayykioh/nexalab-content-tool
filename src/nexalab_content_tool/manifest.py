@@ -8,6 +8,7 @@ from typing import Any
 
 from .identity import ID_PATTERN, require_registered
 from .workspace import ContentToolError, Workspace, read_json, stable_json, write_json
+from .catalog_registry import validate_confirmed_curriculum
 
 
 RELEASE_KEYS = {"name", "namespace", "sources", "packs"}
@@ -25,7 +26,12 @@ PACK_KEYS = {
     "knowledgeUnits",
     "lesson",
     "reviews",
+    "curriculumOrder",
+    "curriculumChapterCode",
+    "curriculumTopicCode",
+    "curriculum",
 }
+OPTIONAL_PACK_KEYS = {"curriculumOrder", "curriculumChapterCode", "curriculumTopicCode", "curriculum"}
 REVIEW_KINDS = ("editorial", "subject", "rights", "accessibility")
 SHA256 = re.compile(r"^[a-f0-9]{64}$")
 EMAIL = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
@@ -256,7 +262,7 @@ def build_manifest(workspace: Workspace, *, allow_unreviewed: bool = False) -> d
         if not isinstance(pack, dict):
             raise ContentToolError(f"{path}: pack must be an object")
         unknown = sorted(set(pack) - PACK_KEYS)
-        missing = sorted(PACK_KEYS - set(pack))
+        missing = sorted((PACK_KEYS - OPTIONAL_PACK_KEYS) - set(pack))
         if unknown or missing:
             raise ContentToolError(f"{path}: pack fields mismatch; missing={missing}, unknown={unknown}")
         lesson = pack.get("lesson")
@@ -265,7 +271,8 @@ def build_manifest(workspace: Workspace, *, allow_unreviewed: bool = False) -> d
         if lesson.get("questions") != []:
             raise ContentToolError(f"{path}: lesson.questions must stay empty in M1 to avoid creating a public QUIZ")
         _validate_evidence(workspace, release["namespace"], pack, wrapper.get("evidence"), path)
-        if not allow_unreviewed:
+        if not allow_unreviewed and pack.get("synthetic") is not True:
+            validate_confirmed_curriculum(workspace, pack)
             _validate_reviews(release["namespace"], pack, wrapper.get("reviewLog"), path)
         relative = path.relative_to(workspace.root).as_posix()
         expected_ids.extend(_expected_ids(relative, pack, inventory_sources))

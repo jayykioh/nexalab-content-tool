@@ -33,6 +33,10 @@
 | Apply/atomicity | Gây lỗi có kiểm soát giữa transaction trong integration test | Không để lại release/content update một phần |
 | Open Curriculum | GET list/detail sau staging apply | Chỉ Lesson released/published/shared xuất hiện; exercise hiển thị và attempt hoạt động |
 | Progress semantics | Pipeline stage progress vs active-course/student progress | UI không gọi OCR/authoring stage là student progress; release không tự thêm Lesson vào course hoặc cập nhật course denominator |
+| Video identity | Lesson có nhiều video ở cấp Lesson/section | Mỗi video materialize thành một VIDEO step ổn định; không dùng chung progress |
+| Video segment coverage | Xem liên tục, tua tiến, tua lùi, xem lại, pause/buffer, retry và hai tab | BE chỉ cộng union khoảng xem liên tục hợp lệ; seek không lấp khoảng trống; retry/concurrency không đếm đôi |
+| Video completion/resume | Đạt/chưa đạt threshold; reload; assignment và free practice | Completion do BE tính từ coverage; resume đúng video/giây/context; hai context không trộn evidence |
+| Learning journey | Student view; teacher owner/outsider; nhiều Lesson/video | Student thấy bước hiện tại; teacher owner thấy timeline/ranges; outsider không đọc hoặc suy ra membership |
 | OCR/review | Mẫu trang native text/OCR; đo disagreement, lỗi, review time và uncovered-ink flags | Có số liệu trước quyết định mở rộng; flag chỉ hỗ trợ review, không tự sửa |
 
 ## Trình tự chạy

@@ -8,9 +8,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from .enrichment import build_enrichment_proposal, normalize_text
+from .enrichment import _reviewed_blocks, build_enrichment_proposal, normalize_text
 from .m1_workflow import _book, _chapter, page_record, whole_book_report
-from .workspace import Workspace, read_json, write_json
+from .resolved_lesson import LessonContractError, canonical_to_pack, find_canonical, load_resolved
+from .workspace import ContentToolError, Workspace, read_json, write_json
 
 
 def export_chapter_candidates(workspace: Workspace, book_key: str, chapter_id: str) -> dict[str, Any]:
@@ -42,20 +43,10 @@ def export_chapter_candidates(workspace: Workspace, book_key: str, chapter_id: s
         if not missing:
             proposal = build_enrichment_proposal(workspace, book_key, chapter_id, pages, allow_pending=True)
             blocks = proposal["blocks"]
-            sections = []
-            units = []
-            for section, unit in zip(proposal["sections"], proposal["knowledgeUnits"]):
-                heading = normalize_text(section["heading"])
-                if (heading == "Nội dung bài học" or re.match(r"^Bài\s+\d+$", heading, re.IGNORECASE)
-                    or re.match(r"^(MỤC TIÊU|EM CÓ|KẾT NỐI)", heading, re.IGNORECASE)):
-                    continue
-                limit = 3 if re.match(r"^EM ĐÃ HỌC", heading, re.IGNORECASE) else 2
-                claims = [claim for claim in unit["claims"] if normalize_text(claim["text"]) != heading][:limit]
-                concise = " ".join(claim["text"] for claim in claims).strip()
-                if not concise:
-                    continue
-                sections.append({"id": section["id"], "heading": section["heading"], "content": concise, "sourceBlockIds": list(dict.fromkeys(block_id for claim in claims for block_id in claim["sourceBlockIds"]))})
-                units.append({"id": unit["id"], "title": unit["title"], "claims": claims, "sourceBlockIds": unit["sourceBlockIds"], "status": "needs_review"})
+            # Summaries are separate from the reading body. Never replace full
+            # sections (including equations/tables) with the first two claims.
+            sections = copy.deepcopy(proposal["sections"])
+            units = [{**copy.deepcopy(unit), "status": "needs_review"} for unit in proposal["knowledgeUnits"]]
             formulas = [{"id": block["id"], "text": block["normalizedText"], "sourceBlockIds": [block["id"]], "pdfPage": block["physicalPageIndex"], "status": "needs_review"} for block in blocks if block["normalizedText"] and (str(block["type"]).lower() == "equation" or "\\frac" in block["normalizedText"])]
             tables = [{"id": block["id"], "text": block["normalizedText"], "sourceBlockIds": [block["id"]], "pdfPage": block["physicalPageIndex"], "status": "needs_review"} for block in blocks if "table" in str(block["type"]).lower()]
             images = [{"id": block["id"], "pdfPage": block["physicalPageIndex"], "bbox": block.get("bbox"), "sourceBlockIds": [block["id"]], "status": "needs_description"} for block in blocks if str(block["type"]).lower() in {"image", "figure"}]
@@ -74,13 +65,14 @@ def export_chapter_candidates(workspace: Workspace, book_key: str, chapter_id: s
             summary_sources = recap["sourceBlockIds"] if recap else list(dict.fromkeys(block_id for section in sections[:2] for block_id in section["sourceBlockIds"]))
             artifact = {
                 "schemaVersion": 1, "kind": "structured-lesson-candidate", "status": "needs_review",
-                "book": {"key": book_key, "title": book["title"], "author": book["author"], "version": book["version"], "sha256": book["sha256"]},
+                "book": {"key": book_key, "title": book["title"], "author": book["author"], "version": book["version"], "sha256": book["sha256"], "grade": book.get("grade")},
                 "chapter": {"id": chapter_id, "title": chapter["title"]},
                 "sourceLesson": {"id": lesson["id"], "title": lesson["title"], "tocProvenance": chapter.get("tocProvenance")},
                 "printedPageRange": {"start": lesson.get("printedStart"), "end": lesson.get("printedEnd")},
                 "pdfPageRange": output["pdfPageRange"], "sourcePdf": str(workspace.inside(".local", "books", book_key, "source.pdf")),
                 "ocrCoverage": coverage,
                 "sourceBlocks": blocks,
+                "sourceReading": {"sections": copy.deepcopy(sections), "sourceBlocksSha256": _source_blocks_hash(blocks)},
                 "learningContent": {"sections": sections, "summary": summary, "summarySourceBlockIds": summary_sources, "knowledgeUnits": units, "definitions": definitions, "formulas": formulas, "tables": tables, "sourceImages": images, "examples": examples, "basicExercises": []},
                 "warnings": list(dict.fromkeys(warnings)),
             }
@@ -117,9 +109,19 @@ def export_chapter_candidates(workspace: Workspace, book_key: str, chapter_id: s
             if artifact["warnings"]:
                 lesson_blockers.append("Scientific content, formulas and OCR warnings require human review")
             content = artifact["learningContent"]
+            if book.get("grade") not in (8, 9):
+                lesson_blockers.append("Book grade is unassigned; set explicit grade 8 or 9")
             used_units = content.get("knowledgeUnits", [])
-            mapping.append({"sourceLessonId": lesson["id"], "structuredPath": str(path), "pack": {
-                "key": lesson["id"], "title": lesson["title"], "grade": 8, "domain": None,
+            canonical_pack = None
+            if find_canonical(workspace.root, lesson["id"]):
+                # A resolved canonical lesson is the only content source; a stale or unresolved one blocks, never falls back.
+                try:
+                    canonical, structured_lesson = load_resolved(workspace.root, lesson["id"])
+                    canonical_pack = canonical_to_pack(canonical, structured_lesson["sourceBlocks"])["pack"]
+                except LessonContractError as error:
+                    raise ContentToolError(str(error)) from error
+            mapping.append({"sourceLessonId": lesson["id"], "structuredPath": str(path), "fromCanonical": canonical_pack is not None, "pack": canonical_pack or {
+                "key": lesson["id"], "title": lesson["title"], "grade": book.get("grade"), "domain": None,
                 "chapter": chapter["title"], "topic": chapter["title"], "subjectId": None,
                 "outcomeCodes": [], "synthetic": False,
                 "sources": [{"id": book_key, "title": book["title"], "author": book["author"], "license": "UNKNOWN", "attribution": f"{book['title']} — {book['author']}"}],
@@ -155,6 +157,14 @@ def _source_blocks_hash(blocks: list[dict[str, Any]]) -> str:
 
 def _lesson_artifact_path(workspace: Workspace, lesson_id: str):
     return workspace.inside("exports", "structured", f"{lesson_id}.json")
+
+
+def _assert_current_source(workspace: Workspace, book_key: str, artifact: dict[str, Any]) -> None:
+    page_range = artifact["pdfPageRange"]
+    pages = list(range(page_range["start"], page_range["end"] + 1))
+    current = _reviewed_blocks(workspace, book_key, pages, allow_pending=True)
+    if _source_blocks_hash(current) != _source_blocks_hash(artifact.get("sourceBlocks", [])):
+        raise ValueError("Source OCR changed; refresh Structured JSON and review before acceptance/export")
 
 
 def load_structured_lesson(workspace: Workspace, book_key: str, chapter_id: str, lesson_id: str) -> dict[str, Any]:
@@ -220,6 +230,7 @@ def accept_structured_content(
     if len(reviewer_name) < 2 or not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", reviewer_email) or not 5 <= len(reason) <= 500:
         raise ValueError("A named reviewer, valid email and 5–500 character reason are required")
     artifact = load_structured_lesson(workspace, book_key, chapter_id, lesson_id)
+    _assert_current_source(workspace, book_key, artifact)
     content = artifact.get("learningContent", {})
     if not str(content.get("summary", "")).strip() or not content.get("sections") or not content.get("knowledgeUnits"):
         raise ValueError("The Lesson summary, sections and knowledge units must be complete")
@@ -246,6 +257,7 @@ def accept_structured_content(
 
 def export_approved_lesson(workspace: Workspace, book_key: str, chapter_id: str, lesson_id: str) -> dict[str, Any]:
     artifact = load_structured_lesson(workspace, book_key, chapter_id, lesson_id)
+    _assert_current_source(workspace, book_key, artifact)
     review = artifact.get("contentReview", {})
     if (
         review.get("status") != "accepted"
@@ -299,6 +311,7 @@ def validate_book_outputs(workspace: Workspace, book_key: str) -> dict[str, Any]
         path = _lesson_artifact_path(workspace, lesson["id"])
         if not path.is_file():
             lessons.append({"id": lesson["id"], "status": "missing-json", "path": None})
+            failures.append({"lessonId": lesson["id"], "issues": ["structured JSON missing"]})
             continue
         artifact = read_json(path)
         expected = list(range(lesson["pdfPageRange"]["start"], lesson["pdfPageRange"]["end"] + 1))
@@ -308,6 +321,12 @@ def validate_book_outputs(workspace: Workspace, book_key: str) -> dict[str, Any]
         source_ids = [block.get("id") for block in source_blocks if isinstance(block, dict)]
         source_id_set = set(source_ids)
         issues = []
+        try:
+            live_blocks = _reviewed_blocks(workspace, book_key, expected, allow_pending=True)
+            if _source_blocks_hash(live_blocks) != _source_blocks_hash(source_blocks):
+                issues.append("source blocks differ from current OCR; refresh and review content")
+        except (ValueError, ContentToolError) as error:
+            issues.append(str(error))
         if artifact.get("schemaVersion") != 1 or artifact.get("kind") != "structured-lesson-candidate":
             issues.append("schemaVersion/kind mismatch")
         if artifact.get("book", {}).get("sha256") != book["sha256"]:

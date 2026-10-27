@@ -1,0 +1,67 @@
+{
+  "sourceLesson": {
+    "id": "src-lesson-khtn9-01",
+    "title": "Nhận biết một số dụng cụ, hoá chất. Thuyết trình một vấn đề khoa học"
+  },
+  "learningContent": {
+    "sections": [
+      {
+        "content": "Bệnh đường tiêu hoá và vệ sinh an toàn thực phẩm đang là những vấn đề quan trọng liên quan đến sức khỏe cộng đồng, đặc biệt ở địa phương. Mục tiêu của nghiên cứu này là:",
+        "heading": "I. Giới thiệu",
+        "id": "section-sgk-khtn9-kntt-tai-ban-2-2026-p0012--86156c8e",
+        "sourceBlockIds": [
+          "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0005",
+          "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0006"
+        ]
+      }
+    ]
+  },
+  "sourceReading": {
+    "sections": [
+      {
+        "content": "Bệnh đường tiêu hoá và vệ sinh an toàn thực phẩm đang là những vấn đề quan trọng liên quan đến sức khỏe cộng đồng, đặc biệt ở địa phương. Điều tra và nghiên cứu về các bệnh này sẽ cung cấp thông tin quan trọng để nâng cao ý thức về vệ sinh an toàn thực phẩm và phòng ngừa bệnh tật đường tiêu hoá.\n\nMục tiêu của nghiên cứu này là:\n\n\\- Điều tra được thực trạng các bệnh đường tiêu hoá hiện nay ở địa phương và tình trạng mất an toàn thực phẩm, nguyên nhân của các bệnh đường tiêu hoá.\n\n\\- Trên cơ sở kết quả điều tra để xuất các giải pháp khắc phục tình trạng mất an toàn thực phẩm ở địa phương.",
+        "heading": "I. Giới thiệu",
+        "id": "section-sgk-khtn9-kntt-tai-ban-2-2026-p0012--86156c8e",
+        "sourceBlockIds": [
+          "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0004",
+          "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0005",
+          "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0006",
+          "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0007",
+          "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0008"
+        ]
+      }
+    ]
+  },
+  "sourceBlocks": [
+    {
+      "id": "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0004",
+      "type": "paragraph_title",
+      "normalizedText": "I. Giới thiệu",
+      "physicalPageIndex": 12
+    },
+    {
+      "id": "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0005",
+      "type": "text",
+      "normalizedText": "Bệnh đường tiêu hoá và vệ sinh an toàn thực phẩm đang là những vấn đề quan trọng liên quan đến sức khỏe cộng đồng, đặc biệt ở địa phương. Điều tra và nghiên cứu về các bệnh này sẽ cung cấp thông tin quan trọng để nâng cao ý thức về vệ sinh an toàn thực phẩm và phòng ngừa bệnh tật đường tiêu hoá.",
+      "physicalPageIndex": 12
+    },
+    {
+      "id": "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0006",
+      "type": "text",
+      "normalizedText": "Mục tiêu của nghiên cứu này là:",
+      "physicalPageIndex": 12
+    },
+    {
+      "id": "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0007",
+      "type": "text",
+      "normalizedText": "\\- Điều tra được thực trạng các bệnh đường tiêu hoá hiện nay ở địa phương và tình trạng mất an toàn thực phẩm, nguyên nhân của các bệnh đường tiêu hoá.",
+      "physicalPageIndex": 12
+    },
+    {
+      "id": "sgk-khtn9-kntt-tai-ban-2-2026-p0012-b0008",
+      "type": "text",
+      "normalizedText": "\\- Trên cơ sở kết quả điều tra để xuất các giải pháp khắc phục tình trạng mất an toàn thực phẩm ở địa phương.",
+      "physicalPageIndex": 12
+    }
+  ]
+}

@@ -15,7 +15,7 @@ from .manifest import export_manifest
 from .m0a_review import launch_review, launch_studio
 from .m1_workflow import export_status
 from .outcome_normalization import export_outcome_sync_bundle, propose_outcomes, review_outcome_proposal, save_outcome_proposal, sync_approved_outcomes
-from .structured import export_chapter_candidates
+from .structured import export_book_candidates, export_chapter_candidates, validate_book_outputs
 from .structured_import import import_structured_lessons as import_structured_lesson_drafts
 from .report import render_report
 from .workspace import ContentToolError, Workspace, init_workspace
@@ -60,10 +60,31 @@ def _parser() -> argparse.ArgumentParser:
     export.add_argument("workspace")
     export.add_argument("--output")
 
+    resolve = commands.add_parser("resolve-lesson", help="apply decisions for one Lesson and build its canonical content")
+    resolve.add_argument("workspace")
+    resolve.add_argument("--lesson", required=True)
+    resolve.add_argument("--dir", required=True, help="folder with authoring.json and decisions.json, relative to the workspace")
+    resolve.add_argument("--report", help="where to write blocked-report.json when items are unresolved")
+    resolve.add_argument("--no-apply", action="store_true")
+
+    contract = commands.add_parser("export-lesson-contract", help="export Candidate and Release Pack for one resolved Lesson")
+    contract.add_argument("workspace")
+    contract.add_argument("--lesson", required=True)
+    contract.add_argument("--out", required=True, help="output folder, relative to the workspace")
+
+    verify = commands.add_parser("verify-lesson-contract", help="independently check an exported one-Lesson contract")
+    verify.add_argument("workspace")
+    verify.add_argument("--lesson", required=True)
+    verify.add_argument("--dir", required=True)
+    verify.add_argument("--out", required=True)
+
     structured = commands.add_parser("export-structured", help="export reviewable source Lesson JSON and a BE mapping candidate")
     structured.add_argument("workspace")
     structured.add_argument("--book", required=True)
-    structured.add_argument("--chapter", required=True)
+    structured.add_argument("--chapter", help="omit to export the entire book")
+    validate = commands.add_parser("validate-structured", help="check current OCR, provenance and Structured JSON completeness")
+    validate.add_argument("workspace")
+    validate.add_argument("--book", required=True)
 
     structured_import = commands.add_parser("structured-import", help="import local Structured Lesson JSON files as private BE drafts")
     structured_import.add_argument("workspace")
@@ -157,7 +178,23 @@ def main(argv: list[str] | None = None) -> int:
             path, digest = export_manifest(workspace, args.output)
             print(f"{path}\nsha256={digest}")
             return 0
+        if args.command == "verify-lesson-contract":
+            from .lesson_verify import verify
+
+            report = verify(workspace.root, args.lesson, workspace.inside(*Path(args.out).parts), workspace.inside(*Path(args.dir).parts))
+            print(json.dumps({"allChecksPassed": report["allChecksPassed"], "schemaValid": report["schemaValid"], "releaseReady": report["releaseReady"], "failed": [c["check"] for c in report["checks"] if not c["passed"]]}, ensure_ascii=False))
+            return 0 if report["allChecksPassed"] else 2
+        if args.command in {"resolve-lesson", "export-lesson-contract"}:
+            from .lesson_commands import run_export_lesson_contract, run_resolve_lesson
+
+            if args.command == "resolve-lesson":
+                return run_resolve_lesson(workspace, args.lesson, args.dir, args.report, not args.no_apply)
+            return run_export_lesson_contract(workspace, args.lesson, args.out)
         if args.command == "export-structured":
+            if not args.chapter:
+                result = export_book_candidates(workspace, args.book)
+                print(result["candidatePath"])
+                return 0
             result = export_chapter_candidates(workspace, args.book, args.chapter)
             print(result["candidatePath"])
             for lesson in result["lessons"]:
@@ -253,6 +290,10 @@ def main(argv: list[str] | None = None) -> int:
             result = sync_approved_outcomes(workspace, args.name, args.api_base, token, args.expected_project_ref)
             print(json.dumps(result, ensure_ascii=False, indent=2))
             return 0
+        if args.command == "validate-structured":
+            result = validate_book_outputs(workspace, args.book)
+            print(json.dumps(result, ensure_ascii=True))
+            return 0 if result["status"] == "valid" else 2
         if args.command == "plan":
             return run_plan(workspace, args.backend, args.target)
         if args.command == "apply":

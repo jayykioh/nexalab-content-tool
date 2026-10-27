@@ -1,0 +1,2610 @@
+{
+  "schemaVersion": 1,
+  "kind": "full-p2-video-mapping-inventory",
+  "subject": "khtn9",
+  "status": "PENDING_HUMAN_VIDEO_AND_RIGHTS_REVIEW_NOT_RELEASABLE",
+  "playlistId": "PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+  "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+  "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+  "counts": {
+    "playlistEntries": 74,
+    "mappedVideos": 65,
+    "lessonsWithVideos": 50,
+    "lessonsTotal": 51,
+    "excludedVideos": 9,
+    "lessonsWithoutVideos": 1,
+    "baselineVideosPreserved": 18
+  },
+  "lessons": [
+    {
+      "lessonId": "src-lesson-khtn9-01",
+      "packKey": "khtn9-l01-nhan-biet-mot-so-dung-cu-hoa-chat-thuyet-trinh",
+      "title": "Nhận biết một số dụng cụ, hoá chất. Thuyết trình một vấn đề khoa học",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-01",
+        "sourceLessonTitle": "Nhận biết một số dụng cụ, hoá chất. Thuyết trình một vấn đề khoa học",
+        "pdfPageRange": {
+          "end": 16,
+          "start": 8
+        },
+        "printedPageRange": {
+          "end": 14,
+          "start": 6
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-mtn7ijvi8gq",
+          "title": "Bài 1. Nhận biết một số dụng cụ, hóa chất. Thuyết trình một vấn đề khoa học (p1) - KHTN 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=mTN7ijVi8GQ",
+          "provider": "YOUTUBE",
+          "providerVideoId": "mTN7ijVi8GQ",
+          "durationSec": 457,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 16,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm-r60y9dimkmq",
+          "title": "Bài 1. Nhận biết một số dụng cụ, hóa chất. Thuyết trình một vấn đề khoa học (p2) - KHTN 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=r60y9dImKMQ",
+          "provider": "YOUTUBE",
+          "providerVideoId": "r60y9dImKMQ",
+          "durationSec": 570,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 26,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-02",
+      "packKey": "khtn9-l02-dong-nang-the-nang",
+      "title": "Động năng. Thế năng",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-02",
+        "sourceLessonTitle": "Động năng. Thế năng",
+        "pdfPageRange": {
+          "end": 19,
+          "start": 17
+        },
+        "printedPageRange": {
+          "end": 17,
+          "start": 15
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-5bylfrs-xtw",
+          "title": "Động năng, thế năng - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=5bYlFrS-xTw",
+          "provider": "YOUTUBE",
+          "providerVideoId": "5bYlFrS-xTw",
+          "durationSec": 729,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 1,
+          "baselineDbVideoId": "olm-5bylfrs-xtw",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-03",
+      "packKey": "khtn9-l03-co-nang",
+      "title": "Cơ năng",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-03",
+        "sourceLessonTitle": "Cơ năng",
+        "pdfPageRange": {
+          "end": 22,
+          "start": 20
+        },
+        "printedPageRange": {
+          "end": 20,
+          "start": 18
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-jgavivrrsxa",
+          "title": "Cơ năng - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=jgAvivRrsxA",
+          "provider": "YOUTUBE",
+          "providerVideoId": "jgAvivRrsxA",
+          "durationSec": 680,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 3,
+          "baselineDbVideoId": "olm-jgavivrrsxa",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-04",
+      "packKey": "khtn9-l04-cong-va-cong-suat",
+      "title": "Công và công suất",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-04",
+        "sourceLessonTitle": "Công và công suất",
+        "pdfPageRange": {
+          "end": 26,
+          "start": 23
+        },
+        "printedPageRange": {
+          "end": 24,
+          "start": 21
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-gk83xagbli0",
+          "title": "Công và công suất - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=GK83XaGbLi0",
+          "provider": "YOUTUBE",
+          "providerVideoId": "GK83XaGbLi0",
+          "durationSec": 590,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 4,
+          "baselineDbVideoId": "olm-gk83xagbli0",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-05",
+      "packKey": "khtn9-l05-khuc-xa-anh-sang",
+      "title": "Khúc xạ ánh sáng",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-05",
+        "sourceLessonTitle": "Khúc xạ ánh sáng",
+        "pdfPageRange": {
+          "end": 31,
+          "start": 27
+        },
+        "printedPageRange": {
+          "end": 29,
+          "start": 25
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-f3l8xxvathy",
+          "title": "Khúc xạ ánh sáng (phần 1) - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=f3L8xXvAthY",
+          "provider": "YOUTUBE",
+          "providerVideoId": "f3L8xXvAthY",
+          "durationSec": 455,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 8,
+          "baselineDbVideoId": "olm-f3l8xxvathy",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        },
+        {
+          "id": "olm-3nsryl1mbz8",
+          "title": "Khúc xạ ánh sáng (phần 2) - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=3nSRyl1MBZ8",
+          "provider": "YOUTUBE",
+          "providerVideoId": "3nSRyl1MBZ8",
+          "durationSec": 517,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 9,
+          "baselineDbVideoId": "olm-3nsryl1mbz8",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-06",
+      "packKey": "khtn9-l06-phan-xa-toan-phan",
+      "title": "Phản xạ toàn phần",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-06",
+        "sourceLessonTitle": "Phản xạ toàn phần",
+        "pdfPageRange": {
+          "end": 35,
+          "start": 32
+        },
+        "printedPageRange": {
+          "end": 33,
+          "start": 30
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-vr8rdj8zmls",
+          "title": "Phản xạ toàn phần - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=VR8rdj8zMLs",
+          "provider": "YOUTUBE",
+          "providerVideoId": "VR8rdj8zMLs",
+          "durationSec": 499,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 7,
+          "baselineDbVideoId": "olm-vr8rdj8zmls",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-07",
+      "packKey": "khtn9-l07-lang-kinh",
+      "title": "Lăng kính",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-07",
+        "sourceLessonTitle": "Lăng kính",
+        "pdfPageRange": {
+          "end": 41,
+          "start": 36
+        },
+        "printedPageRange": {
+          "end": 39,
+          "start": 34
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-fn-siqrxpqq",
+          "title": "Lăng kính (phần 1) - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=FN-sIQRXPQQ",
+          "provider": "YOUTUBE",
+          "providerVideoId": "FN-sIQRXPQQ",
+          "durationSec": 405,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 20,
+          "baselineDbVideoId": "olm-fn-siqrxpqq",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        },
+        {
+          "id": "olm-omu4sjpoemi",
+          "title": "Lăng kính (phần 2) - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=oMu4sjpOemI",
+          "provider": "YOUTUBE",
+          "providerVideoId": "oMu4sjpOemI",
+          "durationSec": 471,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 12,
+          "baselineDbVideoId": "olm-omu4sjpoemi",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-08",
+      "packKey": "khtn9-l08-thau-kinh",
+      "title": "Thấu kính",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-08",
+        "sourceLessonTitle": "Thấu kính",
+        "pdfPageRange": {
+          "end": 48,
+          "start": 42
+        },
+        "printedPageRange": {
+          "end": 46,
+          "start": 40
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-b_eordhyz2u",
+          "title": "Thấu kính (phần 1) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=B_eoRdhYz2U",
+          "provider": "YOUTUBE",
+          "providerVideoId": "B_eoRdhYz2U",
+          "durationSec": 475,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 48,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm-vk37oddjetc",
+          "title": "Thấu kính (phần 2) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=VK37oddJETc",
+          "provider": "YOUTUBE",
+          "providerVideoId": "VK37oddJETc",
+          "durationSec": 464,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 39,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-09",
+      "packKey": "khtn9-l09-thuc-hanh-do-tieu-cu-cua-thau-kinh-hoi-tu",
+      "title": "Thực hành đo tiêu cự của thấu kính hội tụ",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-09",
+        "sourceLessonTitle": "Thực hành đo tiêu cự của thấu kính hội tụ",
+        "pdfPageRange": {
+          "end": 51,
+          "start": 49
+        },
+        "printedPageRange": {
+          "end": 49,
+          "start": 47
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-fvpypsflxeu",
+          "title": "Thực hành đo tiêu cự của thấu kính hội tụ - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=FVpyPSfLxeU",
+          "provider": "YOUTUBE",
+          "providerVideoId": "FVpyPSfLxeU",
+          "durationSec": 494,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 40,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-10",
+      "packKey": "khtn9-l10-kinh-lup-bai-tap-thau-kinh",
+      "title": "Kính lúp. Bài tập thấu kính",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-10",
+        "sourceLessonTitle": "Kính lúp. Bài tập thấu kính",
+        "pdfPageRange": {
+          "end": 54,
+          "start": 52
+        },
+        "printedPageRange": {
+          "end": 52,
+          "start": 50
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-zbfk9n6vrcu",
+          "title": "Kính lúp - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=ZBfk9N6vRcU",
+          "provider": "YOUTUBE",
+          "providerVideoId": "ZBfk9N6vRcU",
+          "durationSec": 421,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 41,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-11",
+      "packKey": "khtn9-l11-dien-tro-dinh-luat-ohm",
+      "title": "Điện trở. Định luật Ohm",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-11",
+        "sourceLessonTitle": "Điện trở. Định luật Ohm",
+        "pdfPageRange": {
+          "end": 61,
+          "start": 55
+        },
+        "printedPageRange": {
+          "end": 59,
+          "start": 53
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-fc6a6q5drye",
+          "title": "Điện trở. Định luật Ohm - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=Fc6a6Q5drYE",
+          "provider": "YOUTUBE",
+          "providerVideoId": "Fc6a6Q5drYE",
+          "durationSec": 577,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 34,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-12",
+      "packKey": "khtn9-l12-doan-mach-noi-tiep-song-song",
+      "title": "Đoạn mạch nối tiếp, song song",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-12",
+        "sourceLessonTitle": "Đoạn mạch nối tiếp, song song",
+        "pdfPageRange": {
+          "end": 65,
+          "start": 62
+        },
+        "printedPageRange": {
+          "end": 63,
+          "start": 60
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-j43kkikab1o",
+          "title": "Đoạn mạch nối tiếp - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=J43kkIKab1o",
+          "provider": "YOUTUBE",
+          "providerVideoId": "J43kkIKab1o",
+          "durationSec": 538,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 35,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm--ja1bla1gmk",
+          "title": "Đoạn mạch song song - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=-ja1bla1gmk",
+          "provider": "YOUTUBE",
+          "providerVideoId": "-ja1bla1gmk",
+          "durationSec": 492,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 36,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-13",
+      "packKey": "khtn9-l13-nang-luong-cua-dong-dien-va-cong-suat-dien",
+      "title": "Năng lượng của dòng điện và công suất điện",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-13",
+        "sourceLessonTitle": "Năng lượng của dòng điện và công suất điện",
+        "pdfPageRange": {
+          "end": 68,
+          "start": 66
+        },
+        "printedPageRange": {
+          "end": 66,
+          "start": 64
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-5k6d1gscvlq",
+          "title": "Năng lượng của dòng điện. Công suất điện - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=5k6d1GscVLQ",
+          "provider": "YOUTUBE",
+          "providerVideoId": "5k6d1GscVLQ",
+          "durationSec": 519,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 37,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-14",
+      "packKey": "khtn9-l14-cam-ung-dien-tu-nguyen-tac-tao-ra-dong-dien-xo",
+      "title": "Cảm ứng điện từ. Nguyên tắc tạo ra dòng điện xoay chiều",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-14",
+        "sourceLessonTitle": "Cảm ứng điện từ. Nguyên tắc tạo ra dòng điện xoay chiều",
+        "pdfPageRange": {
+          "end": 73,
+          "start": 69
+        },
+        "printedPageRange": {
+          "end": 71,
+          "start": 67
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-zik7eevcuik",
+          "title": "Cảm ứng điện từ - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=ZiK7EEvCUIk",
+          "provider": "YOUTUBE",
+          "providerVideoId": "ZiK7EEvCUIk",
+          "durationSec": 598,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 43,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-15",
+      "packKey": "khtn9-l15-tac-dung-cua-dong-dien-xoay-chieu",
+      "title": "Tác dụng của dòng điện xoay chiều",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-15",
+        "sourceLessonTitle": "Tác dụng của dòng điện xoay chiều",
+        "pdfPageRange": {
+          "end": 76,
+          "start": 74
+        },
+        "printedPageRange": {
+          "end": 74,
+          "start": 72
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-vtng6aq0uy0",
+          "title": "Tác dụng của dòng điện xoay chiều - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=VTnG6AQ0uy0",
+          "provider": "YOUTUBE",
+          "providerVideoId": "VTnG6AQ0uy0",
+          "durationSec": 564,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 47,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-16",
+      "packKey": "khtn9-l16-vong-nang-luong-tren-trai-dat-nang-luong-hoa-t",
+      "title": "Vòng năng lượng trên Trái Đất. Năng lượng hoá thạch",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-16",
+        "sourceLessonTitle": "Vòng năng lượng trên Trái Đất. Năng lượng hoá thạch",
+        "pdfPageRange": {
+          "end": 81,
+          "start": 77
+        },
+        "printedPageRange": {
+          "end": 79,
+          "start": 75
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-jvsytd_io0o",
+          "title": "Vòng năng lượng trên Trái Đất. Năng lượng hóa thạch - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=jvSYTd_iO0o",
+          "provider": "YOUTUBE",
+          "providerVideoId": "jvSYTd_iO0o",
+          "durationSec": 608,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 52,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-17",
+      "packKey": "khtn9-l17-mot-so-dang-nang-luong-tai-tao",
+      "title": "Một số dạng năng lượng tái tạo",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-17",
+        "sourceLessonTitle": "Một số dạng năng lượng tái tạo",
+        "pdfPageRange": {
+          "end": 88,
+          "start": 82
+        },
+        "printedPageRange": {
+          "end": 86,
+          "start": 80
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-efjki2w08hw",
+          "title": "Năng lượng tái tạo - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=EFjki2w08hw",
+          "provider": "YOUTUBE",
+          "providerVideoId": "EFjki2w08hw",
+          "durationSec": 698,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 51,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-18",
+      "packKey": "khtn9-l18-tinh-chat-chung-cua-kim-loai",
+      "title": "Tính chất chung của kim loại",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-18",
+        "sourceLessonTitle": "Tính chất chung của kim loại",
+        "pdfPageRange": {
+          "end": 93,
+          "start": 89
+        },
+        "printedPageRange": {
+          "end": 91,
+          "start": 87
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-s63mx47_szg",
+          "title": "Tính chất chung của kim loại (phần 1) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=S63mx47_szg",
+          "provider": "YOUTUBE",
+          "providerVideoId": "S63mx47_szg",
+          "durationSec": 419,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 50,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm-wh9jd9cbagc",
+          "title": "Tính chất chung của kim loại (phần 2) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=Wh9jD9cBagc",
+          "provider": "YOUTUBE",
+          "providerVideoId": "Wh9jD9cBagc",
+          "durationSec": 496,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 74,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-19",
+      "packKey": "khtn9-l19-day-hoat-dong-hoa-hoc",
+      "title": "Dãy hoạt động hoá học",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-19",
+        "sourceLessonTitle": "Dãy hoạt động hoá học",
+        "pdfPageRange": {
+          "end": 96,
+          "start": 94
+        },
+        "printedPageRange": {
+          "end": 94,
+          "start": 92
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-q8gm2xaajqy",
+          "title": "Dãy hoạt động hóa học - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=q8gm2xAaJqY",
+          "provider": "YOUTUBE",
+          "providerVideoId": "q8gm2xAaJqY",
+          "durationSec": 439,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 13,
+          "baselineDbVideoId": "olm-q8gm2xaajqy",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-20",
+      "packKey": "khtn9-l20-tach-kim-loai-va-viec-su-dung-hop-kim",
+      "title": "Tách kim loại và việc sử dụng hợp kim",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-20",
+        "sourceLessonTitle": "Tách kim loại và việc sử dụng hợp kim",
+        "pdfPageRange": {
+          "end": 101,
+          "start": 97
+        },
+        "printedPageRange": {
+          "end": 99,
+          "start": 95
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-xt0ky7qwki8",
+          "title": "Tách kim loại và việc sử dụng hợp kim  - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=XT0Ky7QWKi8",
+          "provider": "YOUTUBE",
+          "providerVideoId": "XT0Ky7QWKi8",
+          "durationSec": 505,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 14,
+          "baselineDbVideoId": "olm-xt0ky7qwki8",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-21",
+      "packKey": "khtn9-l21-su-khac-nhau-co-ban-giua-phi-kim-va-kim-loai",
+      "title": "Sự khác nhau cơ bản giữa phi kim và kim loại",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-21",
+        "sourceLessonTitle": "Sự khác nhau cơ bản giữa phi kim và kim loại",
+        "pdfPageRange": {
+          "end": 104,
+          "start": 102
+        },
+        "printedPageRange": {
+          "end": 102,
+          "start": 100
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-72zmq5ogoxu",
+          "title": "Sự khác nhau cơ bản giữa phi kim và kim loại - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=72zMq5ogOXU",
+          "provider": "YOUTUBE",
+          "providerVideoId": "72zMq5ogOXU",
+          "durationSec": 466,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 25,
+          "baselineDbVideoId": "olm-72zmq5ogoxu",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-22",
+      "packKey": "khtn9-l22-gioi-thieu-ve-hop-chat-huu-co",
+      "title": "Giới thiệu về hợp chất hữu cơ",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-22",
+        "sourceLessonTitle": "Giới thiệu về hợp chất hữu cơ",
+        "pdfPageRange": {
+          "end": 108,
+          "start": 105
+        },
+        "printedPageRange": {
+          "end": 106,
+          "start": 103
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-iqmklrm8ydq",
+          "title": "Giới thiệu về hợp chất hữu cơ  - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=iQmkLrM8YDQ",
+          "provider": "YOUTUBE",
+          "providerVideoId": "iQmkLrM8YDQ",
+          "durationSec": 468,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 32,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-23",
+      "packKey": "khtn9-l23-alkane",
+      "title": "Alkane",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-23",
+        "sourceLessonTitle": "Alkane",
+        "pdfPageRange": {
+          "end": 112,
+          "start": 109
+        },
+        "printedPageRange": {
+          "end": 110,
+          "start": 107
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-vba41p0kvds",
+          "title": "Alkane - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=VbA41p0KVds",
+          "provider": "YOUTUBE",
+          "providerVideoId": "VbA41p0KVds",
+          "durationSec": 426,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 31,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-24",
+      "packKey": "khtn9-l24-alkene",
+      "title": "Alkene",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-24",
+        "sourceLessonTitle": "Alkene",
+        "pdfPageRange": {
+          "end": 115,
+          "start": 113
+        },
+        "printedPageRange": {
+          "end": 113,
+          "start": 111
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-9zz9mjyhqz4",
+          "title": "Alkene - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=9zz9mjyhQZ4",
+          "provider": "YOUTUBE",
+          "providerVideoId": "9zz9mjyhQZ4",
+          "durationSec": 464,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 33,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-25",
+      "packKey": "khtn9-l25-nguon-nhien-lieu",
+      "title": "Nguồn nhiên liệu",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-25",
+        "sourceLessonTitle": "Nguồn nhiên liệu",
+        "pdfPageRange": {
+          "end": 119,
+          "start": 116
+        },
+        "printedPageRange": {
+          "end": 117,
+          "start": 114
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-aqa02tcexw8",
+          "title": "Nguồn nhiên liệu - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=aQa02tCEXW8",
+          "provider": "YOUTUBE",
+          "providerVideoId": "aQa02tCEXW8",
+          "durationSec": 486,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 54,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-26",
+      "packKey": "khtn9-l26-ethylic-alcohol",
+      "title": "Ethylic alcohol",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-26",
+        "sourceLessonTitle": "Ethylic alcohol",
+        "pdfPageRange": {
+          "end": 124,
+          "start": 120
+        },
+        "printedPageRange": {
+          "end": 122,
+          "start": 118
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-rmh2w15crke",
+          "title": "Ethylic alcohol (phần 1) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=rMh2w15crKE",
+          "provider": "YOUTUBE",
+          "providerVideoId": "rMh2w15crKE",
+          "durationSec": 494,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 70,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm-stuwzjeqmme",
+          "title": "Ethylic alcohol (phần 2) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=sTUWzjeQmmE",
+          "provider": "YOUTUBE",
+          "providerVideoId": "sTUWzjeQmmE",
+          "durationSec": 546,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 62,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-27",
+      "packKey": "khtn9-l27-acetic-acid",
+      "title": "Acetic acid",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-27",
+        "sourceLessonTitle": "Acetic acid",
+        "pdfPageRange": {
+          "end": 129,
+          "start": 125
+        },
+        "printedPageRange": {
+          "end": 127,
+          "start": 123
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-e5u0jzleil0",
+          "title": "Acetic acid (phần 1) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=e5u0jZLEIl0",
+          "provider": "YOUTUBE",
+          "providerVideoId": "e5u0jZLEIl0",
+          "durationSec": 663,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 58,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm-d9o0joqyr_w",
+          "title": "Acetic acid (phần 2) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=D9O0jOqyR_w",
+          "provider": "YOUTUBE",
+          "providerVideoId": "D9O0jOqyR_w",
+          "durationSec": 500,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 63,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-28",
+      "packKey": "khtn9-l28-lipid",
+      "title": "Lipid",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-28",
+        "sourceLessonTitle": "Lipid",
+        "pdfPageRange": {
+          "end": 132,
+          "start": 130
+        },
+        "printedPageRange": {
+          "end": 130,
+          "start": 128
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-nvqlzoconni",
+          "title": "Lipid - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=nVqLzOconnI",
+          "provider": "YOUTUBE",
+          "providerVideoId": "nVqLzOconnI",
+          "durationSec": 532,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 61,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-29",
+      "packKey": "khtn9-l29-carbohydrate-glucose-va-saccharose",
+      "title": "Carbohydrate. Glucose và saccharose",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-29",
+        "sourceLessonTitle": "Carbohydrate. Glucose và saccharose",
+        "pdfPageRange": {
+          "end": 136,
+          "start": 133
+        },
+        "printedPageRange": {
+          "end": 134,
+          "start": 131
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-s4xup2ouy0q",
+          "title": "Carbohydrate. Glucose và saccharose - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=S4XUp2OUY0Q",
+          "provider": "YOUTUBE",
+          "providerVideoId": "S4XUp2OUY0Q",
+          "durationSec": 570,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 64,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-30",
+      "packKey": "khtn9-l30-tinh-bot-va-cellulose",
+      "title": "Tinh bột và cellulose",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-30",
+        "sourceLessonTitle": "Tinh bột và cellulose",
+        "pdfPageRange": {
+          "end": 139,
+          "start": 137
+        },
+        "printedPageRange": {
+          "end": 137,
+          "start": 135
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-amchmlywsp4",
+          "title": "Tinh bột và cellulose - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=AMchMlywSp4",
+          "provider": "YOUTUBE",
+          "providerVideoId": "AMchMlywSp4",
+          "durationSec": 612,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 65,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-31",
+      "packKey": "khtn9-l31-protein",
+      "title": "Protein",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-31",
+        "sourceLessonTitle": "Protein",
+        "pdfPageRange": {
+          "end": 142,
+          "start": 140
+        },
+        "printedPageRange": {
+          "end": 140,
+          "start": 138
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-vbyo29hvjxk",
+          "title": "Protein - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=VBYO29HvJXk",
+          "provider": "YOUTUBE",
+          "providerVideoId": "VBYO29HvJXk",
+          "durationSec": 450,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 68,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-32",
+      "packKey": "khtn9-l32-polymer",
+      "title": "Polymer",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-32",
+        "sourceLessonTitle": "Polymer",
+        "pdfPageRange": {
+          "end": 147,
+          "start": 143
+        },
+        "printedPageRange": {
+          "end": 145,
+          "start": 141
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-jkcjwnu_m7i",
+          "title": "Polymer (phần 1) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=jkCjWNU_m7I",
+          "provider": "YOUTUBE",
+          "providerVideoId": "jkCjWNU_m7I",
+          "durationSec": 567,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 66,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm-ixhcid2ee68",
+          "title": "Polymer (phần 2) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=ixhCID2ee68",
+          "provider": "YOUTUBE",
+          "providerVideoId": "ixhCID2ee68",
+          "durationSec": 510,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 67,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-33",
+      "packKey": "khtn9-l33-so-luoc-ve-hoa-hoc-vo-trai-dat-va-khai-thac-ta",
+      "title": "Sơ lược về hoá học vỏ Trái Đất và khai thác tài nguyên từ vỏ Trái Đất",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-33",
+        "sourceLessonTitle": "Sơ lược về hoá học vỏ Trái Đất và khai thác tài nguyên từ vỏ Trái Đất",
+        "pdfPageRange": {
+          "end": 150,
+          "start": 148
+        },
+        "printedPageRange": {
+          "end": 148,
+          "start": 146
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-3r8-4n4oaba",
+          "title": "Sơ lược về tài nguyên trong vỏ trái đất và khai thác tài nguyên thiên nhiên từ vỏ trái đất - KHTN 9",
+          "url": "https://www.youtube.com/watch?v=3r8-4n4oaBA",
+          "provider": "YOUTUBE",
+          "providerVideoId": "3r8-4n4oaBA",
+          "durationSec": 454,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 46,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-34",
+      "packKey": "khtn9-l34-khai-thac-da-voi-cong-nghiep-silicate",
+      "title": "Khai thác đá vôi. Công nghiệp silicate",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-34",
+        "sourceLessonTitle": "Khai thác đá vôi. Công nghiệp silicate",
+        "pdfPageRange": {
+          "end": 154,
+          "start": 151
+        },
+        "printedPageRange": {
+          "end": 152,
+          "start": 149
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-cohrneja1cm",
+          "title": "Khai thác đá vôi. Công nghiệp silicate - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=cOhRNeJA1cM",
+          "provider": "YOUTUBE",
+          "providerVideoId": "cOhRNeJA1cM",
+          "durationSec": 554,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 45,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-35",
+      "packKey": "khtn9-l35-khai-thac-nhien-lieu-hoa-thach-nguon-carbon-ch",
+      "title": "Khai thác nhiên liệu hoá thạch. Nguồn carbon. Chu trình carbon và sự ấm lên toàn cầu",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-35",
+        "sourceLessonTitle": "Khai thác nhiên liệu hoá thạch. Nguồn carbon. Chu trình carbon và sự ấm lên toàn cầu",
+        "pdfPageRange": {
+          "end": 160,
+          "start": 155
+        },
+        "printedPageRange": {
+          "end": 158,
+          "start": 153
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-0bjty2imrtq",
+          "title": "Khai thác nhiên liệu hóa thạch - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=0BJtY2ImrtQ",
+          "provider": "YOUTUBE",
+          "providerVideoId": "0BJtY2ImrtQ",
+          "durationSec": 408,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 49,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm-l-bujad55xw",
+          "title": "Nguồn carbon. Chu trình carbon và sự ấm lên toàn cầu - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=l-bujaD55xw",
+          "provider": "YOUTUBE",
+          "providerVideoId": "l-bujaD55xw",
+          "durationSec": 637,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 57,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-36",
+      "packKey": "khtn9-l36-khai-quat-ve-di-truyen-hoc",
+      "title": "Khái quát về di truyền học",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-36",
+        "sourceLessonTitle": "Khái quát về di truyền học",
+        "pdfPageRange": {
+          "end": 163,
+          "start": 161
+        },
+        "printedPageRange": {
+          "end": 161,
+          "start": 159
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-l5lylzsiviw",
+          "title": "Khái quát về di truyền học - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=l5lylZsiViw",
+          "provider": "YOUTUBE",
+          "providerVideoId": "l5lylZsiViw",
+          "durationSec": 681,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 17,
+          "baselineDbVideoId": "olm-l5lylzsiviw",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-37",
+      "packKey": "khtn9-l37-cac-quy-luat-di-truyen-cua-mendel",
+      "title": "Các quy luật di truyền của Mendel",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-37",
+        "sourceLessonTitle": "Các quy luật di truyền của Mendel",
+        "pdfPageRange": {
+          "end": 167,
+          "start": 164
+        },
+        "printedPageRange": {
+          "end": 165,
+          "start": 162
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-i5-3uupymda",
+          "title": "Các quy luật di truyền của Mendel - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=i5-3UuPYMdA",
+          "provider": "YOUTUBE",
+          "providerVideoId": "i5-3UuPYMdA",
+          "durationSec": 566,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 23,
+          "baselineDbVideoId": "olm-i5-3uupymda",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-38",
+      "packKey": "khtn9-l38-nucleic-acid-va-gene",
+      "title": "Nucleic acid và gene",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-38",
+        "sourceLessonTitle": "Nucleic acid và gene",
+        "pdfPageRange": {
+          "end": 171,
+          "start": 168
+        },
+        "printedPageRange": {
+          "end": 169,
+          "start": 166
+        }
+      },
+      "videos": [
+        {
+          "id": "olm--e7xcnypmps",
+          "title": "Nucleic acid và gene - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=-E7XCNYPMPs",
+          "provider": "YOUTUBE",
+          "providerVideoId": "-E7XCNYPMPs",
+          "durationSec": 588,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 28,
+          "baselineDbVideoId": "olm--e7xcnypmps",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-39",
+      "packKey": "khtn9-l39-tai-ban-dna-va-phien-ma-tao-rna",
+      "title": "Tái bản DNA và phiên mã tạo RNA",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-39",
+        "sourceLessonTitle": "Tái bản DNA và phiên mã tạo RNA",
+        "pdfPageRange": {
+          "end": 174,
+          "start": 172
+        },
+        "printedPageRange": {
+          "end": 172,
+          "start": 170
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-y7yeb2n62aa",
+          "title": "Tái bản DNA và phiên mã tạo RNA - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=y7Yeb2N62AA",
+          "provider": "YOUTUBE",
+          "providerVideoId": "y7Yeb2N62AA",
+          "durationSec": 650,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 11,
+          "baselineDbVideoId": "olm-y7yeb2n62aa",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-40",
+      "packKey": "khtn9-l40-dich-ma-va-moi-quan-he-tu-gene-den-tinh-trang",
+      "title": "Dịch mã và mối quan hệ từ gene đến tính trạng",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-40",
+        "sourceLessonTitle": "Dịch mã và mối quan hệ từ gene đến tính trạng",
+        "pdfPageRange": {
+          "end": 179,
+          "start": 175
+        },
+        "printedPageRange": {
+          "end": 177,
+          "start": 173
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-gupo5hxxm0m",
+          "title": "Mã di truyền, dịch mã và mối quan hệ từ gene đến tính trạng - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=guPo5HXxM0M",
+          "provider": "YOUTUBE",
+          "providerVideoId": "guPo5HXxM0M",
+          "durationSec": 748,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 15,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm-9ouxvatnz7s",
+          "title": "Từ gene đến tính trạng - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=9oUxvAtnz7s",
+          "provider": "YOUTUBE",
+          "providerVideoId": "9oUxvAtnz7s",
+          "durationSec": 409,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 30,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-41",
+      "packKey": "khtn9-l41-dot-bien-gene",
+      "title": "Đột biến gene",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-41",
+        "sourceLessonTitle": "Đột biến gene",
+        "pdfPageRange": {
+          "end": 182,
+          "start": 180
+        },
+        "printedPageRange": {
+          "end": 180,
+          "start": 178
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-z1uftdcg1ru",
+          "title": "Đột biến gene - Khoa học tự nhiên 9 - OLM. VN",
+          "url": "https://www.youtube.com/watch?v=Z1uFtDcg1rU",
+          "provider": "YOUTUBE",
+          "providerVideoId": "Z1uFtDcg1rU",
+          "durationSec": 510,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 27,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-42",
+      "packKey": "khtn9-l42-nhiem-sac-the-va-bo-nhiem-sac-the",
+      "title": "Nhiễm sắc thể và bộ nhiễm sắc thể",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-42",
+        "sourceLessonTitle": "Nhiễm sắc thể và bộ nhiễm sắc thể",
+        "pdfPageRange": {
+          "end": 187,
+          "start": 183
+        },
+        "printedPageRange": {
+          "end": 185,
+          "start": 181
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-tn2qwpebhhs",
+          "title": "Nhiễm sắc thể và bộ nhiễm sắc thể (phần 1) - KHTN 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=Tn2QwPeBhhs",
+          "provider": "YOUTUBE",
+          "providerVideoId": "Tn2QwPeBhhs",
+          "durationSec": 462,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 21,
+          "baselineDbVideoId": "olm-tn2qwpebhhs",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        },
+        {
+          "id": "olm--r7vpcb4w0o",
+          "title": "Nhiễm sắc thể và bộ nhiễm sắc thể (phần 2) - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=-R7Vpcb4w0o",
+          "provider": "YOUTUBE",
+          "providerVideoId": "-R7Vpcb4w0o",
+          "durationSec": 466,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 22,
+          "baselineDbVideoId": "olm--r7vpcb4w0o",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-43",
+      "packKey": "khtn9-l43-nguyen-phan-va-giam-phan",
+      "title": "Nguyên phân và giảm phân",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-43",
+        "sourceLessonTitle": "Nguyên phân và giảm phân",
+        "pdfPageRange": {
+          "end": 192,
+          "start": 188
+        },
+        "printedPageRange": {
+          "end": 190,
+          "start": 186
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-svhx6lkhxmo",
+          "title": "Nguyên phân và giảm phân (phần 1) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=SVHx6lKhxmo",
+          "provider": "YOUTUBE",
+          "providerVideoId": "SVHx6lKhxmo",
+          "durationSec": 362,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 38,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm-znchjxxutua",
+          "title": "Nguyên phân và giảm phân (phần 2) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=ZncHjXxUtuA",
+          "provider": "YOUTUBE",
+          "providerVideoId": "ZncHjXxUtuA",
+          "durationSec": 703,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 42,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-44",
+      "packKey": "khtn9-l44-nhiem-sac-the-gioi-tinh-va-co-che-xac-dinh-gio",
+      "title": "Nhiễm sắc thể giới tính và cơ chế xác định giới tính",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-44",
+        "sourceLessonTitle": "Nhiễm sắc thể giới tính và cơ chế xác định giới tính",
+        "pdfPageRange": {
+          "end": 195,
+          "start": 193
+        },
+        "printedPageRange": {
+          "end": 193,
+          "start": 191
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-tvzqgjj2nqs",
+          "title": "Nhiễm sắc thể giới tính và cơ chế xác định giới tính - Khoa học tự nhiên 9 - OLM.VN",
+          "url": "https://www.youtube.com/watch?v=tVzqGJj2NQs",
+          "provider": "YOUTUBE",
+          "providerVideoId": "tVzqGJj2NQs",
+          "durationSec": 606,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 29,
+          "baselineDbVideoId": "olm-tvzqgjj2nqs",
+          "baselineTranscriptStatus": "UNVERIFIED_LEGACY_TEXT_NOT_REUSED"
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-45",
+      "packKey": "khtn9-l45-di-truyen-lien-ket",
+      "title": "Di truyền liên kết",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-45",
+        "sourceLessonTitle": "Di truyền liên kết",
+        "pdfPageRange": {
+          "end": 198,
+          "start": 196
+        },
+        "printedPageRange": {
+          "end": 196,
+          "start": 194
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-qpo68fioyqu",
+          "title": "Di truyền liên kết - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=qPo68FioYqU",
+          "provider": "YOUTUBE",
+          "providerVideoId": "qPo68FioYqU",
+          "durationSec": 509,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 44,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-46",
+      "packKey": "khtn9-l46-dot-bien-nhiem-sac-the",
+      "title": "Đột biến nhiễm sắc thể",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-46",
+        "sourceLessonTitle": "Đột biến nhiễm sắc thể",
+        "pdfPageRange": {
+          "end": 202,
+          "start": 199
+        },
+        "printedPageRange": {
+          "end": 200,
+          "start": 197
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-5pyeeaky6me",
+          "title": "Đột biến nhiễm sắc thể - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=5PyEeAKy6ME",
+          "provider": "YOUTUBE",
+          "providerVideoId": "5PyEeAKy6ME",
+          "durationSec": 663,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 53,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-47",
+      "packKey": "khtn9-l47-di-truyen-hoc-voi-con-nguoi",
+      "title": "Di truyền học với con người",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-47",
+        "sourceLessonTitle": "Di truyền học với con người",
+        "pdfPageRange": {
+          "end": 208,
+          "start": 203
+        },
+        "printedPageRange": {
+          "end": 206,
+          "start": 201
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-ybzyd2n1yas",
+          "title": "Di truyền học với con người (phần 1) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=YbzYD2n1Yas",
+          "provider": "YOUTUBE",
+          "providerVideoId": "YbzYD2n1Yas",
+          "durationSec": 576,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 55,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm-vlte4aq8g8g",
+          "title": "Di truyền học với con người (phần 2) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=VLTe4AQ8G8g",
+          "provider": "YOUTUBE",
+          "providerVideoId": "VLTe4AQ8G8g",
+          "durationSec": 545,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 56,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-48",
+      "packKey": "khtn9-l48-ung-dung-cong-nghe-di-truyen-vao-doi-song",
+      "title": "Ứng dụng công nghệ di truyền vào đời sống",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-48",
+        "sourceLessonTitle": "Ứng dụng công nghệ di truyền vào đời sống",
+        "pdfPageRange": {
+          "end": 212,
+          "start": 209
+        },
+        "printedPageRange": {
+          "end": 210,
+          "start": 207
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-0mrhrex820e",
+          "title": "Ứng dụng công nghệ di truyền vào đời sống - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=0mrhrex820E",
+          "provider": "YOUTUBE",
+          "providerVideoId": "0mrhrex820E",
+          "durationSec": 576,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 69,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-49",
+      "packKey": "khtn9-l49-khai-niem-tien-hoa-va-cac-hinh-thuc-chon-loc",
+      "title": "Khái niệm tiến hoá và các hình thức chọn lọc",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-49",
+        "sourceLessonTitle": "Khái niệm tiến hoá và các hình thức chọn lọc",
+        "pdfPageRange": {
+          "end": 215,
+          "start": 213
+        },
+        "printedPageRange": {
+          "end": 213,
+          "start": 211
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-lmqezm5teqm",
+          "title": "Khái niệm tiến hóa và các hình thức chọn lọc - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=LmQEzM5TeQM",
+          "provider": "YOUTUBE",
+          "providerVideoId": "LmQEzM5TeQM",
+          "durationSec": 504,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 72,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-50",
+      "packKey": "khtn9-l50-co-che-tien-hoa",
+      "title": "Cơ chế tiến hoá",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-50",
+        "sourceLessonTitle": "Cơ chế tiến hoá",
+        "pdfPageRange": {
+          "end": 220,
+          "start": 216
+        },
+        "printedPageRange": {
+          "end": 218,
+          "start": 214
+        }
+      },
+      "videos": [
+        {
+          "id": "olm-u_cefznyxkq",
+          "title": "Cơ chế tiến hoá (phần 1) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=u_CEFznyxkQ",
+          "provider": "YOUTUBE",
+          "providerVideoId": "u_CEFznyxkQ",
+          "durationSec": 415,
+          "transcript": null,
+          "captionStatus": "FETCH_FAILED",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 71,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        },
+        {
+          "id": "olm-xbyrcnshuei",
+          "title": "Cơ chế tiến hoá (phần 2) - Khoa học tự nhiên 9",
+          "url": "https://www.youtube.com/watch?v=XbyrCNShUeI",
+          "provider": "YOUTUBE",
+          "providerVideoId": "XbyrCNShUeI",
+          "durationSec": 377,
+          "transcript": null,
+          "captionStatus": "VIDEO_UNAVAILABLE",
+          "completionThresholdPercent": 90,
+          "reviewStatus": "NEEDS_REVIEW",
+          "provenance": {
+            "sourceUrl": "https://www.youtube.com/playlist?list=PLDHr_ecbSve4L1v52dd02aQzOwaTj-d74",
+            "sourceLabel": "OLM KHTN 9 playlist",
+            "checkedAt": "2026-10-26T09:17:52.171339+00:00",
+            "availability": "UNKNOWN",
+            "rightsStatus": "NEEDS_REVIEW",
+            "accessibilityStatus": "NEEDS_REVIEW"
+          },
+          "mappingStatus": "TITLE_MATCH_PENDING_CONTENT_REVIEW",
+          "playlistIndex": 73,
+          "baselineDbVideoId": null,
+          "baselineTranscriptStatus": null
+        }
+      ]
+    },
+    {
+      "lessonId": "src-lesson-khtn9-51",
+      "packKey": "khtn9-l51-su-phat-sinh-va-phat-trien-su-song-tren-trai-d",
+      "title": "Sự phát sinh và phát triển sự sống trên Trái Đất",
+      "sgkReference": {
+        "sourceLessonId": "src-lesson-khtn9-51",
+        "sourceLessonTitle": "Sự phát sinh và phát triển sự sống trên Trái Đất",
+        "pdfPageRange": {
+          "end": 225,
+          "start": 221
+        },
+        "printedPageRange": {
+          "end": 223,
+          "start": 219
+        }
+      },
+      "videos": []
+    }
+  ],
+  "excluded": [
+    {
+      "playlistIndex": 2,
+      "videoId": "BLauJXmadW8",
+      "title": "Gene là trung tâm của di truyền học (phần 1) - Khoa học tự nhiên 9 - OLM.VN",
+      "reason": "Gene là trung tâm của di truyền học: không có bài SGK KNTT cùng phạm vi để gắn tự động"
+    },
+    {
+      "playlistIndex": 5,
+      "videoId": "U4OcKaatCnM",
+      "title": "Gene là trung tâm của di truyền học (phần 2) - Khoa học tự nhiên 9 - OLM.VN",
+      "reason": "Gene là trung tâm của di truyền học: không có bài SGK KNTT cùng phạm vi để gắn tự động"
+    },
+    {
+      "playlistIndex": 6,
+      "videoId": "PHCPJQmBERo",
+      "title": null,
+      "reason": "Video ẩn/không có tiêu đề, chưa thể xác minh nội dung"
+    },
+    {
+      "playlistIndex": 10,
+      "videoId": "E71l_BGBbBk",
+      "title": null,
+      "reason": "Video ẩn/không có tiêu đề, chưa thể xác minh nội dung"
+    },
+    {
+      "playlistIndex": 18,
+      "videoId": "EDQqDgMS7aw",
+      "title": "Bài mở đầu. Học tập và trình bày báo cáo khoa học trong môn Khoa học tự nhiên 9 - KHTN 9 - OLM.VN",
+      "reason": "Bài mở đầu thuộc cấu trúc SGK khác; KNTT Bài 1 có phạm vi riêng"
+    },
+    {
+      "playlistIndex": 19,
+      "videoId": "8q4HOemkvm0",
+      "title": "Bài 1. Giới thiệu một số dụng cụ, hóa chất. Thuyết trình một vấn đề khoa học - KHTN 9 - OLM.VN",
+      "reason": "Bài 1 tên gần giống nhưng khác 'Nhận biết'; cần đối chiếu nội dung trước khi gắn"
+    },
+    {
+      "playlistIndex": 24,
+      "videoId": "FeHx0g8D8IA",
+      "title": "Thực hành: Quan sát tiêu bản nhiễm sắc thể - Khoa học tự nhiên 9 - OLM.VN",
+      "reason": "Thực hành quan sát tiêu bản nhiễm sắc thể không phải một bài độc lập trong 51 bài KNTT"
+    },
+    {
+      "playlistIndex": 59,
+      "videoId": "TjEKPmqNnSY",
+      "title": "Xóa",
+      "reason": "Playlist ghi 'Xóa'; không có metadata nội dung đáng tin cậy"
+    },
+    {
+      "playlistIndex": 60,
+      "videoId": "mYy22UohL5k",
+      "title": "Xóa",
+      "reason": "Playlist ghi 'Xóa'; không có metadata nội dung đáng tin cậy"
+    }
+  ],
+  "lessonsWithoutVideos": [
+    {
+      "lessonId": "src-lesson-khtn9-51",
+      "title": "Sự phát sinh và phát triển sự sống trên Trái Đất"
+    }
+  ]
+}

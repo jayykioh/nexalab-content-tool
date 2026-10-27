@@ -8,6 +8,7 @@ from datetime import date, datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
+from urllib.parse import parse_qs, urlparse
 
 import pymupdf
 
@@ -15,11 +16,106 @@ from .extract import native_page_blocks
 from .identity import ID_PATTERN, reserve_ids
 from .manifest import REVIEW_KINDS, build_manifest, export_manifest
 from .authoring_contract import validate_materials
+from .canonical_html import normalize_lesson_html
+from .catalog_registry import suggested_curriculum
+from .resolved_lesson import LessonContractError, canonical_to_pack, find_canonical, load_resolved
 from .workspace import ContentToolError, Workspace, read_json, sha256_file, write_json
 
 
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+VIDEO_URL = re.compile(r"^https://(?:www\.)?(?:youtube\.com/watch\?[^\s]+|youtu\.be/[^\s?]+|[^\s]+\.(?:mp4|webm)(?:\?[^\s]*)?)$", re.I)
+VIDEO_PROVIDERS = {"YOUTUBE", "DIRECT"}
+VIDEO_REVIEW_STATUSES = {"PENDING_REVIEW", "APPROVED", "REJECTED"}
+VIDEO_AVAILABILITY = {"AVAILABLE", "UNAVAILABLE"}
+PLACEHOLDER_TRANSCRIPT = re.compile(r"^(?:video\s+)?(?:minh\s+h[oọ]a|b[aà]i\s+gi[aả]ng)(?:\s+(?:n[oộ]i\s+dung|b[aà]i\s+h[oọ]c))?[.!]?$", re.I)
+
+
+def _youtube_id(url: str) -> str | None:
+    parsed = urlparse(url)
+    host = (parsed.hostname or "").lower().removeprefix("www.")
+    if host == "youtu.be":
+        return parsed.path.strip("/").split("/")[0] or None
+    if host == "youtube.com" and parsed.path == "/watch":
+        return (parse_qs(parsed.query).get("v") or [None])[0]
+    return None
+
+
+def _iso_timestamp(value: Any, label: str) -> str:
+    text = str(value or "").strip()
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError as error:
+        raise ContentToolError(f"{label} must be an ISO-8601 timestamp") from error
+    if parsed.tzinfo is None:
+        raise ContentToolError(f"{label} must include a timezone")
+    return text
+
+def validate_video_mapping(videos: Any) -> list[dict[str, Any]]:
+    if not isinstance(videos, list) or len(videos) > 20: raise ContentToolError("videos must be an array with at most 20 items")
+    clean = []
+    seen: set[str] = set()
+    for item in videos:
+        if not isinstance(item, dict) or not ID_PATTERN.fullmatch(str(item.get("id", ""))): raise ContentToolError("Video needs a stable ID")
+        video_id = str(item["id"])
+        if video_id in seen: raise ContentToolError(f"Duplicate video ID: {video_id}")
+        seen.add(video_id)
+        url = str(item.get("url", "")).strip()
+        if not VIDEO_URL.fullmatch(url) or not str(item.get("title", "")).strip(): raise ContentToolError("Video title and HTTPS YouTube/MP4 URL are required")
+        provider = str(item.get("provider", "")).strip().upper()
+        if provider not in VIDEO_PROVIDERS: raise ContentToolError("Video provider must be YOUTUBE or DIRECT")
+        provider_video_id = str(item.get("providerVideoId", "")).strip()
+        if not provider_video_id or len(provider_video_id) > 200: raise ContentToolError("Video providerVideoId is required")
+        canonical_youtube_id = _youtube_id(url)
+        if provider == "YOUTUBE" and canonical_youtube_id != provider_video_id:
+            raise ContentToolError("YouTube URL and providerVideoId must identify the same video")
+        if provider == "DIRECT" and canonical_youtube_id:
+            raise ContentToolError("YouTube URLs must use provider YOUTUBE")
+        threshold = item.get("completionThresholdPercent", 90)
+        if isinstance(threshold, bool) or not isinstance(threshold, int) or not 50 <= threshold <= 100:
+            raise ContentToolError("completionThresholdPercent must be an integer from 50 to 100")
+        review_status = str(item.get("reviewStatus", "")).strip().upper()
+        if review_status not in VIDEO_REVIEW_STATUSES:
+            raise ContentToolError("reviewStatus must be PENDING_REVIEW, APPROVED or REJECTED")
+        provenance = item.get("provenance")
+        if not isinstance(provenance, dict): raise ContentToolError("Video provenance is required")
+        source_url = str(provenance.get("sourceUrl", "")).strip()
+        source_label = str(provenance.get("sourceLabel", "")).strip()
+        availability = str(provenance.get("availability", "")).strip().upper()
+        if not source_url.startswith("https://") or not source_label:
+            raise ContentToolError("Video provenance requires HTTPS sourceUrl and sourceLabel")
+        if availability not in VIDEO_AVAILABILITY:
+            raise ContentToolError("Video provenance availability must be AVAILABLE or UNAVAILABLE")
+        clean_provenance = {"sourceUrl": source_url, "sourceLabel": source_label, "checkedAt": _iso_timestamp(provenance.get("checkedAt"), "provenance.checkedAt"), "availability": availability}
+        for key in ("rightsStatus", "accessibilityStatus", "operatorDecision", "transcriptSource", "reviewedBy", "reviewedAt"):
+            if provenance.get(key): clean_provenance[key] = str(provenance[key]).strip()
+        value = {"id": video_id, "title": str(item["title"]).strip(), "url": url, "provider": provider, "providerVideoId": provider_video_id, "completionThresholdPercent": threshold, "reviewStatus": review_status, "provenance": clean_provenance}
+        for key in ("captionUrl", "transcript"):
+            if item.get(key): value[key] = str(item[key]).strip()
+        if value.get("captionUrl") and not str(value["captionUrl"]).startswith("https://"):
+            raise ContentToolError("Video captionUrl must use HTTPS")
+        if value.get("transcript") and PLACEHOLDER_TRANSCRIPT.fullmatch(str(value["transcript"]).strip()):
+            raise ContentToolError("Video transcript must be reviewed learning text, not placeholder metadata")
+        clean.append(value)
+    return clean
+
+def save_video_mapping(workspace: Workspace, pack_key: str, videos: Any, sections: Any) -> dict[str, Any]:
+    path = draft_path(workspace, pack_key)
+    if not path.exists(): raise ContentToolError("Lesson draft not found")
+    draft = read_json(path)
+    if not isinstance(sections, list): raise ContentToolError("sections must be an array")
+    draft["videos"] = validate_video_mapping(videos)
+    draft["sectionVideos"] = [{"id": s["id"], "videos": validate_video_mapping(s.get("videos", []))} for s in sections if isinstance(s, dict) and ID_PATTERN.fullmatch(str(s.get("id", "")))]
+    if len(draft["sectionVideos"]) != len(sections): raise ContentToolError("Every video section needs a stable ID")
+    section_ids = [section["id"] for section in draft["sectionVideos"]]
+    if len(section_ids) != len(set(section_ids)): raise ContentToolError("Duplicate video section ID")
+    all_video_ids = [video["id"] for video in draft["videos"]] + [video["id"] for section in draft["sectionVideos"] for video in section["videos"]]
+    if len(all_video_ids) != len(set(all_video_ids)): raise ContentToolError("Video IDs must be unique across Lesson and sections")
+    draft["savedAt"] = _now()
+    write_json(path, draft)
+    _write_pack(workspace, draft)
+    return {"packKey": pack_key, "videos": draft["videos"], "sections": draft["sectionVideos"]}
 
 
 class _ReadableHtml(HTMLParser):
@@ -83,7 +179,9 @@ def _pdf(workspace: Workspace, book: dict[str, Any]) -> Path:
     return path
 
 
-def import_book(workspace: Workspace, payload: bytes, *, key: str, version: str, title: str, author: str, local_rights: bool, printed_start: int | None = None) -> dict[str, Any]:
+def import_book(workspace: Workspace, payload: bytes, *, key: str, version: str, title: str, author: str, local_rights: bool, printed_start: int | None = None, grade: int | None = None) -> dict[str, Any]:
+    if grade is not None and (isinstance(grade, bool) or grade not in (8, 9)):
+        raise ContentToolError("Book grade must be 8 or 9")
     if not ID_PATTERN.fullmatch(key) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,79}", version):
         raise ContentToolError("Book key or version is invalid")
     if not title.strip() or not author.strip() or not local_rights:
@@ -108,12 +206,16 @@ def import_book(workspace: Workspace, payload: bytes, *, key: str, version: str,
         if existing["title"] != title.strip() or existing["author"] != author.strip():
             existing["title"], existing["author"] = title.strip(), author.strip()
             _save_books(workspace, items)
+        if grade is not None:
+            existing["grade"] = grade
+            _save_books(workspace, items)
         return existing
     pdf = workspace.inside(".local", "books", key, "source.pdf")
     pdf.parent.mkdir(parents=True, exist_ok=True)
     pdf.write_bytes(payload)
     labels = {str(page): str(printed_start + page - 1) for page in range(1, page_count + 1)} if printed_start is not None else {}
     item = {"key": key, "version": version, "title": title.strip(), "author": author.strip(), "sha256": digest, "pageCount": page_count, "printedPageLabels": labels, "chapters": [], "importedAt": _now()}
+    item["grade"] = grade
     inventory = workspace.inventory()
     inventory["sources"].append({"key": key, "version": version, "sha256": digest, "rights": {"localProcessingConfirmed": True}, "printedPageLabels": labels})
     write_json(workspace.inventory_path, inventory)
@@ -844,7 +946,14 @@ def save_draft(workspace: Workspace, data: dict[str, Any]) -> dict[str, Any]:
     if source_lesson:
         clean["sourceLesson"] = {"id": source_lesson["id"], "title": source_lesson["title"], "chapterId": chapter["id"], "pdfPageRange": {"start": source_lesson["start"], "end": source_lesson["end"]}, "printedPageRange": {"start": source_lesson.get("printedStart"), "end": source_lesson.get("printedEnd")}, "tocProvenance": source_lesson.get("tocProvenance") or chapter.get("tocProvenance"), "sourceSha256": book["sha256"], "sourceVersion": book["version"]}
     if outcome and str(data.get("subjectId", "")).strip():
-        _write_pack(workspace, clean)
+        try:
+            _write_pack(workspace, clean)
+        except ContentToolError as error:
+            code = str(error).split(":", 1)[0]
+            if code not in {"MISSING_SOURCE_ACCESSED_AT", "MISSING_UNIT_OUTCOME", "CLAIM_IMPORTANCE_MISSING", "CLAIM_EVIDENCE_MISSING"}:
+                raise
+            # The draft is saved, but no pack is written from incomplete evidence: report why.
+            clean["packBlockers"] = [str(error)]
     if existing and any(existing.get(key) != clean.get(key) for key in ("outcomeCode", "grade", "domain", "materials", "sourceArtifactVersionId")):
         from .authoring_contract import verification_path
         verification_path(workspace, pack_key).unlink(missing_ok=True)
@@ -861,7 +970,37 @@ def _write_pack(workspace: Workspace, draft: dict[str, Any]) -> None:
     source_id = book["key"]
     unit_id = f"{pack_key}-unit"
     claim_id = f"{pack_key}-claim"
-    sections = "\n".join(f"<section><h2>{html.escape(str(section['heading']))}</h2><p>{html.escape(str(section['content'])).replace(chr(10), '<br>')}</p></section>" for section in draft["sections"])
+    lesson_ref = draft.get("sourceLessonId")
+    if lesson_ref and find_canonical(workspace.root, lesson_ref):
+        # A resolved canonical lesson is the single content source: same converter as the Candidate export.
+        try:
+            canonical, structured = load_resolved(workspace.root, lesson_ref)
+            converted = canonical_to_pack(canonical, structured["sourceBlocks"])
+        except LessonContractError as error:
+            raise ContentToolError(str(error)) from error
+        if converted["pack"]["key"] != pack_key:
+            raise ContentToolError(f"CANONICAL_PACK_KEY_MISMATCH: the draft says {pack_key}, the canonical lesson says {converted['pack']['key']}")
+        pack, evidence = converted["pack"], converted["evidence"]
+        pack["lesson"]["videos"] = draft.get("videos", [])
+        pack["lesson"]["sections"] = draft.get("sectionVideos", [])
+        previous = read_json(pack_path) if pack_path.exists() else {}
+        before = previous.get("pack", {})
+        if {k: v for k, v in before.items() if k != "reviews"} == {k: v for k, v in pack.items() if k != "reviews"} and previous.get("evidence") == evidence:
+            pack["reviews"] = before.get("reviews", {})
+        ids = [("pack", pack_key, f"{relative}#pack"), ("source", source_id, f"source-inventory.json#source:{source_id}")]
+        for unit in pack["knowledgeUnits"]:
+            ids.append(("unit", unit["id"], f"{relative}#unit:{unit['id']}"))
+            ids.extend(("claim", claim["id"], f"{relative}#claim:{claim['id']}") for claim in unit["claims"])
+        reserve_ids(workspace, ids)
+        write_json(pack_path, {"pack": pack, "evidence": evidence, "reviewLog": previous.get("reviewLog", []) if pack["reviews"] else []})
+        release = read_json(workspace.inside("release.json"))
+        release["namespace"] = "baseline"
+        release["name"] = str(draft.get("releaseName") or f"{book['key']}-release")
+        if relative not in release["packFiles"]:
+            release["packFiles"].append(relative)
+        write_json(workspace.inside("release.json"), release)
+        return
+    sections = normalize_lesson_html("\n".join(f"<section><h2>{html.escape(str(section['heading']))}</h2><p>{html.escape(str(section['content'])).replace(chr(10), '<br>')}</p></section>" for section in draft["sections"]))
     first_page = draft["pages"][0]
     record = page_record(workspace, source_id, first_page)
     if record is None:
@@ -869,18 +1008,39 @@ def _write_pack(workspace: Workspace, draft: dict[str, Any]) -> None:
     existing_pack = read_json(pack_path) if pack_path.exists() else {}
     prior_sources = existing_pack.get("pack", {}).get("sources", [])
     prior_accessed = prior_sources[0].get("accessedAt") if prior_sources else None
-    source = {"id": source_id, "title": book["title"], "author": book["author"], "accessedAt": prior_accessed or date.today().isoformat(), "license": draft["license"], "attribution": draft["attribution"], "authoritative": bool(draft.get("authoritative", False))}
+    accessed_at = prior_accessed or draft.get("sourceAccessedAt")
+    if not accessed_at:
+        raise ContentToolError("MISSING_SOURCE_ACCESSED_AT: declare the real source access date in the draft (sourceAccessedAt); the run date is not evidence")
+    source = {"id": source_id, "title": book["title"], "author": book["author"], "accessedAt": accessed_at, "license": draft["license"], "attribution": draft["attribution"], "authoritative": bool(draft.get("authoritative", False))}
     if draft.get("sourceUrl"):
         source["url"] = draft["sourceUrl"]
     if draft.get("sourceArtifactVersionId"):
         source["artifactVersionId"] = draft["sourceArtifactVersionId"]
     old = existing_pack
-    authored_units = draft.get("knowledgeUnits") or [{"id": unit_id, "claims": [{"id": claim_id, "text": draft["claim"]}], "terms": [], "misconceptions": []}]
+    default_unit = not draft.get("knowledgeUnits")
+    authored_units = draft.get("knowledgeUnits") or [{"id": unit_id, "claims": [{"id": claim_id, "text": draft["claim"], "important": draft.get("claimImportant"), "sourceBlockIds": draft.get("claimSourceBlockIds")}], "terms": [], "misconceptions": []}]
     lesson_outcomes = draft.get("outcomeCodes") or ([draft["outcomeCode"]] if draft.get("outcomeCode") else [])
     if not lesson_outcomes:
         raise ContentToolError("A BE pack requires an approved curriculum outcome mapping")
-    knowledge_units = [{"id": unit["id"], "outcomeCodes": unit.get("outcomeCodes") or lesson_outcomes, "claims": [{"id": claim["id"], "text": claim["text"], "important": False, "sourceIds": [source_id]} for claim in unit.get("claims", [])], "terms": unit.get("terms", []), "misconceptions": unit.get("misconceptions", [])} for unit in authored_units]
-    pack = {"key": pack_key, "title": draft["title"], "grade": draft["grade"], "domain": draft["domain"], "chapter": chapter["title"], "topic": str(draft.get("topic", chapter["title"])).strip(), "subjectId": draft["subjectId"], "outcomeCodes": lesson_outcomes, "synthetic": False, "sources": [source], "knowledgeUnits": knowledge_units, "lesson": {"learningObjective": draft["learningObjective"], "prerequisites": str(draft.get("prerequisites", "")), "content": sections, "materials": draft.get("materials", []), "questions": [], "labId": None}, "reviews": {}}
+    claim_pages: dict[str, set[int]] = {}
+    knowledge_units = []
+    for unit in authored_units:
+        outcomes = unit.get("outcomeCodes") or lesson_outcomes
+        if not outcomes:
+            raise ContentToolError(f"MISSING_UNIT_OUTCOME: unit {unit['id']} has no outcomeCodes of its own")
+        claims = []
+        for claim in unit.get("claims", []):
+            if not isinstance(claim.get("important"), bool):
+                raise ContentToolError(f"CLAIM_IMPORTANCE_MISSING: claim {claim['id']} needs an authored important true/false")
+            block_ids = claim.get("sourceBlockIds") or []
+            known = {block["id"]: block for number in draft["pages"] for block in (page_record(workspace, source_id, number) or {"blocks": []})["blocks"]}
+            if not block_ids or any(b not in known for b in block_ids):
+                raise ContentToolError(f"CLAIM_EVIDENCE_MISSING: claim {claim['id']} needs sourceBlockIds that exist on the selected pages")
+            claim_pages[claim["id"]] = {known[b]["physicalPageIndex"] for b in block_ids}
+            claims.append({"id": claim["id"], "text": claim["text"], "important": claim["important"], "sourceIds": [source_id]})
+        knowledge_units.append({"id": unit["id"], "outcomeCodes": outcomes, "claims": claims, "terms": unit.get("terms", []), "misconceptions": unit.get("misconceptions", [])})
+    curriculum = draft.get("curriculum") if isinstance(draft.get("curriculum"), dict) else suggested_curriculum({}, outcome_codes=lesson_outcomes)
+    pack = {"key": pack_key, "title": draft["title"], "grade": draft["grade"], "domain": draft["domain"], "chapter": chapter["title"], "topic": str(draft.get("topic", chapter["title"])).strip(), "subjectId": draft["subjectId"], "outcomeCodes": lesson_outcomes, "curriculum": curriculum, "synthetic": False, "sources": [source], "knowledgeUnits": knowledge_units, "lesson": {"learningObjective": draft["learningObjective"], "prerequisites": str(draft.get("prerequisites", "")), "content": sections, "materials": draft.get("materials", []), "questions": [], "labId": None}, "reviews": {}}
     if draft.get("basicExercises"):
         pack["lesson"]["basicExercises"] = draft["basicExercises"]
     previous_pack = old.get("pack", {})
@@ -897,7 +1057,8 @@ def _write_pack(workspace: Workspace, draft: dict[str, Any]) -> None:
         evidence.append({**marker, "contentRef": "lesson.content"})
         for unit in knowledge_units:
             for claim in unit["claims"]:
-                evidence.append({**marker, "claimId": claim["id"]})
+                if number in claim_pages[claim["id"]]:
+                    evidence.append({**marker, "claimId": claim["id"]})
     if old.get("evidence") != evidence:
         pack["reviews"] = {}
         content_unchanged = False

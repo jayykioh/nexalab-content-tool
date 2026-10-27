@@ -9,7 +9,7 @@ from unittest.mock import patch
 import pymupdf
 
 from nexalab_content_tool.curriculum_bootstrap import apply_approved_mappings, propose_registry, review_registry, sync_approved_registry
-from nexalab_content_tool.m1_workflow import import_book, process_book, save_draft, save_review, save_toc_tree
+from nexalab_content_tool.m1_workflow import import_book, page_record, process_book, save_draft, save_review, save_toc_tree
 from nexalab_content_tool.workspace import ContentToolError, Workspace, init_workspace, read_json
 
 
@@ -182,7 +182,8 @@ class CurriculumBootstrapTests(unittest.TestCase):
         save_toc_tree(self.workspace, "book-one", [{"id": "chapter-one", "title": "Chapter one", "start": 1, "end": 1, "lessons": [{"id": "lesson-one", "title": "Lesson one", "start": 1, "end": 1, "printedStart": 1, "printedEnd": 1}]}], {"sourceSha256": book["sha256"], "method": "test"})
         process_book(self.workspace, "book-one", None)
         save_review(self.workspace, "book-one", 1, "accepted", {})
-        authored = {"bookKey": "book-one", "chapterId": "chapter-one", "sourceLessonId": "lesson-one", "packKey": "book-one-lesson-one", "title": "Authored title", "grade": 8, "domain": "MATTER", "subjectId": "", "outcomeCode": "", "topic": "Book chapter", "learningObjective": "Describe the source topic clearly.", "prerequisites": "", "claim": "A reviewed source claim.", "pages": [1], "sections": [{"heading": "Human heading", "content": "Human-edited lesson body."}], "knowledgeUnits": [{"id": "unit-one", "title": "Human unit", "claims": [{"id": "claim-one", "text": "A reviewed claim."}]}], "license": "UNKNOWN", "attribution": "Book one — Publisher", "sourceUrl": "", "sourceArtifactVersionId": ""}
+        source_block_id = page_record(self.workspace, "book-one", 1)["blocks"][0]["id"]
+        authored = {"bookKey": "book-one", "chapterId": "chapter-one", "sourceLessonId": "lesson-one", "packKey": "book-one-lesson-one", "title": "Authored title", "grade": 8, "domain": "MATTER", "subjectId": "", "outcomeCode": "", "topic": "Book chapter", "learningObjective": "Describe the source topic clearly.", "prerequisites": "", "claim": "A reviewed source claim.", "pages": [1], "sections": [{"heading": "Human heading", "content": "Human-edited lesson body."}], "knowledgeUnits": [{"id": "unit-one", "title": "Human unit", "claims": [{"id": "claim-one", "text": "A reviewed claim.", "important": False, "sourceBlockIds": [source_block_id]}]}], "license": "UNKNOWN", "attribution": "Book one — Publisher", "sourceUrl": "", "sourceArtifactVersionId": "", "sourceAccessedAt": "2026-10-25"}
         before = save_draft(self.workspace, authored)
         self.proposal["mappings"] = [{"lessonId": "lesson-one", "knowledgeUnitId": "unit-one", "outcomeKeys": ["atomic-model"], "sourcePages": [1], "rationale": "Curriculum mapping reviewed"}]
         proposal = propose_registry(self.workspace, self.proposal)
@@ -197,6 +198,7 @@ class CurriculumBootstrapTests(unittest.TestCase):
         self.assertEqual(after["knowledgeUnits"][0]["title"], "Human unit")
         self.assertEqual(pack["outcomeCodes"], [outcome_code])
         self.assertEqual(pack["knowledgeUnits"][0]["outcomeCodes"], [outcome_code])
+        self.assertEqual(pack["curriculum"]["review"]["reviewerEmail"], "reviewer@example.test")
 
 
 if __name__ == "__main__":

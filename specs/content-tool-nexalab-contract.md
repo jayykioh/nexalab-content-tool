@@ -2,6 +2,8 @@
 
 > **Snapshot:** 2026-10-22, NexaLab BE commit `48463ea39e147aecdf729a3eae7b1335d6649824` (`main`).
 > **Status:** reference snapshot for starting a separate Content Tool repository. This is not an API promise or a replacement for the live code. Recheck the named source files and commit before implementing against it.
+>
+> **Video addendum (2026-10-26):** the snapshot predates direct external `lesson.videos[]` / `sections[].videos[]` support and its learning-progress requirements. Use `P2_VIDEO_SYSTEM_FULL_SPEC.md` for the complete video contract. `assetv:` remains required for NexaLab-managed media; approved external video uses the provider/provenance contract defined by P2.
 
 ## 1. Purpose and boundary
 
