@@ -1,0 +1,52 @@
+{
+  "framework": {
+    "key": "VN2018",
+    "version": "2018.1-electricity-draft",
+    "title": "Chương trình giáo dục phổ thông môn Khoa học tự nhiên 2018 — đề xuất cục bộ cụm Điện lớp 8",
+    "source": {
+      "authority": "Bộ Giáo dục và Đào tạo; bản sao do Trường Bồi dưỡng Cán bộ Giáo dục Hà Nội công bố",
+      "url": "https://boiduonghanoi.edu.vn/pluginfile.php/45/mod_folder/content/0/11-CT-Khoa-hoc-tu-nhien.pdf",
+      "publishedAt": "2018-12-26",
+      "accessedAt": "2026-10-27",
+      "sha256": "4d8098825841e7de430c298cd76b9e93310682949d92b21d1440c54b75ffa14a"
+    }
+  },
+  "textbookIdentity": {"bookKey": "sgk-khtn8", "version": "nxbgd-2026"},
+  "subjects": [{
+    "id": "khtn",
+    "name": "Khoa học tự nhiên",
+    "chapters": [{
+      "code": "KHTN-G8-ENERGY-ELECTRICITY",
+      "title": "Điện",
+      "grade": 8,
+      "domain": "ENERGY",
+      "topics": [{
+        "code": "KHTN-G8-ELECTRICITY",
+        "title": "Điện — hiện tượng nhiễm điện, dòng điện, mạch điện và phép đo",
+        "outcomes": [
+          {"key": "static-charge-cause", "statement": "Giải thích được sơ lược nguyên nhân một vật cách điện nhiễm điện do cọ xát.", "sourceLocator": "PDF page 48, printed p.48, Điện, bullet 1"},
+          {"key": "static-charge-examples", "statement": "Giải thích được một vài hiện tượng thực tế liên quan đến sự nhiễm điện do cọ xát.", "sourceLocator": "PDF page 48, printed p.48, Điện, bullet 2"},
+          {"key": "electric-current-definition", "statement": "Định nghĩa được dòng điện là dòng chuyển dời có hướng của các hạt mang điện.", "sourceLocator": "PDF page 48, printed p.48, Điện, bullet 3"},
+          {"key": "electric-source-capability", "statement": "Nêu được nguồn điện có khả năng cung cấp năng lượng điện và liệt kê được một số nguồn điện thông dụng trong đời sống.", "sourceLocator": "PDF page 48, printed p.48, Điện, bullet 4"},
+          {"key": "conductors-classification", "statement": "Phân loại được vật dẫn điện, vật không dẫn điện.", "sourceLocator": "PDF page 48, printed p.48, Điện, bullet 5"},
+          {"key": "electric-current-effects", "statement": "Thực hiện thí nghiệm để minh hoạ được các tác dụng cơ bản của dòng điện: nhiệt, phát sáng, hoá học, sinh lí.", "sourceLocator": "PDF page 48, printed p.48, Điện, bullet 6"},
+          {"key": "circuit-symbols-drawing", "statement": "Vẽ được sơ đồ mạch điện với kí hiệu mô tả: điện trở, biến trở, chuông, ampe kế (ammeter), vôn kế (voltmeter), đi ốt (diode) và đi ốt phát quang.", "sourceLocator": "PDF page 48, printed p.48, Điện, bullet 7"},
+          {"key": "simple-circuit-assembly", "statement": "Mắc được mạch điện đơn giản với: pin, công tắc, dây nối, bóng đèn.", "sourceLocator": "PDF page 48, printed p.48, Điện, bullet 8"},
+          {"key": "circuit-protective-devices", "statement": "Mô tả được sơ lược công dụng của cầu chì, rơ le (relay), cầu dao tự động, chuông điện.", "sourceLocator": "PDF page 48, printed p.48, Điện, bullet 9"},
+          {"key": "ammeter-current-indication", "statement": "Thực hiện thí nghiệm để nêu được số chỉ của ampe kế là giá trị của cường độ dòng điện.", "sourceLocator": "PDF page 49, printed p.49, Điện, bullet 10"},
+          {"key": "source-voltage-indication", "statement": "Thực hiện thí nghiệm để nêu được khả năng sinh ra dòng điện của pin (hay ắc quy) được đo bằng hiệu điện thế (còn gọi là điện áp) giữa hai cực của nó.", "sourceLocator": "PDF page 49, printed p.49, Điện, bullet 11"},
+          {"key": "current-voltage-units", "statement": "Nêu được đơn vị đo cường độ dòng điện và đơn vị đo hiệu điện thế.", "sourceLocator": "PDF page 49, printed p.49, Điện, bullet 12"},
+          {"key": "measure-current-voltage", "statement": "Đo được cường độ dòng điện và hiệu điện thế bằng dụng cụ thực hành.", "sourceLocator": "PDF page 49, printed p.49, Điện, bullet 13"}
+        ]
+      }]
+    }]
+  }],
+  "mappings": [
+    {"lessonId": "src-lesson-2db0be2a33e6", "outcomeKeys": ["static-charge-cause", "static-charge-examples"], "sourcePages": [86], "rationale": "Proposed B20 mapping from the lesson title and structured content; verify PDF page and source blocks."},
+    {"lessonId": "src-lesson-3e08dfb6a584", "outcomeKeys": ["electric-current-definition", "electric-source-capability", "conductors-classification"], "sourcePages": [90], "rationale": "Proposed B21 mapping from current and source sections; verify PDF page and source blocks."},
+    {"lessonId": "src-lesson-2d84bedccb86", "outcomeKeys": ["circuit-symbols-drawing", "simple-circuit-assembly", "circuit-protective-devices"], "sourcePages": [93], "rationale": "Proposed B22 mapping from circuit construction and protective-device sections; verify source evidence."},
+    {"lessonId": "src-lesson-98d41b88612c", "outcomeKeys": ["electric-current-effects"], "sourcePages": [97], "rationale": "Proposed B23 mapping from sections on current effects; verify all four effects and source blocks."},
+    {"lessonId": "src-lesson-8ba14d374e79", "outcomeKeys": ["ammeter-current-indication", "source-voltage-indication", "current-voltage-units"], "sourcePages": [101], "rationale": "Proposed B24 mapping from current and voltage sections; verify source evidence."},
+    {"lessonId": "src-lesson-601fc1e6965b", "outcomeKeys": ["measure-current-voltage"], "sourcePages": [104], "rationale": "Proposed B25 mapping from practical current and voltage measurement; verify page and source blocks."}
+  ]
+}
