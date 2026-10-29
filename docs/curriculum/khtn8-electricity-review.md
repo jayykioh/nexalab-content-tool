@@ -27,6 +27,18 @@ The existing queue `workspaces/m1-khtn8-acceptance/exports/khtn8-47-lesson-curri
 
 ## Focused decisions for real reviewers
 
+### Circuit pilot review capsule — proposed, not approved
+
+- **Official curriculum locator:** Grade 8, `Điện`, MOET 2018 KHTN programme, PDF/printed pp. 48–49 (PDF indexes 47–48); proposed Outcome statement: “Mắc được mạch điện đơn giản với: pin, công tắc, dây nối, bóng đèn.” The source copy and SHA-256 are recorded above. `KHTN8-B22-O02` is NexaLab's proposal code, not an official Outcome code.
+- **Proposed Lesson:** B22 — mạch điện đơn giản; Content Tool source Lesson `src-lesson-2d84bedccb86`; mapping proposal `54c172106f3a26d0f283`; suggested textbook PDF p. 93; source textbook digest `6dcda104a5b09d1395417afef9ac48630843e57dc53938412eada13a6fdfdbf1`, version `nxbgd-2026`. The locator is an anchor proposal; source blocks and printed page must be checked. It is not a released BE Lesson ID or binding.
+- **Activity proposal:** learners predict and observe the bulb with the switch closed and open, then explain that opening the switch interrupts the circuit path. Evidence consists of the two ordered checkpoints (CLOSED, OPEN), each prediction, and one explanation selection. Assessment is separate from the valid scientific observation: an open circuit is not inherently a failed experiment.
+- **Model assumptions:** ideal single-loop circuit; battery, connecting wires, one switch and generic bulb; deterministic OPEN/CLOSED path and OFF/ON bulb observations. No numerical voltage/current, polarity, brightness, heating, branch behavior, short-circuit behavior, LED threshold or physical instrument skill is claimed. The bulb/LED distinction must be resolved before review; a resistored LED is not silently equivalent to the official bulb wording.
+- **Golden cases:** (1) CLOSED → path CLOSED, bulb ON; (2) OPEN → path OPEN, bulb OFF. Correct predictions plus explanation A (“open switch interrupts the path”) meet all three rubric criteria and pass. Each wrong prediction or wrong explanation is independently assessed; invalid topology/missing evidence is rejected without an attempt. These are proposed cases, pending scientific review.
+- **Rubric:** 1 point for the closed-switch ON prediction, 1 for the open-switch OFF prediction, 1 for the causal explanation; pass requires all 3. Rubric result is server-authoritative. It supports this bounded virtual activity only, not general practical competence.
+- **Immutable release digest:** `NOT ISSUED`. No genuine, final Circuit release candidate has been assembled for review. Any digest generated in isolated lifecycle tests belongs to synthetic mechanics fixtures and must not be quoted as the review target or as signoff evidence. Generate and circulate the exact release digest only after the final source, model, pack, activity, rubric and assets are frozen together.
+
+Review status remains `PROPOSED / NEEDS_HUMAN_REVIEW`; both reviewer roles are unassigned. Nothing in this capsule approves the mapping or scientific model.
+
 ### Curriculum reviewer — unassigned
 
 1. Confirm the current applicable Ministry curriculum source and its page 48–49 statements; decide whether the proposed scope omits any relevant Outcome.
